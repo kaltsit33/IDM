@@ -9,7 +9,7 @@
 ### 关于CMB文件夹
 1. 理论参考文献已在文件夹中,理论参考书籍为
 >《Cosmology》 S.Weinberg
-《Modern Cosmology 2nd》 S.Dodelson & F.Schmidt 
+>《Modern Cosmology 2nd》 S.Dodelson & F.Schmidt 
 2. 数据来源Planck 2018(PR3) TT,TE,EE & Low-E
 3. 正在学习ing
 
