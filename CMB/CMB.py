@@ -24,7 +24,7 @@ def solution(log_kC1, O20, H0):
     O10 = 1 - O20
     t0 = 1 / H0
     tspan = (t0, 0)
-    tn = np.linspace(t0, 0, 100000)
+    tn = np.linspace(t0, 0, 1000000)
     # 从t0开始
     zt0 = [0, -H0]
 
@@ -39,9 +39,10 @@ def alpha(log_kC1, O20, H0):
     return 1 / (1 + z)
 
 # 光子移动距离
-def r_t(log_kC1, O20, H0, t):
+def r_t(log_kC1, O20, H0, z):
     t_list = np.array(solution(log_kC1, O20, H0)[0])
-    idx = np.searchsorted(t_list, t)
+    z_list = np.array(solution(log_kC1, O20, H0)[1])
+    idx = np.searchsorted(z_list, z)
     alpha_list = 1 / alpha(log_kC1, O20, H0)[:idx]
     r = -np.trapz(alpha_list, t_list[:idx])
     return r
@@ -158,7 +159,7 @@ def main():
     t_list = np.array(solution(log_kC1, O20, H0)[0])
     idx = np.searchsorted(z_list, zL)
     tL = t_list[idx] # 1/H0
-    rL = r_t(log_kC1, O20, H0, tL)
+    rL = r_t(log_kC1, O20, H0, zL)
     aL = alpha(log_kC1, O20, H0)[idx]
     dal = -1 / (1 + zL) ** 2 * np.array(solution(log_kC1, O20, H0)[2])[idx]
     RC = 1.736e-10 * (0.05) ** (1 - 0.95820) # Mpc^(-1)~
@@ -168,14 +169,22 @@ def main():
 
     # 实例化
     CMB = CMB_TT(log_kC1, O20, H0, others)
+
+    # 导入数据
+    data = np.loadtxt('CMB/COM_PowerSpect_CMB-TT-full_R3.01.txt', skiprows=30) # l>30
+    l = data[:, 0]
+    Dl = data[:, 1]
+    dDl_down = data[:, 2]
+    dDl_up = data[:, 3]
+    
     # 计算
-    l = np.linspace(2, 2500, 10)
     with mp.Pool() as pool:
         C_l = pool.map(CMB.C_l, l)
     # 乘上再电离因子
     D_l = l * (l + 1) * C_l / (2 * np.pi) * 0.80209
     # 画图
     plt.plot(l, D_l)
+    plt.errorbar(l, Dl, yerr=[dDl_down, dDl_up], fmt='o')
     plt.xlabel('$l$')
     plt.ylabel('$D_l^{TT}$')
     plt.show()
