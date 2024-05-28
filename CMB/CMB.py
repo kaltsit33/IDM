@@ -177,13 +177,15 @@ def main():
     dDl_down = data[:, 2]
     dDl_up = data[:, 3]
     
+    # l_list = l
+    l_list = np.linspace(30, 2500, 10)
     # 计算
     with mp.Pool() as pool:
-        C_l = pool.map(CMB.C_l, l)
+        C_l = pool.map(CMB.C_l, l_list)
     # 乘上再电离因子
-    D_l = l * (l + 1) * C_l / (2 * np.pi) * 0.80209
+    D_l = l_list * (l_list + 1) * C_l / (2 * np.pi) * 0.80209
     # 画图
-    plt.plot(l, D_l)
+    plt.plot(l_list, D_l)
     plt.errorbar(l, Dl, yerr=[dDl_down, dDl_up], fmt='o')
     plt.xlabel('$l$')
     plt.ylabel('$D_l^{TT}$')
