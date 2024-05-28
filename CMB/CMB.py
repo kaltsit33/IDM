@@ -11,16 +11,16 @@ def function(t, z, kC1, O10, H0):
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
     # 减少括号的使用,分为分子与分母
-    up = H0**4 * kC1 * O10**2 * (z[0]**4+1) + 3 * H0**4 * O10**2 * z[0]**2 * (2 * kC1-3 * z[1]) \
-        + H0**4 * O10**2 * z[0]**3 * (4 * kC1 - 3 * z[1]) - 3 * H0**4 * O10**2 * z[1] + 5 * H0**2 * O10 * z[1]**3\
-            - kC1 * z[1]**4 + H0**2 * O10 * z[0] * (4 * H0**2 * kC1 * O10 - 9 * H0**2 * O10 * z[1] + 5 * z[1]**3)
-    down = 2 * H0**2 * O10 * (1 + z[0])**2 * z[1]
+    up = H0 ** 4 * kC1 * O10 ** 2 * (z[0] ** 4+1) + 3 * H0 ** 4 * O10 ** 2 * z[0] ** 2 * (2 * kC1-3 * z[1]) \
+        + H0 ** 4 * O10 ** 2 * z[0] ** 3 * (4 * kC1 - 3 * z[1]) - 3 * H0 ** 4 * O10 ** 2 * z[1] + 5 * H0 ** 2 * O10 * z[1] ** 3\
+            - kC1 * z[1] ** 4 + H0 ** 2 * O10 * z[0] * (4 * H0 ** 2 * kC1 * O10 - 9 * H0 ** 2 * O10 * z[1] + 5 * z[1] ** 3)
+    down = 2 * H0 ** 2 * O10 * (1 + z[0]) ** 2 * z[1]
     dz2 = up / down
     return [dz1, dz2]
 
 # 求解
 def solution(log_kC1, O20, H0):
-    kC1 = 10**log_kC1
+    kC1 = 10 ** log_kC1
     O10 = 1 - O20
     t0 = 1 / H0
     tspan = (t0, 0)
@@ -38,13 +38,13 @@ def alpha(log_kC1, O20, H0):
     z = np.array(solution(log_kC1, O20, H0)[1])
     return 1 / (1 + z)
 
-# 光子移动距离(单位c=1)
+# 光子移动距离(化为Mpc)
 def r_t(log_kC1, O20, H0, t):
     t_list = np.array(solution(log_kC1, O20, H0)[0])
     idx = np.searchsorted(t_list, t)
-    alpha_list = alpha(log_kC1, O20, H0)[:idx]
+    alpha_list = 1 / alpha(log_kC1, O20, H0)[:idx]
     r = -np.trapz(alpha_list, t_list[:idx])
-    return r
+    return r * const_c
 
 # 计算CMB_TT时需要用到的各类函数,这里采用近似方法
 class CMB_TT:
@@ -53,14 +53,14 @@ class CMB_TT:
         self.log_kC1 = log_kC1
         self.O20 = O20
         self.H0 = H0
-        # others=[T_0, z_L, t_L, r_L, alpha_L, dot_alpha_l, R_q^0, d_D, R_0]
+        # others=[T_0, z_L, t_L, r_L, alpha_L, dot_alpha_l, R_C, d_D, R_0]
         self.T0 = others[0]
         self.zL = others[1]
         self.tL = others[2]
         self.rL = others[3]
         self.aL = others[4]
         self.dal = others[5]
-        self.Rq0 = others[6]
+        self.RC = others[6]
         self.dD = others[7]
         self.R0 = others[8]
         # 尺度因子
@@ -83,18 +83,25 @@ class CMB_TT:
     def kappa(self, q):
         d_T = 0.035 / ((1 + self.zL) * self.H0) 
         return q * d_T / self.aL
+    # Rq0参数
+    def Rq0(self, q):
+        Rq02 = self.RC * q ** (0.95820 - 4)
+        return np.sqrt(Rq02)
     # 势函数
     def psi(self, q):
-        psi1 = 3 * q ** 2 * self.tL * self.Rq0 * self.T(self.kappa(q))
+        psi1 = 3 * q ** 2 * self.tL * self.Rq0(q) * self.T(self.kappa(q))
         psi2 = 5 * self.aL ** 2
         return -psi1 / psi2
     # 2个微扰初始函数
     def dotB(self, q):
         return -2 * self.psi(q) / (q ** 2)
     def ddotB(self, q):
-        # 差分法求导
+        # 差分法对psi求导
         h = 1e-6
-        return (self.dotB(q + h) - self.dotB(q - h)) / (2 * h)
+        dpsi1 = 3 * q ** 2 * self.Rq0(q) * self.T(self.kappa(q)) / 5
+        dpsi2 = (self.aL ** 2 - 2 * self.aL * self.dal * self.tL) / self.aL ** 4
+        dpsi = dpsi1 * dpsi2
+        return -2 * dpsi / (q ** 2)
     # 朗道阻尼修正
     def Gamma(self, q):
         return q ** 2 * self.dD ** 2 / self.aL ** 2
@@ -111,12 +118,12 @@ class CMB_TT:
         delta_gamma1 = self.T(self.kappa(q)) * (1 + 3 * self.RL)
         delta_gamma2 = (1 + self.RL) ** -0.25 * np.exp(-self.Gamma(q)) * self.S(self.kappa(q))
         delta_gamma3 = np.cos(self.gamma_intvalue(q) + self.Delta(self.kappa(q)))
-        return 3 * self.Rq0 / 5 * (delta_gamma1 - delta_gamma2 * delta_gamma3)
+        return 3 * self.Rq0(q) / 5 * (delta_gamma1 - delta_gamma2 * delta_gamma3)
     def delta_u_gamma(self, q):
         delta_u_gamma1 = self.T(self.kappa(q)) * self.tL
         delta_u_gamma2 = self.aL / (np.sqrt(3) * (1 + self.R0 * self.aL) ** 0.75) * np.exp(-self.Gamma(q)) * self.S(self.kappa(q))
         delta_u_gamma3 = np.sin(self.gamma_intvalue(q) + self.Delta(self.kappa(q)))
-        return 3 * self.Rq0 / 5 * (-delta_u_gamma1 + delta_u_gamma2 * delta_u_gamma3)
+        return 3 * self.Rq0(q) / 5 * (-delta_u_gamma1 + delta_u_gamma2 * delta_u_gamma3)
     # 2个时间独立函数
     def F(self, q):
         F1 = self.delta_gamma(q) / 3
@@ -141,18 +148,32 @@ class CMB_TT:
     
 import multiprocessing as mp
 def main():
-    # 参数
+    # 传入参数
     log_kC1 = -5
-    O20 = 0.2
-    H0 = 70
-    others = [2.725, 1100, 380000, 0.5, 0.5, 0.5, 1, 1, 1]
+    O20 = 0.28
+    H0 = 70 # km/s/Mpc
+    T0 = 2.725 # K
+    zL = 1090 - 1
+    z_list = np.array(solution(log_kC1, O20, H0)[1])
+    t_list = np.array(solution(log_kC1, O20, H0)[0])
+    idx = np.searchsorted(z_list, zL)
+    tL = t_list[idx] # 1/H0
+    rL = r_t(log_kC1, O20, H0, tL) # Mpc
+    aL = alpha(log_kC1, O20, H0)[idx]
+    dal = -1 / (1 + zL) ** 2 * np.array(solution(log_kC1, O20, H0)[2])[idx]
+    RC = 1.736e-10 * (0.05) ** (1 - 0.95820) # Mpc^(-1)~
+    dD = 0.008130 # Mpc
+    R0 = 679.6
+    others = [T0, zL, tL, rL, aL, dal, RC, dD, R0]
+
     # 实例化
     CMB = CMB_TT(log_kC1, O20, H0, others)
     # 计算
-    l = np.linspace(2, 2500, 2500)
+    l = np.linspace(2, 2500, 8)
     with mp.Pool() as pool:
         C_l = pool.map(CMB.C_l, l)
-    D_l = l * (l + 1) * C_l / (2 * np.pi)
+    # 乘上再电离因子
+    D_l = l * (l + 1) * C_l / (2 * np.pi) * 0.80209
     # 画图
     plt.plot(l, D_l)
     plt.xlabel('l')
