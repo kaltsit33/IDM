@@ -38,13 +38,13 @@ def alpha(log_kC1, O20, H0):
     z = np.array(solution(log_kC1, O20, H0)[1])
     return 1 / (1 + z)
 
-# 光子移动距离(化为Mpc)
+# 光子移动距离
 def r_t(log_kC1, O20, H0, t):
     t_list = np.array(solution(log_kC1, O20, H0)[0])
     idx = np.searchsorted(t_list, t)
     alpha_list = 1 / alpha(log_kC1, O20, H0)[:idx]
     r = -np.trapz(alpha_list, t_list[:idx])
-    return r * const_c
+    return r
 
 # 计算CMB_TT时需要用到的各类函数,这里采用近似方法
 class CMB_TT:
@@ -158,7 +158,7 @@ def main():
     t_list = np.array(solution(log_kC1, O20, H0)[0])
     idx = np.searchsorted(z_list, zL)
     tL = t_list[idx] # 1/H0
-    rL = r_t(log_kC1, O20, H0, tL) # Mpc
+    rL = r_t(log_kC1, O20, H0, tL)
     aL = alpha(log_kC1, O20, H0)[idx]
     dal = -1 / (1 + zL) ** 2 * np.array(solution(log_kC1, O20, H0)[2])[idx]
     RC = 1.736e-10 * (0.05) ** (1 - 0.95820) # Mpc^(-1)~
@@ -169,15 +169,15 @@ def main():
     # 实例化
     CMB = CMB_TT(log_kC1, O20, H0, others)
     # 计算
-    l = np.linspace(2, 2500, 8)
+    l = np.linspace(2, 2500, 10)
     with mp.Pool() as pool:
         C_l = pool.map(CMB.C_l, l)
     # 乘上再电离因子
     D_l = l * (l + 1) * C_l / (2 * np.pi) * 0.80209
     # 画图
     plt.plot(l, D_l)
-    plt.xlabel('l')
-    plt.ylabel('D_l')
+    plt.xlabel('$l$')
+    plt.ylabel('$D_l^{TT}$')
     plt.show()
 
 if __name__ == '__main__':
