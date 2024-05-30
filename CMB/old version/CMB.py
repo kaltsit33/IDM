@@ -146,7 +146,7 @@ class CMB_TT:
             return scipy.special.spherical_jn(l, q * self.rL)
         def jl_prime(l, q):
             return scipy.special.spherical_jn(l, q * self.rL, derivative=True)
-        def integrand(l, q):
+        def integrand(q, l): # 被积参数在前
             return (jl(l, q) * self.F(q) + jl_prime(l, q) * self.G(q)) ** 2 * q ** 2
         def intvalue(l):
             return scipy.integrate.quad(integrand, 0, np.inf, limit=100, args=(l))[0]
