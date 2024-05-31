@@ -185,8 +185,8 @@ def main():
     dDl_down = data[:, 2]
     dDl_up = data[:, 3]
     
-    l_list = l
-    # l_list = np.linspace(30, 2500, 50)
+    # l_list = l
+    l_list = np.linspace(30, 2500, 50)
     # 计算
     with mp.Pool() as pool:
         C_l = pool.map(CMB.C_l, l_list)
