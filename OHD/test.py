@@ -1,4 +1,3 @@
-# log_kC1非马尔可夫性，该程序限制O20与H0
 import numpy as np
 import matplotlib.pyplot as plt
 import emcee
@@ -6,8 +5,7 @@ import corner
 import scipy
 
 const_c = 2.99792458e5
-# 取合适的地方进行约束
-log_kC1 = -5
+H0 = 70
 
 # 从csv文件中读取数据
 file_path = "./OHD/OHD.csv"
@@ -30,7 +28,7 @@ def function(t, z, kC1, O10, H0):
 
 # 求解
 def solution(log_kC1, O20, H0):
-    kC1 = 10**log_kC1
+    kC1 = 10 ** log_kC1
     O10 = 1 - O20
     t0 = 1 / H0
     tspan = (t0, 0)
@@ -63,14 +61,14 @@ def chi_square(log_kC1, O20, H0):
 
 # lnlike函数(对数似然函数)
 def lnlike(paras):
-    O20, H0 = paras
+    O20, log_kC1 = paras
     chi2 = chi_square(log_kC1, O20, H0)
     return -0.5 * chi2
 
 # lnprior函数(先验概率函数)
 def lnprior(paras):
-    O20, H0 = paras
-    if 0 < O20 < 0.5 and 60 < H0 < 80:
+    O20, log_kC1 = paras
+    if 0 < O20 < 0.5 and -5 < log_kC1 < 3:
         return 0.0
     return -np.inf
 
@@ -87,7 +85,7 @@ import multiprocessing as mp
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.26, 70]) # expected best values
+    initial = np.array([0.26, -2]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 2)
     nwalkers, ndim = pos.shape
@@ -98,13 +96,13 @@ def main():
 
     # 画图
     flat_samples = sampler.get_chain(discard=100, thin=15, flat=True)
-    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', '$H_0$'], 
+    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$'], 
                           color='royalblue', title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
     fig, axes = plt.subplots(2, figsize=(10, 7), sharex=True)
     samples = sampler.get_chain()
-    labels = [r'$\Omega_{2,0}$', '$H_0$']
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$']
     for i in range(ndim):
         ax = axes[i]
         ax.plot(samples[:, :, i], "k", alpha=0.3)

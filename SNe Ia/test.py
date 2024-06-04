@@ -6,9 +6,7 @@ import corner
 import scipy
 
 const_c = 2.99792458e5
-Mb = -18.9
-# 取合适的地方进行约束
-log_kC1 = -5
+H0 = 70
 
 # 从txt文件中读取数据
 file_path = "./SNe Ia/Pantheon.txt"
@@ -21,8 +19,7 @@ m = pandata[:, 1]
 err_m = pandata[:, 2]
 
 # 定义微分函数
-def function(t, z, O20, H0):
-    kC1 = 10**log_kC1
+def function(t, z, O20, kC1):
     O10 = 1 - O20
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
@@ -35,15 +32,16 @@ def function(t, z, O20, H0):
     return [dz1, dz2]
 
 # 解方程
-def sov_func(O20, H0):
+def sov_func(O20, log_kC1):
     t0 = 1/H0
+    kC1 = 10**log_kC1
     tspan = (t0, 0)
     tn = np.linspace(t0, 0, 100000)
     # 从t0开始
     zt0 = [0, -H0]
 
     # t0给定初值
-    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={H0, O20})
+    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={H0, kC1})
     # z.y[0,:] = z(t), z.y[1,:] = z'(t)
 
     t_values = z.t
@@ -67,10 +65,10 @@ def sov_func(O20, H0):
 
 # lnlike函数(对数似然函数)
 def lnlike(paras):
-    O20, H0 = paras
+    O20, log_kC1 = paras
     # O20 = O20 % 1
-    dl = np.array(sov_func(O20, H0))
-    mth = Mb + 5 * np.log10(dl) + 25
+    dl = np.array(sov_func(O20, log_kC1))
+    mth = -19 + 5 * np.log10(dl) + 25
     A = np.sum((m - mth)**2/err_m**2)
     B = np.sum((m - mth)/err_m**2)
     C = np.sum(1/err_m**2)
@@ -79,8 +77,8 @@ def lnlike(paras):
 
 # lnprior函数(先验概率函数)
 def lnprior(paras):
-    O20, H0 = paras
-    if 0 < O20 < 0.5 and 50 < H0 < 100:
+    O20, log_kC1 = paras
+    if 0 < O20 < 0.5 and -5 < log_kC1 < 3:
         return 0.0
     return -np.inf
 
@@ -97,7 +95,7 @@ import multiprocessing as mp
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, 70]) # expected best values
+    initial = np.array([0.28, -2]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 2)
     nwalkers, ndim = pos.shape
