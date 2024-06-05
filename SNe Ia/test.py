@@ -18,7 +18,7 @@ m = pandata[:, 1]
 err_m = pandata[:, 2]
 
 # 定义微分函数
-def function(t, z, O10, kC1, H0):
+def function(t, z, O10, kC1):
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
     # 减少括号的使用,分为分子与分母
@@ -30,7 +30,7 @@ def function(t, z, O10, kC1, H0):
     return [dz1, dz2]
 
 # 解方程
-def sov_func(O20, log_kC1, H0):
+def sov_func(O20, log_kC1):
     t0 = 1/H0
     O10 = 1 - O20
     kC1 = 10**log_kC1
@@ -40,7 +40,7 @@ def sov_func(O20, log_kC1, H0):
     zt0 = [0, -H0]
 
     # t0给定初值
-    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={O10, H0, kC1})
+    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={O10, kC1})
     # z.y[0,:] = z(t), z.y[1,:] = z'(t)
 
     t_values = z.t
@@ -66,8 +66,8 @@ def sov_func(O20, log_kC1, H0):
 def lnlike(paras):
     O20, log_kC1 = paras
     # O20 = O20 % 1
-    dl = np.array(sov_func(O20, log_kC1, H0))
-    mth = -19 + 5 * np.log10(dl) + 25
+    dl = np.array(sov_func(O20, log_kC1))
+    mth = -19.3 + 5 * np.log10(dl) + 25
     A = np.sum((m - mth)**2/err_m**2)
     B = np.sum((m - mth)/err_m**2)
     C = np.sum(1/err_m**2)
@@ -77,7 +77,7 @@ def lnlike(paras):
 # lnprior函数(先验概率函数)
 def lnprior(paras):
     O20, log_kC1 = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3:
+    if 0.1 < O20 < 0.5 and -5 < log_kC1 < 3:
         return 0.0
     return -np.inf
 
@@ -101,7 +101,7 @@ def main():
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2000, progress = True)
+        sampler.run_mcmc(pos, 200, progress = True)
 
     # 画图
     flat_samples = sampler.get_chain(discard=100, thin=20, flat=True)
