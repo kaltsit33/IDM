@@ -1,4 +1,3 @@
-# 其他程序的结果表明Mb不可限制，log_kC1非马尔可夫性，该程序限制O20与H0
 import numpy as np
 import matplotlib.pyplot as plt
 import emcee
@@ -19,8 +18,7 @@ m = pandata[:, 1]
 err_m = pandata[:, 2]
 
 # 定义微分函数
-def function(t, z, O20, kC1):
-    O10 = 1 - O20
+def function(t, z, O10, kC1, H0):
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
     # 减少括号的使用,分为分子与分母
@@ -32,8 +30,9 @@ def function(t, z, O20, kC1):
     return [dz1, dz2]
 
 # 解方程
-def sov_func(O20, log_kC1):
+def sov_func(O20, log_kC1, H0):
     t0 = 1/H0
+    O10 = 1 - O20
     kC1 = 10**log_kC1
     tspan = (t0, 0)
     tn = np.linspace(t0, 0, 100000)
@@ -41,7 +40,7 @@ def sov_func(O20, log_kC1):
     zt0 = [0, -H0]
 
     # t0给定初值
-    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={H0, kC1})
+    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={O10, H0, kC1})
     # z.y[0,:] = z(t), z.y[1,:] = z'(t)
 
     t_values = z.t
@@ -67,7 +66,7 @@ def sov_func(O20, log_kC1):
 def lnlike(paras):
     O20, log_kC1 = paras
     # O20 = O20 % 1
-    dl = np.array(sov_func(O20, log_kC1))
+    dl = np.array(sov_func(O20, log_kC1, H0))
     mth = -19 + 5 * np.log10(dl) + 25
     A = np.sum((m - mth)**2/err_m**2)
     B = np.sum((m - mth)/err_m**2)
@@ -95,24 +94,24 @@ import multiprocessing as mp
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -2]) # expected best values
+    initial = np.array([0.28, -3]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 2)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 500, progress = True)
+        sampler.run_mcmc(pos, 2000, progress = True)
 
     # 画图
-    flat_samples = sampler.get_chain(discard=50, thin=10, flat=True)
-    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', '$H_0$'], 
+    flat_samples = sampler.get_chain(discard=100, thin=20, flat=True)
+    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$'], 
                           color='royalblue', title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
     fig, axes = plt.subplots(2, figsize=(10, 7), sharex=True)
     samples = sampler.get_chain()
-    labels = [r'$\Omega_{2,0}$', '$H_0$']
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$']
     for i in range(ndim):
         ax = axes[i]
         ax.plot(samples[:, :, i], "k", alpha=0.3)

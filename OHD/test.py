@@ -5,7 +5,6 @@ import corner
 import scipy
 
 const_c = 2.99792458e5
-H0 = 70
 
 # 从csv文件中读取数据
 file_path = "./OHD/OHD.csv"
@@ -61,14 +60,14 @@ def chi_square(log_kC1, O20, H0):
 
 # lnlike函数(对数似然函数)
 def lnlike(paras):
-    O20, log_kC1 = paras
+    O20, log_kC1, H0 = paras
     chi2 = chi_square(log_kC1, O20, H0)
     return -0.5 * chi2
 
 # lnprior函数(先验概率函数)
 def lnprior(paras):
-    O20, log_kC1 = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3:
+    O20, log_kC1, H0 = paras
+    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 50 < H0 < 100:
         return 0.0
     return -np.inf
 
@@ -85,9 +84,9 @@ import multiprocessing as mp
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.26, -2]) # expected best values
+    initial = np.array([0.26, -2, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 2)
+    pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:
@@ -96,13 +95,13 @@ def main():
 
     # 画图
     flat_samples = sampler.get_chain(discard=100, thin=15, flat=True)
-    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$'], 
+    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$'], 
                           color='royalblue', title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
-    fig, axes = plt.subplots(2, figsize=(10, 7), sharex=True)
+    fig, axes = plt.subplots(3, figsize=(10, 7), sharex=True)
     samples = sampler.get_chain()
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$']
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$']
     for i in range(ndim):
         ax = axes[i]
         ax.plot(samples[:, :, i], "k", alpha=0.3)
