@@ -50,7 +50,7 @@ def solution(log_kC1, O20, H0):
     z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, 
                                   method='RK45', args=(kC1, O10, H0))
     # z.y[0,:] = z(t), z.y[1,:] = z'(t)
-    return [z.y[0, :], z.y[1, :]]
+    return [z.t, z.y[0, :]]
 
 # 计算卡方
 def chi_square(log_kC1, O20, H0):
@@ -148,8 +148,8 @@ def main():
             log_kC1 = log_kC1_list[j]
             O20 = O20_list[i]
             # 较大值截断
-            if chi_square(log_kC1, O20, H0) > 1100:
-                chi2[j][i] = 1100
+            if chi_square(log_kC1, O20, H0) > 1200:
+                chi2[j][i] = 1200
             else:
                 chi2[j][i] = chi_square(log_kC1, O20, H0)
 
