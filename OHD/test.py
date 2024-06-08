@@ -1,8 +1,9 @@
-import numpy as np
+# 测试能否限制H0
 import matplotlib.pyplot as plt
-import emcee
-import corner
+import numpy as np
 import scipy
+import multiprocessing as mp
+from time import time
 
 const_c = 2.99792458e5
 
@@ -13,7 +14,9 @@ z_hz = pandata[:, 0]
 H_z = pandata[:, 1]
 err_H = pandata[:, 2]
 
-# 定义微分函数
+N1 = 100
+N2 = 100
+
 def function(t, z, kC1, O10, H0):
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
@@ -25,9 +28,8 @@ def function(t, z, kC1, O10, H0):
     dz2 = up / down
     return [dz1, dz2]
 
-# 求解
 def solution(log_kC1, O20, H0):
-    kC1 = 10 ** log_kC1
+    kC1 = 10**log_kC1
     O10 = 1 - O20
     t0 = 1 / H0
     tspan = (t0, 0)
@@ -58,61 +60,38 @@ def chi_square(log_kC1, O20, H0):
     chi2 = np.sum((H_z - H_th)**2 / err_H**2)
     return chi2
 
-# lnlike函数(对数似然函数)
-def lnlike(paras):
-    O20, log_kC1, H0 = paras
-    chi2 = chi_square(log_kC1, O20, H0)
-    return -0.5 * chi2
-
-# lnprior函数(先验概率函数)
-def lnprior(paras):
-    O20, log_kC1, H0 = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 50 < H0 < 100:
-        return 0.0
-    return -np.inf
-
-# lnprob函数(对数后验概率函数)
-def lnprob(paras):
-    lp = lnprior(paras)
-    if not np.isfinite(lp):
-        return -np.inf
-    return lp + lnlike(paras)
-
-# 多线程mcmc
-import multiprocessing as mp
+def chi2_min(H0):
+    start = time()
+    chi2 = np.zeros([N1, N1])
+    O20_list = np.linspace(0.1, 0.3, N1)
+    log_kC1_list = np.linspace(0, 2, N1)
+    for i in range(N1):
+        for j in range(N1):
+            log_kC1 = log_kC1_list[j]
+            O20 = O20_list[i]
+            chi2[j][i] = chi_square(log_kC1, O20, H0)
+    # xx, yy = np.meshgrid(O20_list, log_kC1_list)
+    # rb = scipy.interpolate.Rbf(xx, yy, chi2)
+    # fun = lambda x: rb(x[0], x[1])
+    # min = scipy.optimize.minimize(fun, [0.25, 1]).fun
+    min = np.min(chi2)
+    end = time()
+    print(end - start)
+    return min
 
 def main():
-    # 定义mcmc参量
-    nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.26, -2, 70]) # expected best values
-    soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 3)
-    nwalkers, ndim = pos.shape
-
+    H0_list = np.linspace(60, 80, N2)
     with mp.Pool() as pool:
-        sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2000, progress = True)
+        chi2 = pool.map(chi2_min, H0_list)
+        chi2 = np.array(chi2)
 
-    # 画图
-    flat_samples = sampler.get_chain(discard=100, thin=15, flat=True)
-    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$'], 
-                          color='royalblue', title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
+    plt.figure()
+    plt.plot(H0_list, chi2)
+    plt.xlabel(r'$H_0$')
+    plt.ylabel(r'$\chi_{\min}^2$')
+    plt.grid(linestyle='--', linewidth=0.5)
+    # plt.savefig('Figure.png')
     plt.show()
-
-    fig, axes = plt.subplots(3, figsize=(10, 7), sharex=True)
-    samples = sampler.get_chain()
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$']
-    for i in range(ndim):
-        ax = axes[i]
-        ax.plot(samples[:, :, i], "k", alpha=0.3)
-        ax.set_xlim(0, len(samples))
-        ax.set_ylabel(labels[i])
-        ax.yaxis.set_label_coords(-0.1, 0.5)
-    axes[-1].set_xlabel("step number")
-    plt.show()
-
-    tau = sampler.get_autocorr_time()
-    print(tau)
 
 if __name__ == '__main__':
     mp.freeze_support()

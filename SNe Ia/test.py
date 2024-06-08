@@ -1,11 +1,10 @@
-import numpy as np
 import matplotlib.pyplot as plt
-import emcee
-import corner
+import numpy as np
 import scipy
+import multiprocessing as mp
+from time import time
 
 const_c = 2.99792458e5
-H0 = 70
 
 # 从txt文件中读取数据
 file_path = "./SNe Ia/Pantheon.txt"
@@ -17,8 +16,11 @@ m = pandata[:, 1]
 #err_mu = pandata[:,2]
 err_m = pandata[:, 2]
 
-# 定义微分函数
-def function(t, z, O10, kC1):
+Mb = -20
+N1 = 100
+N2 = 100
+
+def function(t, z, kC1, O10, H0):
     # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
     dz1 = z[1]
     # 减少括号的使用,分为分子与分母
@@ -29,18 +31,17 @@ def function(t, z, O10, kC1):
     dz2 = up / down
     return [dz1, dz2]
 
-# 解方程
-def sov_func(O20, log_kC1):
-    t0 = 1/H0
-    O10 = 1 - O20
+def chi_square(log_kC1, O20, H0):
     kC1 = 10**log_kC1
+    O10 = 1 - O20
+    t0 = 1/H0
     tspan = (t0, 0)
     tn = np.linspace(t0, 0, 100000)
     # 从t0开始
     zt0 = [0, -H0]
 
     # t0给定初值
-    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args={O10, kC1})
+    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args=(kC1, O10, H0))
     # z.y[0,:] = z(t), z.y[1,:] = z'(t)
 
     t_values = z.t
@@ -48,7 +49,7 @@ def sov_func(O20, log_kC1):
 
     # 计算光度距离 
     dl_values = []
-    
+
     for z_hz_value in z_hz:
         # 找到 z_hz_value 在 z_values 中的位置
         idx = np.searchsorted(z_values, z_hz_value)
@@ -60,69 +61,46 @@ def sov_func(O20, log_kC1):
         dl_value = const_c * (1 + z_hz_value) * (t0 - t_values[idx] + int_value)
         dl_values.append(dl_value)
 
-    return dl_values
-
-# lnlike函数(对数似然函数)
-def lnlike(paras):
-    O20, log_kC1 = paras
-    # O20 = O20 % 1
-    dl = np.array(sov_func(O20, log_kC1))
-    mth = -19.3 + 5 * np.log10(dl) + 25
+    dl = np.array(dl_values)
+    mth = Mb + 5 * np.log10(dl) + 25
     A = np.sum((m - mth)**2/err_m**2)
     B = np.sum((m - mth)/err_m**2)
     C = np.sum(1/err_m**2)
-    chi2 = A - B**2/C + np.log(C/(2*np.pi))
-    return -0.5 * chi2
+    chi_square = A - B**2/C + np.log(C/(2*np.pi))
+    return chi_square
 
-# lnprior函数(先验概率函数)
-def lnprior(paras):
-    O20, log_kC1 = paras
-    if 0.1 < O20 < 0.5 and -5 < log_kC1 < 3:
-        return 0.0
-    return -np.inf
-
-# lnprob函数(对数后验概率函数)
-def lnprob(paras):
-    lp = lnprior(paras)
-    if not np.isfinite(lp):
-        return -np.inf
-    return lp + lnlike(paras)
-
-# 多线程mcmc
-import multiprocessing as mp
+def chi2_min(H0):
+    start = time()
+    chi2 = np.zeros([N1, N1])
+    O20_list = np.linspace(0.1, 0.3, N1)
+    log_kC1_list = np.linspace(0, 2, N1)
+    for i in range(N1):
+        for j in range(N1):
+            log_kC1 = log_kC1_list[j]
+            O20 = O20_list[i]
+            chi2[j][i] = chi_square(log_kC1, O20, H0)
+    # xx, yy = np.meshgrid(O20_list, log_kC1_list)
+    # rb = scipy.interpolate.Rbf(xx, yy, chi2)
+    # fun = lambda x: rb(x[0], x[1])
+    # min = scipy.optimize.minimize(fun, [0.25, 1]).fun
+    min = np.min(chi2)
+    end = time()
+    print(end - start)
+    return min
 
 def main():
-    # 定义mcmc参量
-    nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -3]) # expected best values
-    soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 2)
-    nwalkers, ndim = pos.shape
-
+    H0_list = np.linspace(60, 80, N2)
     with mp.Pool() as pool:
-        sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 200, progress = True)
+        chi2 = pool.map(chi2_min, H0_list)
+        chi2 = np.array(chi2)
 
-    # 画图
-    flat_samples = sampler.get_chain(discard=100, thin=20, flat=True)
-    figure = corner.corner(flat_samples, bins=30, smooth=10, smooth1d=10, plot_datapoints=False, levels=(0.6826,0.9544), labels=[r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$'], 
-                          color='royalblue', title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
+    plt.figure()
+    plt.plot(H0_list, chi2)
+    plt.xlabel(r'$H_0$')
+    plt.ylabel(r'$\chi_{\min}^2$')
+    plt.grid(linestyle='--', linewidth=0.5)
+    # plt.savefig('Figure.png')
     plt.show()
-
-    fig, axes = plt.subplots(2, figsize=(10, 7), sharex=True)
-    samples = sampler.get_chain()
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}k_{C1}$', r'$H_0$']
-    for i in range(ndim):
-        ax = axes[i]
-        ax.plot(samples[:, :, i], "k", alpha=0.3)
-        ax.set_xlim(0, len(samples))
-        ax.set_ylabel(labels[i])
-        ax.yaxis.set_label_coords(-0.1, 0.5)
-    axes[-1].set_xlabel("step number")
-    plt.show()
-
-    tau = sampler.get_autocorr_time()
-    print(tau)
 
 if __name__ == '__main__':
     mp.freeze_support()
