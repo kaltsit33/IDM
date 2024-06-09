@@ -14,7 +14,8 @@
 2. 数据来源Planck 2018(PR3) TT,TE,EE & Low-E
 3. 修改CAMB源码(暂时失败)
 4. 正在将CAMB源码(f90)重构为python
->[camb](https://camb.readthedocs.io/en/latest/index.html)
+>[camb-python](https://camb.readthedocs.io/en/latest/index.html)  
+>[camb-github](https://github.com/cmbant/CAMB)
 
 ### 关于OHD文件夹
 1. 数据来源见参考文献,数据文件为[.csv](/OHD/OHD.csv)
