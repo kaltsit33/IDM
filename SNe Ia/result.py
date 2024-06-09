@@ -100,6 +100,22 @@ def lnprob(paras):
         return -np.inf
     return lp + lnlike(paras)
 
+# 补充mcmc的lnlike,lnprior,lnprob
+def lnlike2(paras):
+    O20 = paras[0]
+    chi2 = chi_square(log_kC1, O20, H0)
+    return -0.5 * chi2
+def lnprior2(paras):
+    O20 = paras[0]
+    if 0 < O20 < 0.5:
+        return 0.0
+    return -np.inf
+def lnprob2(paras):
+    lp = lnprior2(paras)
+    if not np.isfinite(lp):
+        return -np.inf
+    return lp + lnlike2(paras)
+
 # 主函数包括mcmc与格点法
 def main():
     # 定义mcmc参量
@@ -134,8 +150,23 @@ def main():
     axes[-1].set_xlabel("step number")
     plt.show()
 
-    # 取出最佳H0
-    H0 = np.percentile(flat_samples[:, 2], [50.0])[0]
+    # mcmc的结果集中在上部,这与chi2_test中给出的结果类似
+    # 为了使结果更合理,这里将只在log_kC1较小处单独对chi2进行mcmc
+
+    # H0与log_kC1直接给定
+    H0 = 70.0
+    log_kC1 = -5.0
+
+    # 再次mcmc
+    nll2 = lambda *args: -lnlike2(*args)
+    initial2 = np.array([0.28])
+    soln2 = scipy.optimize.minimize(nll2, initial2)
+    pos2 = soln2.x + 1e-4 * np.random.randn(50, 1)
+    nwalkers2, ndim2 = pos2.shape
+    with mp.Pool() as pool:
+        sampler2 = emcee.EnsembleSampler(nwalkers2, ndim2, lnprob2, pool=pool)
+        sampler2.run_mcmc(pos2, 2000, progress = True)
+    flat_samples = sampler2.get_chain(discard=100, flat=True)
 
      # 网格
     N = 100
