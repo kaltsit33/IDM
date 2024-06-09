@@ -89,7 +89,7 @@ def lnlike(paras):
 # lnprior函数(先验概率函数)
 def lnprior(paras):
     O20, log_kC1, H0 = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 0 < H0 < 100:
+    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 60 < H0 < 80:
         return 0.0
     return -np.inf
 
