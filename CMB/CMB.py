@@ -34,12 +34,8 @@ def solution(log_kC1, O20, H0):
 
 class camb:
     def __init__(self, O20, log_kC1, H0):
-        self.O20 = O20
-        self.log_kC1 = log_kC1
-        self.H0 = H0
         self.t0 = 1 / H0
         # dtau = dt / a
-        self.tau0 = 1 / H0 * const_c # Mpc
         self.t_list = np.array(solution(log_kC1, O20, H0).t)
         self.z_list = np.array(solution(log_kC1, O20, H0).y[0, :])
     # (flat) initial power spectrum
@@ -80,7 +76,7 @@ class camb:
 
         ang_dist = (tau0-taustart)
         Source_q[2] = visibility * polter * (15 / 8)/ (ang_dist ** 2 * k2) """
-        Source_q1 = 1 # T mode
+        Source_q1 = 100 # T mode
         Source_q2 = 1 # E mode
         return [Source_q1, Source_q2]
     
@@ -92,7 +88,7 @@ class camb:
         return int_value
     # integrate dk/k * Delta_l_q ** 2 * P(k) 
     def iCl_scalar(self, l, method):
-        k_max = 10
+        k_max = np.inf
         if method == 'TT':
             def integrand(k, l):
                 return (self.Delta_p_l_k(1, l, k) ** 2 * self.Pk(k) / k)
@@ -110,7 +106,7 @@ class camb:
             return 0
     # output l(l+1)Cl/2pi
     def Cl_scalar(self, l, method):
-        ctnorm = (l * l - 1) * (l + 2) * l
+        ctnorm = (l ** 2 - 1) * (l + 2) * l
         dbletmp = (l * (l + 1)) * 2
         if method == 'TT':
             return self.iCl_scalar(l, method) * dbletmp
@@ -136,7 +132,7 @@ def main():
     H0 = 70
     c = camb(O20, log_kC1, H0)
     c.optimize()
-    l_list = np.arange(2, 1000)
+    l_list = np.arange(30, 2500)
     with mp.Pool() as pool:
         Cl_TT = pool.map(c.ClTT, l_list)
     plt.plot(l_list, Cl_TT, label='TT')
