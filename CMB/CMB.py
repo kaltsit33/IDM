@@ -59,7 +59,8 @@ class camb:
     def optimize(self):
         self.delta_tau_list = np.array(list(map(lambda t: self.delta_tau(t), self.t_list)))
     
-    def Source_q(self):
+    def Source_q(self, k):
+        k2 = k ** 2
         """ # calculate Source_q
         phidot = (1 / 2) * (adotoa * (-dgpi - 2 * k2 * phi) + dgq * k - diff_rhopi + k * sigma * (gpres + grho)) / k2]
         sigmadot = -adotoa*sigma - 1/2*dgpi/k + k*phi
