@@ -12,6 +12,7 @@
 2. 参考文献[DESI 2024 VI](https://arxiv.org/abs/2404.03002)
 3. 数据的阐述见[notebook](/BAO/test.ipynb)
 4. 其余结构与OHD类似
+5. 注:rd与H0简并
 
 ### 关于CMB文件夹
 1. 理论参考书籍为
@@ -25,10 +26,11 @@
 
 ### 关于OHD文件夹
 1. 数据来源见参考文献,数据文件为[.csv](/OHD/OHD.csv)
-2. [test.py](/OHD/test.py)测试能否限制H0 -> [test.png](/OHD/test.png)
-3. [result.py](/OHD/result.py)完成全部内容的实现,包括mcmc与传统的格点法(格点法用于精细化作图)
+2. 数据只采用CC方法
+3. [test.py](/OHD/test.py)测试能否限制H0 -> [test.png](/OHD/test.png)
+4. [result.py](/OHD/result.py)完成全部内容的实现,包括mcmc与传统的格点法(格点法用于精细化作图)
 
 ### 关于SNe Ia文件夹
 1. 数据来源Pantheon,数据文件为[.txt](/SNe%20Ia/Pantheon.txt) & [.csv](/SNe%20Ia/Pantheon.csv)
 2. 其余文件结构与OHD文件夹类似
-3. 注:由于chi2的特殊性,理论上不可限制H0,[test.py](/SNe%20Ia/test.py)也验证了这一情况
+3. 注:由于chi2的特殊性,理论上不可限制H0(Mb与H0简并)
