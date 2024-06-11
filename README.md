@@ -27,8 +27,7 @@
 ### 关于OHD文件夹
 1. 数据来源见参考文献,数据文件为[.csv](/OHD/OHD.csv)
 2. 数据只采用CC方法
-3. [test.py](/OHD/test.py)测试能否限制H0 -> [test.png](/OHD/test.png)
-4. [result.py](/OHD/result.py)完成全部内容的实现,包括mcmc与传统的格点法(格点法用于精细化作图)
+3. [result.py](/OHD/result.py)完成全部内容的实现,包括mcmc与传统的格点法(格点法用于精细化作图)
 
 ### 关于SNe Ia文件夹
 1. 数据来源Pantheon,数据文件为[.txt](/SNe%20Ia/Pantheon.txt) & [.csv](/SNe%20Ia/Pantheon.csv)

@@ -14,7 +14,7 @@ const_c = c.to('km/s').value
 
 # 先验值
 H0 = 70.0
-O20 = 0.26
+O20 = 0.28
 log_kC1 = -5.0
 
 # 从csv文件中读取数据
@@ -79,7 +79,7 @@ def lnlike(paras):
 # lnprior函数(先验概率函数)
 def lnprior(paras):
     O20, log_kC1, H0 = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 60 < H0 < 80:
+    if 0 < O20 < 0.7 and -5 < log_kC1 < 3 and 60 < H0 < 80:
         return 0.0
     return -np.inf
 
@@ -94,7 +94,7 @@ def lnprob(paras):
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.26, -2, 70]) # expected best values
+    initial = np.array([0.28, -2, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
@@ -131,15 +131,15 @@ def main():
     N = 100
     chi2 = np.zeros([N, N])
     log_kC1_list = np.linspace(3, -5, N)
-    O20_list = np.linspace(0.0, 0.5, N)
+    O20_list = np.linspace(0.0, 0.6, N)
 
     for i in tqdm(range(N), position=0, desc="O20", leave=False):
         for j in tqdm(range(N), position=1, desc="log_kC1", leave=False):
             log_kC1 = log_kC1_list[j]
             O20 = O20_list[i]
             # 较大值截断
-            if chi_square(log_kC1, O20, H0) > 200:
-                chi2[j][i] = 200
+            if chi_square(log_kC1, O20, H0) > 50:
+                chi2[j][i] = 50
             else:
                 chi2[j][i] = chi_square(log_kC1, O20, H0)
 
