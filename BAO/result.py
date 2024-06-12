@@ -14,7 +14,7 @@ const_c = c.to('km/s').value
 H0 = 70.0
 O20 = 0.28
 log_kC1 = -5.0
-rd = 147.78
+rdh = 100
 
 # 从csv文件中读取数据
 file_path = "./BAO/BAO.csv"
@@ -84,7 +84,8 @@ class BAO:
         DH = self.D_H(z)
         return (z * DM ** 2 * DH) ** (1/3)
 
-def chi_square(log_kC1, O20, H0, rd):
+def chi_square(log_kC1, O20, H0, rdh):
+    rd = rdh / H0 * 100
     theory = BAO(log_kC1, O20, H0, rd)
     A, B, C = [0, 0, 0]
     for i in range(len(z_eff)):
@@ -98,13 +99,13 @@ def chi_square(log_kC1, O20, H0, rd):
     return A + B + C
 
 def lnlike(paras):
-    O20, log_kC1, H0, rd = paras
-    chi2 = chi_square(log_kC1, O20, H0, rd)
+    O20, log_kC1, H0, rdh = paras
+    chi2 = chi_square(log_kC1, O20, H0, rdh)
     return -0.5 * chi2
 
 def lnprior(paras):
-    O20, log_kC1, H0, rd = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 60 < H0 < 80 and 100 < rd < 200:
+    O20, log_kC1, H0, rdh = paras
+    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 60 < H0 < 80 and 50 < rdh < 150:
         return 0.0
     return -np.inf
 
@@ -118,7 +119,7 @@ def lnprob(paras):
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -2, 70, 150]) # expected best values
+    initial = np.array([0.28, -2, 70, 100]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 4)
     nwalkers, ndim = pos.shape
@@ -129,7 +130,7 @@ def main():
         sampler.run_mcmc(pos, 2000, progress = True)
 
     # mcmc结果图
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$', '$r_d$']
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$', '$r_dh$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
     # 采用默认格式
     figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels,
