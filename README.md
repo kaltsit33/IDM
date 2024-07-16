@@ -30,7 +30,7 @@
 3. [result.py](/OHD/result.py)完成全部内容的实现,包括mcmc与传统的格点法(格点法用于精细化作图)
 
 ### 关于SNe Ia文件夹
-1. 数据来源Pantheon,[数据文件](/SNe%20Ia/Pantheon.txt)
+1. Pantheon data used [数据文件](/SNe%20Ia/Pantheon.txt)
 2. Pantheon Plus data from https://github.com/PantheonPlusSH0ES
 3. 其余文件结构与OHD文件夹类似
 注:由于chi2的特殊性,理论上不可限制H0(Mb与H0简并)
