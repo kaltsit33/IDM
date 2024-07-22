@@ -18,7 +18,7 @@ H0 = 70.0
 O20 = 0.28
 log_kC1 = -5.0
 
-file_path = "./SNe Ia/Pantheon.txt"
+file_path = "./SNe Ia/Pantheon/Pantheon.txt"
 pandata = np.loadtxt(file_path, skiprows=3, usecols=(1, 4, 5))
 z_hz = pandata[:, 0]
 m = pandata[:, 1]
