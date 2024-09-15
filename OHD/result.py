@@ -108,7 +108,7 @@ def main():
     labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
     # 采用默认格式
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels,
+    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5,
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
@@ -122,49 +122,6 @@ def main():
         ax.set_ylabel(labels[i])
         ax.yaxis.set_label_coords(-0.1, 0.5)
     axes[-1].set_xlabel("step number")
-    plt.show()
-
-    # 取出最佳H0
-    H0 = np.percentile(flat_samples[:, 2], [50.0])[0]
-
-     # 网格
-    N = 100
-    chi2 = np.zeros([N, N])
-    log_kC1_list = np.linspace(3, -5, N)
-    O20_list = np.linspace(0.0, 0.6, N)
-
-    for i in tqdm(range(N), position=0, desc="O20", leave=False):
-        for j in tqdm(range(N), position=1, desc="log_kC1", leave=False):
-            log_kC1 = log_kC1_list[j]
-            O20 = O20_list[i]
-            # 较大值截断
-            if chi_square(log_kC1, O20, H0) > 50:
-                chi2[j][i] = 50
-            else:
-                chi2[j][i] = chi_square(log_kC1, O20, H0)
-
-    # 3d plot
-    fig = plt.figure()
-    ax3 = plt.axes(projection='3d')
-    X, Y = np.meshgrid(O20_list, log_kC1_list)
-    ax3.set_xlabel(labels[0])
-    ax3.set_ylabel(labels[1])
-    surf = ax3.plot_surface(X, Y, chi2, cmap='coolwarm')
-    plt.colorbar(surf)
-    plt.show()
-    
-    # 2d plot
-    # 确定1sigma, 2sigma的边界
-    O20_mcmc = np.percentile(flat_samples[:, 0], [2.28, 15.87, 50.0, 84.13, 97.72])
-    chi2_1sigma = np.mean([chi_square(-5, O20_mcmc[1], H0), chi_square(-5, O20_mcmc[3], H0)])
-    chi2_2sigma = np.mean([chi_square(-5, O20_mcmc[0], H0), chi_square(-5, O20_mcmc[4], H0)])
-    # 画图
-    plt.figure()
-    contour = plt.contour(X, Y, chi2, [chi2_1sigma, chi2_2sigma], colors='k')
-    plt.clabel(contour, inline=True, fontsize=8)
-    plt.grid(linestyle='--', linewidth=0.5)
-    plt.xlabel(labels[0])
-    plt.ylabel(labels[1])
     plt.show()
 
 if __name__ == '__main__':
