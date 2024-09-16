@@ -1,14 +1,16 @@
-# 该程序实现BAO下的所有目标
 import numpy as np
 import matplotlib.pyplot as plt
 import emcee
 import corner
 import scipy
-from tqdm import tqdm
 import multiprocessing as mp
 
-from astropy.constants import c
-const_c = c.to('km/s').value
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from solution import solution
+from solution import const_c
+const_c /= 1000
 
 # 先验值
 H0 = 70.0
@@ -26,31 +28,6 @@ D_H_obs = pandata[:, 3]
 D_H_err = pandata[:, 4]
 D_V_obs = pandata[:, 5]
 D_V_err = pandata[:, 6]
-
-def function(t, z, kC1, O10, H0):
-    # z[0] = z(t), z[1] = z'(t), z[2] = z''(t)
-    dz1 = z[1]
-    # 减少括号的使用,分为分子与分母
-    up = H0 ** 4 * kC1 * O10 ** 2 * (z[0] ** 4+1) + 3 * H0 ** 4 * O10 ** 2 * z[0] ** 2 * (2 * kC1-3 * z[1]) \
-        + H0 ** 4 * O10 ** 2 * z[0] ** 3 * (4 * kC1 - 3 * z[1]) - 3 * H0 ** 4 * O10 ** 2 * z[1] + 5 * H0 ** 2 * O10 * z[1] ** 3\
-            - kC1 * z[1] ** 4 + H0 ** 2 * O10 * z[0] * (4 * H0 ** 2 * kC1 * O10 - 9 * H0 ** 2 * O10 * z[1] + 5 * z[1] ** 3)
-    down = 2 * H0 ** 2 * O10 * (1 + z[0]) ** 2 * z[1]
-    dz2 = up / down
-    return [dz1, dz2]
-
-def solution(log_kC1, O20, H0):
-    kC1 = 10 ** log_kC1
-    O10 = 1 - O20
-    t0 = 1 / H0
-    tspan = (t0, 0)
-    tn = np.linspace(t0, 0, 100000)
-    # 从t0开始
-    zt0 = [0, -H0]
-
-    # t0给定初值
-    z = scipy.integrate.solve_ivp(function, t_span=tspan, y0=zt0, t_eval=tn, method='RK45', args=(kC1, O10, H0))
-    # z.y[0,:] = z(t), z.y[1,:] = z'(t)
-    return z
 
 # 减少方程求解次数
 class BAO:
@@ -105,7 +82,7 @@ def lnlike(paras):
 
 def lnprior(paras):
     O20, log_kC1, H0, rdh = paras
-    if 0 < O20 < 0.5 and -5 < log_kC1 < 3 and 60 < H0 < 80 and 50 < rdh < 150:
+    if 0 < O20 < 0.5 and -10 < log_kC1 < 0 and 60 < H0 < 80 and 50 < rdh < 150:
         return 0.0
     return -np.inf
 
@@ -115,11 +92,10 @@ def lnprob(paras):
         return -np.inf
     return lp + lnlike(paras)
 
-# 主函数包括mcmc与格点法
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -2, 70, 100]) # expected best values
+    initial = np.array([0.28, -5, 70, 100]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 4)
     nwalkers, ndim = pos.shape
@@ -147,50 +123,6 @@ def main():
         ax.set_ylabel(labels[i])
         ax.yaxis.set_label_coords(-0.1, 0.5)
     axes[-1].set_xlabel("step number")
-    plt.show()
-
-    # 取出最佳H0与rd
-    H0 = np.percentile(flat_samples[:, 2], [50.0])[0]
-    rd = np.percentile(flat_samples[:, 3], [50.0])[0]
-
-     # 网格
-    N = 100
-    chi2 = np.zeros([N, N])
-    log_kC1_list = np.linspace(3, -5, N)
-    O20_list = np.linspace(0.0, 0.5, N)
-
-    for i in tqdm(range(N), position=0, desc="O20", leave=False):
-        for j in tqdm(range(N), position=1, desc="log_kC1", leave=False):
-            log_kC1 = log_kC1_list[j]
-            O20 = O20_list[i]
-            # 较大值截断
-            if chi_square(log_kC1, O20, H0, rd) > 300:
-                chi2[j][i] = 300
-            else:
-                chi2[j][i] = chi_square(log_kC1, O20, H0, rd)
-
-    # 3d plot
-    fig = plt.figure()
-    ax3 = plt.axes(projection='3d')
-    X, Y = np.meshgrid(O20_list, log_kC1_list)
-    ax3.set_xlabel(labels[0])
-    ax3.set_ylabel(labels[1])
-    surf = ax3.plot_surface(X, Y, chi2, cmap='coolwarm')
-    plt.colorbar(surf)
-    plt.show()
-    
-    # 2d plot
-    # 确定1sigma, 2sigma的边界
-    O20_mcmc = np.percentile(flat_samples[:, 0], [2.28, 15.87, 50.0, 84.13, 97.72])
-    chi2_1sigma = np.mean([chi_square(-5, O20_mcmc[1], H0, rd), chi_square(-5, O20_mcmc[3], H0, rd)])
-    chi2_2sigma = np.mean([chi_square(-5, O20_mcmc[0], H0, rd), chi_square(-5, O20_mcmc[4], H0, rd)])
-    # 画图
-    plt.figure()
-    contour = plt.contour(X, Y, chi2, [chi2_1sigma, chi2_2sigma], colors='k')
-    plt.clabel(contour, inline=True, fontsize=8)
-    plt.grid(linestyle='--', linewidth=0.5)
-    plt.xlabel(labels[0])
-    plt.ylabel(labels[1])
     plt.show()
 
 if __name__ == '__main__':

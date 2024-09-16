@@ -11,6 +11,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 from solution import const_c
+const_c /= 1000
 
 # 先验值
 H0 = 70.0
@@ -71,7 +72,7 @@ def lnprob(paras):
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -2, 70]) # expected best values
+    initial = np.array([0.28, -5, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
