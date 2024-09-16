@@ -5,8 +5,9 @@
 ### 主文件夹
 1. 原始论文3篇
 >mma用于复现CMB中weinberg给出的近似TT曲线
-2. 全部重改,所有主要代码放在[all-in-one.ipynb](all-in-one.ipynb)中
+2. 全部重改,展示用代码在[all-in-one.ipynb](all-in-one.ipynb)中
 3. 各方法的数据与参考论文分在不同文件夹中
+4. 由于jupyter无法使用multiprocessing,all-in-one调用不同文件下的单独程序
 
 ### BAO
 1. 数据来源DESI 2024,[数据文件](/BAO/BAO.csv)

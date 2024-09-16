@@ -10,37 +10,43 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
+from solution import const_c
 
 # 先验值
 H0 = 70.0
 O20 = 0.28
 log_kC1 = -5.0
 
-# 从csv文件中读取数据
-file_path = "./OHD/OHD.csv"
-pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(0, 1, 2))
-z_hz = pandata[:, 0]
-H_z = pandata[:, 1]
-err_H = pandata[:, 2]
+# pantheon
+file_path = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
+pandata = np.loadtxt(file_path, skiprows=1, usecols=(2, 10, 11))
+z_hd = pandata[:, 0]
+mu = pandata[:, 1]
+err_mu = pandata[:, 2]
 
 # 计算卡方
 def chi_square(log_kC1, O20, H0):
-    Z0 = solution(log_kC1, O20, H0).y[0,:]
-    Z1 = solution(log_kC1, O20, H0).y[1,:]
-    H_th = []
-    for z0 in z_hz:
-        # 寻找z1对应的t1
-        idx = np.searchsorted(Z0, z0)
-        # 如果 z_hz_value 超出了 z_values 的范围，使用最后一个值
-        if idx >= len(Z0):  
-            idx = len(Z0) - 1
-        z1 = Z1[idx]
-        # 计算H
-        H_th.append(-1 / (1 + z0) * z1)
+        t0 = 1 / H0
+        t_values = solution(log_kC1, O20, H0).t
+        z_values = solution(log_kC1, O20, H0).y[0, :]
+        # 计算光度距离
+        dl_values = []
 
-    H_th = np.array(H_th)
-    chi2 = np.sum((H_z - H_th)**2 / err_H**2)
-    return chi2
+        for z_hz_value in z_hd:
+            # 找到 z_hz_value 在 z_values 中的位置
+            idx = np.searchsorted(z_values, z_hz_value)
+            # 如果 z_hz_value 超出了 z_values 的范围，使用最后一个值
+            if idx >= len(z_values):  
+                idx = len(z_values) - 1
+            # 使用梯形规则计算 z0 和 z1 之间的面积
+            int_value = -np.trapz(z_values[:idx], t_values[:idx])
+            dl_value = const_c * (1 + z_hz_value) * (t0 - t_values[idx] + int_value)
+            dl_values.append(dl_value)
+
+        dl = np.array(dl_values)
+        muth = 5 * np.log10(dl) + 25
+        chi2 = np.sum((mu - muth)**2/err_mu**2)
+        return chi2
 
 # lnlike函数(对数似然函数)
 def lnlike(paras):
@@ -51,7 +57,7 @@ def lnlike(paras):
 # lnprior函数(先验概率函数)
 def lnprior(paras):
     O20, log_kC1, H0 = paras
-    if 0 < O20 < 0.7 and -10 < log_kC1 < 0 and 60 < H0 < 80:
+    if 0 < O20 < 0.5 and -10 < log_kC1 < 0 and 60 < H0 < 80:
         return 0.0
     return -np.inf
 
@@ -65,7 +71,7 @@ def lnprob(paras):
 def main():
     # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -5, 70]) # expected best values
+    initial = np.array([0.28, -2, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
