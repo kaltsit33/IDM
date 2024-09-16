@@ -109,7 +109,7 @@ def main():
     labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$', '$r_dh$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
     # 采用默认格式
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels,
+    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5, 
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
