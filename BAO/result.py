@@ -59,7 +59,7 @@ class BAO:
     def D_V(self, z):
         DM = self.D_M(z)
         DH = self.D_H(z)
-        return (z * DM ** 2 * DH) ** (1/3)
+        return (z * DM**2 * DH)**(1/3)
 
 def chi_square(log_kC1, O20, H0, rdh):
     rd = rdh / H0 * 100
@@ -68,11 +68,11 @@ def chi_square(log_kC1, O20, H0, rdh):
     for i in range(len(z_eff)):
         z = z_eff[i]
         if D_M_obs[i] != 0:
-            A += (D_M_obs[i] - theory.D_M(z) / rd) ** 2 / D_M_err[i] ** 2
+            A += (D_M_obs[i] - theory.D_M(z) / rd)**2 / D_M_err[i]**2
         if D_H_obs[i] != 0:
-            B += (D_H_obs[i] - theory.D_H(z) / rd) ** 2 / D_H_err[i] ** 2
+            B += (D_H_obs[i] - theory.D_H(z) / rd)**2 / D_H_err[i]**2
         if D_V_obs[i] != 0:
-            C += (D_V_obs[i] - theory.D_V(z) / rd) ** 2 / D_V_err[i] ** 2
+            C += (D_V_obs[i] - theory.D_V(z) / rd)**2 / D_V_err[i]**2
     return A + B + C
 
 def lnlike(paras):

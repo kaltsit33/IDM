@@ -36,7 +36,7 @@ def chi_square(log_kC1, O20, H0):
             idx = len(Z0) - 1
         z1 = Z1[idx]
         # 计算H
-        H_th.append(-1 / (1 + z0) * z1)
+        H_th.append(-1 / (1 + z0)*z1)
 
     H_th = np.array(H_th)
     chi2 = np.sum((H_z - H_th)**2 / err_H**2)

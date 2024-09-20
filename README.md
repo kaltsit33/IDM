@@ -9,6 +9,10 @@
 3. 各方法的数据与参考论文分在不同文件夹中
 4. 由于jupyter无法使用multiprocessing,all-in-one调用不同文件下的单独程序
 
+### multimethods
+1. 利用不同方法的combination进行联合限制
+2. 采取OHD,SNe Ia(Pantheon Plus) & BAO(DESI 2024)
+
 ### BAO
 1. 数据来源DESI 2024,[数据文件](/BAO/BAO.csv)
 2. 参考文献[DESI 2024 VI](https://arxiv.org/abs/2404.03002)
