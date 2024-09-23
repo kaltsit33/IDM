@@ -134,7 +134,10 @@ def chi_square_SNe(log_kC1, O20, H0):
     theory = SNe(log_kC1, O20, H0)
     dl_values = np.array([theory.DL(z) for z in z_hd])
     muth = 5 * np.log10(dl_values) + 25
-    chi2 = np.sum((mu - muth)**2 / err_mu**2)
+    A = np.sum((mu - muth)**2 / err_mu**2)
+    B = np.sum((mu - muth)/err_mu**2)
+    C = np.sum(1/err_mu**2)
+    chi2 = A - B**2/C + np.log(C/(2*np.pi))
     return chi2
 
 ### MCMC
