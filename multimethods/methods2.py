@@ -12,7 +12,6 @@ from solution import solution
 from solution import const_c
 const_c /= 1000
 
-# 先验值
 H0 = 70.0
 O20 = 0.28
 log_kC1 = -5.0
@@ -99,27 +98,23 @@ def lnprob(paras):
     return lp + lnlike(paras)
 
 def main():
-    # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
     initial = np.array([0.28, -5, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
 
-    # 多线程mcmc
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 2000, progress = True)
 
-    # mcmc结果图
     labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
-    # 采用默认格式
+
     figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5, 
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
-    # mcmc链图
     fig, axes = plt.subplots(3, figsize=(10, 9), sharex=True)
     samples = sampler.get_chain()
     for i in range(ndim):

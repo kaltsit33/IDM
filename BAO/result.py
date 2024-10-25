@@ -12,13 +12,13 @@ from solution import solution
 from solution import const_c
 const_c /= 1000
 
-# 先验值
+# Prior values
 H0 = 70.0
 O20 = 0.28
 log_kC1 = -5.0
 rdh = 100
 
-# 从csv文件中读取数据
+# Read data from csv file
 file_path = "./BAO/BAO.csv"
 pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(3, 4, 5, 6, 7, 8, 9))
 z_eff = pandata[:, 0]
@@ -29,7 +29,7 @@ D_H_err = pandata[:, 4]
 D_V_obs = pandata[:, 5]
 D_V_err = pandata[:, 6]
 
-# 减少方程求解次数
+# Reduce the number of equation solutions
 class BAO:
     def __init__(self, log_kC1, O20, H0, rd):
         self.log_kC1 = log_kC1
@@ -93,27 +93,23 @@ def lnprob(paras):
     return lp + lnlike(paras)
 
 def main():
-    # 定义mcmc参量
     nll = lambda *args: -lnlike(*args)
     initial = np.array([0.28, -5, 70, 100]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 4)
     nwalkers, ndim = pos.shape
 
-    # 多线程mcmc
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 2000, progress = True)
 
-    # mcmc结果图
     labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$', '$r_dh$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
-    # 采用默认格式
+
     figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5, 
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
     plt.show()
 
-    # mcmc链图
     fig, axes = plt.subplots(4, figsize=(10, 9), sharex=True)
     samples = sampler.get_chain()
     for i in range(ndim):
