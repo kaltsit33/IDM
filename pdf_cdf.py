@@ -77,15 +77,15 @@ def main():
     flat_samples = sampler.get_chain(discard=100, flat=True)
 
     # plot pdf
-    pdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 0], 'SNe': flat_samples_SNe[:, 0], 'OHD+SNe': flat_samples_m2[:, 0], 
-                          'BAO': flat_samples_BAO[:, 0], 'OHD+SNe+BAO': flat_samples[:, 0]})
+    pdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 0], 'SN Ia': flat_samples_SNe[:, 0], 'OHD+SN Ia': flat_samples_m2[:, 0], 
+                          'BAO': flat_samples_BAO[:, 0], 'OHD+SN Ia+BAO': flat_samples[:, 0]})
     plt.figure()
     sns.kdeplot(data=pdf, legend=True)
     plt.xlabel(r'$\Omega_{2,0}$')
     plt.show()
     # plot cdf
-    cdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 1], 'SNe': flat_samples_SNe[:, 1], 'OHD+SNe': flat_samples_m2[:, 1],
-                          'BAO': flat_samples_BAO[:, 1], 'OHD+SNe+BAO': flat_samples[:, 1]})
+    cdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 1], 'SN Ia': flat_samples_SNe[:, 1], 'OHD+SN Ia': flat_samples_m2[:, 1],
+                          'BAO': flat_samples_BAO[:, 1], 'OHD+SN Ia+BAO': flat_samples[:, 1]})
     plt.figure()
     sns.ecdfplot(data=cdf, legend=True)
     plt.grid()
