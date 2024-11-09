@@ -40,17 +40,13 @@ def main():
 
     labels = [r'$\Omega_{2,0}$', '$n$', '$H_0$']
     flat_samples = sampler.get_chain(discard=100, flat=True)
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5, 
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
+    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=1, 
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
     plt.show()
 
-    fig, axes = plt.subplots(3, figsize=(10, 9), sharex=True)
-    samples = sampler.get_chain()
-    for i in range(ndim):
-        ax = axes[i]
-        ax.plot(samples[:, :, i], "k", alpha=0.3)
-        ax.set_xlim(0, len(samples))
-        ax.set_ylabel(labels[i])
-        ax.yaxis.set_label_coords(-0.1, 0.5)
-    axes[-1].set_xlabel("step number")
+    wIDM = -1 - flat_samples[:,1]/3
+    combined_samples = np.vstack((flat_samples[:,0], wIDM)).T
+    labels_ = [r'$\Omega_{2,0}$', '$w_{IDM}$']
+    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, smooth=1, 
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
     plt.show()

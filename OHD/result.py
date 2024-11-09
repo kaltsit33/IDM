@@ -11,11 +11,26 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 
+import astropy.units as u
+import astropy.constants as const
+
+G = const.G
+c = const.c
+
+section = 1e-23 * u.cm**3 / u.s
+
 # Prior values
 H0 = 70.0
-O20 = 0.28
+O20 = 0.3
 log_kC1 = -5.0
 
+def cross_section(O20, H0):
+    H0 = H0 * u.km / u.s / u.Mpc
+    C1 = (1 - O20) * 3 * H0**2 / (8 * np.pi * G)
+    cross = section * C1 * c**2
+    cross = cross.to(u.GeV / u.Gyr)
+    return cross.value
+    
 # Read data from csv file
 file_path = "./OHD/OHD.csv"
 pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(0, 1, 2))
@@ -65,7 +80,7 @@ def lnprob(paras):
 def main():
     # Define MCMC parameters
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -5, 70]) # expected best values
+    initial = np.array([0.3, -5, 70]) # expected best values
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
@@ -77,22 +92,19 @@ def main():
 
     # MCMC result plot
     labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$']
-    flat_samples = sampler.get_chain(discard=100, flat=True)
-    # Use default format
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
+    flat_samples = sampler.get_chain(discard=200, flat=True)
+    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=1,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
     plt.show()
 
-    # MCMC chain plot
-    fig, axes = plt.subplots(3, figsize=(10, 7), sharex=True)
-    samples = sampler.get_chain()
-    for i in range(ndim):
-        ax = axes[i]
-        ax.plot(samples[:, :, i], "k", alpha=0.3)
-        ax.set_xlim(0, len(samples))
-        ax.set_ylabel(labels[i])
-        ax.yaxis.set_label_coords(-0.1, 0.5)
-    axes[-1].set_xlabel("step number")
+    H0 = np.median(flat_samples[:,2])
+    H0_list = np.array([H0]*len(flat_samples))
+    # Plot Mx vs O20 corner plot
+    Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
+    combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
+    labels_ = [r'$\Omega_{2,0}$', r'$M_x$']
+    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, smooth=1,
+                           title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
     plt.show()
 
 if __name__ == '__main__':
