@@ -38,15 +38,23 @@ def main():
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 5000, progress = True)
 
-    labels = [r'$\Omega_{2,0}$', '$n$', '$H_0$', '$r_dh$']
+    labels = [r'$\Omega_{2,0}$', '$n$', '$H_0$[km/s/Mpc]', '$r_dh$[Mpc]']
     flat_samples = sampler.get_chain(discard=100, flat=True)
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=1, 
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
+    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='r')
+    plt.tight_layout()
+    plt.show()
+    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='r')
+    plt.tight_layout()
+    plt.savefig('./pictures/bao_widm_1.svg')
     plt.show()
 
     wIDM = -1 - flat_samples[:,1]/3
     combined_samples = np.vstack((flat_samples[:,0], wIDM)).T
     labels_ = [r'$\Omega_{2,0}$', '$w_{IDM}$']
-    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, smooth=1, 
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, bins=50)
+    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='r')
+    plt.tight_layout()
+    plt.savefig('./pictures/bao_widm_2.svg')
     plt.show()

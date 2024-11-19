@@ -17,7 +17,7 @@
 1. 数据来源DESI 2024,[数据文件](/BAO/BAO.csv)
 2. 参考文献[DESI 2024 VI](https://arxiv.org/abs/2404.03002)
 
-### CMB
+### CMB(dead)
 1. 理论参考书籍为
 >《Cosmology》 S.Weinberg  
 >《Modern Cosmology 2nd》 S.Dodelson & F.Schmidt
@@ -32,4 +32,4 @@
 ### SNe Ia
 1. Pantheon data used [数据文件](/SNe%20Ia/Pantheon.txt)
 2. Pantheon Plus data from https://github.com/PantheonPlusSH0ES
-3. Pantheon Plus use the $\mu$
+3. Pantheon Plus use the $\mu$ (maybe wrong)

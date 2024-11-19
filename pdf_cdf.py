@@ -14,18 +14,7 @@ import multimethods.methods3 as methods3
 
 import astropy.units as u
 import astropy.constants as const
-
-G = const.G
-c = const.c
-
-section = 1e-23 * u.cm**3 / u.s
-
-def cross_section(O20, H0):
-    H0 = H0 * u.km / u.s / u.Mpc
-    C1 = (1 - O20) * 3 * H0**2 / (8 * np.pi * G)
-    cross = section * C1 * c**2
-    cross = cross.to(u.GeV / u.Gyr)
-    return cross.value
+from cross_section import cross_section
 
 def main():
     ## OHD
@@ -110,8 +99,9 @@ def main():
     pdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 0], 'SN Ia': flat_samples_SNe[:, 0], 'OHD+SN Ia': flat_samples_m2[:, 0], 
                           'BAO': flat_samples_BAO[:, 0], 'OHD+SN Ia+BAO': flat_samples[:, 0]})
     plt.figure()
-    sns.kdeplot(data=pdf, legend=True)
+    sns.kdeplot(data=pdf, legend=True, bw_adjust=2, cut=0)
     plt.xlabel(r'$\Omega_{2,0}$')
+    plt.savefig('./pictures/pdf_1.svg')
     plt.show()
     # plot kc1 cdf
     cdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 1], 'SN Ia': flat_samples_SNe[:, 1], 'OHD+SN Ia': flat_samples_m2[:, 1],
@@ -119,14 +109,16 @@ def main():
     plt.figure()
     sns.ecdfplot(data=cdf, legend=True)
     plt.grid()
-    plt.xlabel(r'$\log_{10}\kappa C_1$')
+    plt.xlabel(r'$\log_{10}(\kappa C_1/Gyr^{-1})$')
+    plt.savefig('./pictures/cdf_1.svg')
     plt.show()
     # plot mx cdf
     cdf_ = pd.DataFrame({'OHD': Mx_OHD, 'SN Ia': Mx_SNe, 'OHD+SN Ia': Mx_m2, 'BAO': Mx_BAO, 'OHD+SN Ia+BAO': Mx})
     plt.figure()
     sns.ecdfplot(data=cdf_, legend=True)
     plt.grid()
-    plt.xlabel(r'$M_x$')
+    plt.xlabel(r'$\log_{10}(M_x/GeV)$')
+    plt.savefig('./pictures/cdf_2.svg')
     plt.show()
 
 if __name__ == '__main__':
