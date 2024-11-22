@@ -1,4 +1,3 @@
-# Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 import emcee
@@ -12,46 +11,40 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 from solution import const_c
 const_c /= 1000
+from cross_section import cross_section
 
-Mb = -19.3
 H0 = 70.0
-O20 = 0.28
+O20 = 0.3
 log_kC1 = -5.0
 
-# pantheon
-file_path = "./SNe/Pantheon/Pantheon.txt"
-pandata = np.loadtxt(file_path, skiprows=3, usecols=(1, 4, 5))
-z_hz = pandata[:, 0]
-m = pandata[:, 1]
-err_m = pandata[:, 2]
+# pantheon+
+file_path = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
+pandata = np.loadtxt(file_path, skiprows=1, usecols=(2, 10, 11))
+z_hd = pandata[:, 0]
+mu = pandata[:, 1]
+err_mu = pandata[:, 2]
 
 def chi_square(log_kC1, O20, H0):
     t0 = 1 / H0
     t_values = solution(log_kC1, O20, H0).t
     z_values = solution(log_kC1, O20, H0).y[0, :]
-    # Calculate luminosity distance
     dl_values = []
 
-    for z_hz_value in z_hz:
-        # Find the position of z_hz_value in z_values
+    for z_hz_value in z_hd:
         idx = np.searchsorted(z_values, z_hz_value)
-        # If z_hz_value is out of the range of z_values, use the last value
         if idx >= len(z_values):  
             idx = len(z_values) - 1
-        # Calculate the area between z0 and z1 using the trapezoidal rule
         int_value = -np.trapz(z_values[:idx], t_values[:idx])
         dl_value = const_c * (1 + z_hz_value) * (t0 - t_values[idx] + int_value)
         dl_values.append(dl_value)
 
     dl = np.array(dl_values)
-    mth = Mb + 5 * np.log10(dl) + 25
-    A = np.sum((m - mth)**2/err_m**2)
-    B = np.sum((m - mth)/err_m**2)
-    C = np.sum(1/err_m**2)
+    muth = 5 * np.log10(dl) + 25
+    A = np.sum((mu - muth)**2/err_mu**2)
+    B = np.sum((mu - muth)/err_mu**2)
+    C = np.sum(1/err_mu**2)
     chi2 = A - B**2/C + np.log(C/(2*np.pi))
     return chi2
-
-# The chi2 here has already removed the influence of Mb, so theoretically H0 cannot be constrained, which has been verified in the test
 
 def lnlike(paras):
     O20, log_kC1, H0 = paras
@@ -72,31 +65,37 @@ def lnprob(paras):
 
 def main():
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.28, -5, 70]) # expected best values
+    initial = np.array([0.3, -5, 70])
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 3)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2000, progress = True)
+        sampler.run_mcmc(pos, 2000, progress=True)
 
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}\kappa C_1$', '$H_0$']
-    flat_samples = sampler.get_chain(discard=100, flat=True)
-
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, smooth=0.5,
-                title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14})
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$', '$H_0$[km/s/Mpc]']
+    flat_samples = sampler.get_chain(discard=200, flat=True)
+    figure1 = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='g')
+    plt.tight_layout()
+    plt.show()
+    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='g')
+    plt.tight_layout()
+    plt.savefig('./pictures/sne_1.eps')
     plt.show()
 
-    fig, axes = plt.subplots(3, figsize=(10, 7), sharex=True)
-    samples = sampler.get_chain()
-    for i in range(ndim):
-        ax = axes[i]
-        ax.plot(samples[:, :, i], "k", alpha=0.3)
-        ax.set_xlim(0, len(samples))
-        ax.set_ylabel(labels[i])
-        ax.yaxis.set_label_coords(-0.1, 0.5)
-    axes[-1].set_xlabel("step number")
+    H0 = np.median(flat_samples[:,2])
+    H0_list = np.array([H0]*len(flat_samples))
+    # Plot Mx vs O20 corner plot
+    Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
+    combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
+    labels_ = [r'$\Omega_{2,0}$', r'$\log_{10}(M_x$/GeV)']
+    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='g')
+    plt.tight_layout()
+    plt.savefig('./pictures/sne_2.eps')
     plt.show()
 
 if __name__ == '__main__':

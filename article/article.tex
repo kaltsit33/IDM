@@ -1,0 +1,118 @@
+\documentclass{aa}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\begin{document} 
+
+   \title{Self-interacting dark matter model without dark energy in cosmology}
+
+   \author{Yixuan Zhu}
+
+   \institute{Department of Astronomy, Beijing Normal University.
+   Beijing 100875.
+   PR China}
+
+   \date{}
+ 
+   \abstract{}
+   
+   \keywords{}
+
+   \maketitle
+
+\section{Introduction}
+
+\section{The basic equations in the IDM model}
+
+   We assume that the total density of the cosmic fluid obeys
+   the collisional Boltzmann equation()
+   \begin{equation}
+      \dot{\rho}+3H\rho+\kappa\rho^2-2\Psi=0,
+   \end{equation}
+   where $\rho$ is the total energy-density of the cosmic fluid,
+   containing dark matter, baryons, and any type of exotic energy,
+   $\Psi$ is the rate of creation of DM particle pairs, and the
+   annihilation parameter $\kappa(\geq0)$ is given by:
+   \begin{equation}
+      \kappa=\frac{\langle\sigma u\rangle}{M_x},\label{eq:2}
+   \end{equation}
+   where $\sigma$ is the cross-section for annihilation, $u$ is
+   the mean particle velocity, and $M_x$ is the mass of the DM
+   particle.
+   Compared to the usual fluid equation, the effective pressure term
+   is \begin{equation}
+      P=\frac{\kappa\rho^2-\Psi}{3H}.
+   \end{equation}
+   When $\kappa\rho^2-\Psi<0,$ what means that the IDM particle
+   creation term is larger than the annihilation item, IDM may serve
+   as a negative pressure source in the global dynamics of the Universe,
+   like the role of Dark Energy in the general cosmolgical models.
+
+   Basilakos \& Plionis (2009) identified two functional forms for which
+   the previous Boltzmann equation can be solved analytically.
+   Refering to Appendix B in (), only one of these two is of interest
+   because it provides a "$\propto a^{-3}$" dependence of the scale factor,
+   which is \begin{equation}
+      \Psi(a)=aH(a)R(a)=C_1(n+3)a^nH(a)+\kappa C_1^2a^{2m}.
+   \end{equation}
+   And the total energy density is
+   \begin{equation}
+      \rho(a)=C_1a^n+\frac{a^{-3}F(a)}{C_2-\int_1^{a}x^{-3}f(x)F(x)\mathrm{d}x},\label{eq:5}
+   \end{equation}
+   where $f(a)=-\kappa/[aH(a)],$ and the kernal function $F(a)$ has
+   the form \begin{equation}
+      F(a)=\exp\left[-2\kappa C_1\int_1^{a}\frac{x^{n-1}}{H(x)}\mathrm{d}x\right].
+   \end{equation}
+   The first term of Eq.(\ref{eq:5}) is the density corresponding to the
+   residual matter creation that results from a possible disequilibrium
+   between the particle creation and annihilation processes, while the second
+   term can be viewed as the energy density of the self-IDM particles that are
+   dominated by the annihilation process.
+
+\subsection{Model 1: relation to the $\varLambda$CDM model}
+
+   If $n=0$, the global density evolution can be transformed as
+   \begin{equation}
+      \rho(a)=C_1+a^{-3}\frac{e^{-2\kappa C_1(t-t_0)}}{C_2-\kappa Z(t)},
+   \end{equation}
+   where $Z(t)=\int_{t_0}^ta^{-3}e^{-2\kappa C_1(t'-t_0)}\mathrm{d}t'$().
+   Using the usual unit-less $\Omega$-like parameterization, we obtain that
+   \begin{equation}
+      \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}+\frac{\Omega_{1,0}\Omega_{2,0}a^{-3}e^{-2\kappa C_1(t-t_0)}}
+      {\Omega_{1,0}+\kappa C_1\Omega_{2,0}Z(t)},
+   \end{equation}
+   where $\Omega_{1,0}=8\pi GC_1/3H_0^2$ and $\Omega_{2,0}=8\pi G/3H_0^2C_2$,
+   which related to $\Omega_{\Lambda}$ and $\Omega_m$ in the $\Lambda$CDM model,
+   respectively.
+   From Eq.({\ref{eq:2}}), we can also give the mass of the DM particle
+   related to the range of $\kappa C_1$(in the unit of Gyr${}^{-1}$)
+   \begin{equation}
+      M_x=\frac{3.325\times10^{-12}}{\kappa C_1}
+      \frac{\langle\sigma u\rangle}{10^{-23}}h^2(1-\Omega_{2,0})\,\text{GeV},
+   \end{equation}
+   where $h\equiv H_0/[100\text{km/s/Mpc}]$.
+
+\subsection{Model 2 : relation to the wCDM model}
+
+   If $\kappa=0$, the global density evolution can be written as
+   \begin{equation}
+      \rho(a)=\mathcal{D}a^{-3}+C_1a^{n},
+   \end{equation}
+   where $\mathcal{D}=C_2-C-1$. The conditions in which the current 
+   model acts as a quintessence cosmology are given by $\mathcal{D}>0,
+   C_1>0,$ and $w_{\text{IDM}}=-1-n/3$. This solution is mathematically
+   equivalent to that of the gravitational matter creation model of().
+   The Hubble flow is now given by
+   \begin{equation}
+      \left(\frac{H}{H_0}\right)^2=\Omega_{2,0}a^{-3}+\Omega_{1,0}a^{n},
+   \end{equation}
+   where $\Omega_{2,0}=8\pi G\mathcal{D}/3H_0^2$ and 
+   $\Omega_{1,0}=8\pi GC_1/3H_0^2$, respectively.()
+   
+\section{Observational data}
+
+\section{Constraint results}
+
+\section{Conclusions}
+
+\end{document}

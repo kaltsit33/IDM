@@ -86,7 +86,7 @@ def main():
     figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='b')
     plt.tight_layout()
-    plt.savefig('./pictures/ohd_1.svg')
+    plt.savefig('./pictures/ohd_1.eps')
     plt.show()
 
     H0 = np.median(flat_samples[:,2])
@@ -98,7 +98,7 @@ def main():
     figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='b')
     plt.tight_layout()
-    plt.savefig('./pictures/ohd_2.svg')
+    plt.savefig('./pictures/ohd_2.eps')
     plt.show()
 
 if __name__ == '__main__':
