@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  21 NOV 2024 07:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  25 NOV 2024 15:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -555,17 +555,74 @@ LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 72.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 72.
- [1
+
+Underfull \hbox (badness 1199) in paragraph at lines 114--119
+\T1/txr/m/n/10 To con-strain the rel-e-vant IDM mod-els (Basi-lakos & Plio-
+ []
 
 
-] (./article.aux) ) 
+Underfull \hbox (badness 1527) in paragraph at lines 114--119
+\T1/txr/m/n/10 nis (2009)), we use the newly re-vised ob-ser-va-tional $\OML/txmi/m/it/10 H\OT1/txr/m/n/10 (\OML/txmi/m/it/10 z\OT1/txr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 5077) in paragraph at lines 114--119
+\T1/txr/m/n/10 et al. (2012);Moresco et al. (2016);Rat-sim-bazafy et al.
+ []
+
+[1
+
+
+]
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 139.
+
+Overfull \hbox (7.29527pt too wide) in paragraph at lines 141--181
+ [][] 
+ []
+
+(./article.bbl
+Underfull \vbox (badness 1102) has occurred while \output is active []
+
+) [2] (./article.aux
+
+Package natbib Warning: Citation `refId0' multiply defined.
+
+
+Package natbib Warning: Citation `Borghi_2022' multiply defined.
+
+
+Package natbib Warning: Citation `Jiao_2023' multiply defined.
+
+
+Package natbib Warning: Citation `10.1093/mnrasl/slv037' multiply defined.
+
+
+Package natbib Warning: Citation `M.Moresco_2012' multiply defined.
+
+
+Package natbib Warning: Citation `Moresco_2016' multiply defined.
+
+
+Package natbib Warning: Citation `10.1093/mnras/stx301' multiply defined.
+
+
+Package natbib Warning: Citation `PhysRevD.71.123001' multiply defined.
+
+
+Package natbib Warning: Citation `Daniel.Stern_2010' multiply defined.
+
+
+Package natbib Warning: Citation `Zhang_2014' multiply defined.
+
+) ) 
 Here is how much of TeX's memory you used:
- 6814 strings out of 476683
- 103163 string characters out of 5804047
- 1865018 words of memory out of 5000000
- 26957 multiletter control sequences out of 15000+600000
- 550952 words of font info for 80 fonts, out of 8000000 for 9000
+ 6859 strings out of 476683
+ 103986 string characters out of 5804047
+ 1866018 words of memory out of 5000000
+ 26998 multiletter control sequences out of 15000+600000
+ 556014 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,11n,90p,245b,376s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,90p,728b,392s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on article.pdf (1 page).
+Output written on article.pdf (2 pages).
