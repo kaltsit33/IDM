@@ -6,10 +6,10 @@ import scipy
 import astropy.constants as const
 import astropy.units as u
 
-const_c =  const.c.value
+const_c =  const.c.value / 1000
 
-distance_gpc = 1 * u.Mpc
-distance_km = distance_gpc.to(u.km)
+distance_mpc = 1 * u.Mpc
+distance_km = distance_mpc.to(u.km)
 time_gyr = 1 * u.Gyr
 time_s = time_gyr.to(u.s)
 # Unit conversion (1/H0 to Gyr)

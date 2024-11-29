@@ -10,7 +10,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 from solution import const_c
-const_c /= 1000
 from cross_section import cross_section
 
 H0 = 70.0

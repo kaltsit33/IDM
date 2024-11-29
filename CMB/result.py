@@ -10,7 +10,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 from solution import const_c
-const_c /= 1000
 from cross_section import cross_section
 
 H0 = 67.5
@@ -43,8 +42,10 @@ def chi_square(log_kC1, O20, H0):
     a = 1 / (1 + z.y[0,:])
     dota = -z.y[1,:] * a ** 2
     dtauda = 1 / (a * dota) * const_c
+    omh2 = O20 * (H0 / 100) ** 2
+    ombh2 = 0.0224
 
-    pars = camb.set_params(H0=H0, ombh2=0.022, omch2=0.122, mnu=0.06, omk=0, tau=0.06,  
+    pars = camb.set_params(H0=H0, ombh2=ombh2, omch2=omh2-ombh2, omk=0, tau=0.06,  
                        As=2e-9, ns=0.965, halofit_version='mead', lmax=2600,
                        a_list=a, dtauda_list=dtauda)
     results = camb.get_results(pars)

@@ -88,7 +88,7 @@
    related to the range of $\kappa C_1$(in the unit of Gyr${}^{-1}$)
    \begin{equation}
       M_x=\frac{3.325\times10^{-12}}{\kappa C_1}
-      \frac{\langle\sigma u\rangle}{10^{-23}}h^2(1-\Omega_{2,0})\,\text{GeV},
+      \frac{\langle\sigma u\rangle}{10^{-23}}h^2(1-\Omega_{2,0})\,\text{GeV},\label{eq:9}
    \end{equation}
    where $h\equiv H_0/[100\text{km/s/Mpc}]$.
 
@@ -109,13 +109,13 @@
    where $\Omega_{2,0}=8\pi G\mathcal{D}/3H_0^2$ and 
    $\Omega_{1,0}=8\pi GC_1/3H_0^2$, respectively.(\cite{refId0})
    
-\section{Observational data}
+\section{Dataset}
 
    To constrain the relevant IDM models (\cite{refId0}), we use the newly revised
    observational $H(z)$ data (OHD)(\cite{Zhang_2014};\cite{PhysRevD.71.123001};
    \cite{Daniel.Stern_2010};\cite{M.Moresco_2012};\cite{Moresco_2016};
    \cite{10.1093/mnras/stx301};\cite{10.1093/mnrasl/slv037};\cite{Borghi_2022};
-   \cite{Jiao_2023}),the Pantheon+ set of 1701 SNe Ia (), the CMB data from
+   \cite{Jiao_2023}),the Pantheon+ set of 1701 SNe Ia (\cite{Scolnic_2022}), the CMB data from
    Planck 2018 and the BAO data from SDSS and DESI 2024.
 
 \subsection{The observational H(z) data}
@@ -181,18 +181,85 @@
       \label{tab:1}
    \end{table}
 
-\subsection{The observational SNe Ia data}
+\subsection{Type Ia supernovae}
 
    SNe Ia have long been used as "standard candles" to give a direct
    measurement of their luminosity distance, and provides strong constraints
    on cosmological parameters. We use the latest Pantheon+ data set of 1701 
-   SNe Ia samples, which covers the redshift range [0, 2.26].
-   \\We could use the simple likelihood function as
-   \begin{equation}
-      \chi_{S}^2=\sum_{i=1}^{1701}\frac{(\mu_{\text{th}}-\mu_{\text{data}})^2}{\sigma_i^2}.
+   SNe Ia samples(\cite{Scolnic_2022}), which covers the redshift range [0, 2.26].
+   
+   We use the fiducial SN Ia magnitude ($M_b$) determined from SH0ES 2021 Cepheid 
+   host distances(\cite{Riess_2022}), which gives the $\mu_\text{data}$ and constrains $H_0$
+   in advance. To eliminate the influence of $M_b$, we give the likelihood function
+   as \begin{equation}
+      \chi_{\text{S}}^2=A-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
    \end{equation}
+   where $A=\sum_{i=1}^{1701}(\mu_{\text{th}}-\mu_{\text{data}})^2/\sigma_i^2,
+   B=\sum_{i=1}^{1701}(\mu_{\text{th}}-\mu_{\text{data}})/\sigma_i^2,C=\sum_i^{1701}1/\sigma_i^2$,
+   the distance modulus is $\mu=5\log_{10}(d_L/\text{Mpc})+25$, and the
+   luminosity distance $d_L$ can be given as a function of redshift $z$
+   \begin{equation}
+      d_L=(1+z)\int_0^z\frac{c\mathrm{d}z'}{H(z')}.
+   \end{equation}
+   However, the Eq.(\ref{eq:9}) just need the $H_0$ to caculate the $M_x$
+   and we would still use the simple likelihood function as
+   \begin{equation}
+      \chi_{\text{SNe}}^2=A=\sum_{i=1}^{1701}\frac{(\mu_{\text{th}}-\mu_{\text{data}})^2}{\sigma_i^2}.
+   \end{equation}
+   Apparently these two functions give the same constraints in $\Omega_{2,0}$
+   and $\kappa C_1$.
 
-\subsection{The baryon acoustic oscillation data}
+\subsection{Baryon acoustic oscillation}
+
+   The Baryon acoustic oscillation method (BAO) provides a key cosmological probe
+   sensitive to the cosmic expansion history with well-controlled systematics.
+   We use two BAO data sets from the SDSS(\cite{PhysRevD.103.083533}) and DESI 2024(\cite{desicollaboration2024desi2024vicosmological}),
+   which are given at Table \ref{tab:2} and Table \ref{tab:3}, respectively.
+
+   \begin{table}[htbp]
+      \caption{The BAO-only dataset from SDSS}
+      \centering
+      \begin{tabular}{lllll}
+         \hline\hline
+            $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
+            \hline
+            0.15 & & & 4.47$\pm$0.17 \\
+            0.38 & 10.23$\pm$0.17 & 25$\pm$0.76 & \\
+            0.51 & 13.36$\pm$0.21 & 22.33$\pm$0.58 & \\
+            0.7 & 17.86$\pm$0.33 & 19.33$\pm$0.53 & \\
+            0.85 & & & $18.33_{-0.62}^{+0.57}$ \\
+            1.48 & 30.69$\pm$0.8 & 13.26$\pm$0.55 & \\
+            2.33 & 37.6$\pm$1.9 & 8.93$\pm$0.28 & \\
+            2.33 & 37.3$\pm$1.7 & 9.08$\pm$0.34 & \\
+            \hline
+      \end{tabular}
+      \label{tab:2}
+   \end{table}
+
+   \begin{table}[htbp]
+      \caption{The BAO dataset from DESI 2024}
+      \centering
+      \begin{tabular}{lllll}
+         \hline\hline
+            $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
+            \hline
+            0.295 & & & 7.93$\pm$0.15 \\
+            0.51 & 13.62$\pm$0.25 & 20.98$\pm$0.61 & \\
+            0.706 & 16.85$\pm$0.32 & 20.08$\pm$0.6 & \\
+            0.93 & 21.71$\pm$0.28 & 17.88$\pm$0.35 & \\
+            1.317 & 27.79$\pm$0.69 & 13.82$\pm$0.42 & \\
+            1.491 & & & 26.07$\pm$0.67 \\
+            2.33 & 39.71$\pm$0.94 & 8.52$\pm$0.17 & \\
+            \hline
+      \end{tabular}
+      \label{tab:3}
+   \end{table}
+
+
+\subsection{Cosmic Microwave Background}
+
+   We adopt the $\Omega_bh^2$ from BBN,
+   give the constraint to $r_d$
 
 \section{Constraint results}
 
