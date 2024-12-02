@@ -115,8 +115,8 @@
    observational $H(z)$ data (OHD)(\cite{Zhang_2014};\cite{PhysRevD.71.123001};
    \cite{Daniel.Stern_2010};\cite{M.Moresco_2012};\cite{Moresco_2016};
    \cite{10.1093/mnras/stx301};\cite{10.1093/mnrasl/slv037};\cite{Borghi_2022};
-   \cite{Jiao_2023}),the Pantheon+ set of 1701 SNe Ia (\cite{Scolnic_2022}), the CMB data from
-   Planck 2018 and the BAO data from SDSS and DESI 2024.
+   \cite{Jiao_2023}),the Pantheon+ set of 1701 SNe Ia (\cite{Scolnic_2022}),
+   the BAO data from SDSS and DESI 2024.
 
 \subsection{The observational H(z) data}
 
@@ -192,7 +192,7 @@
    host distances(\cite{Riess_2022}), which gives the $\mu_\text{data}$ and constrains $H_0$
    in advance. To eliminate the influence of $M_b$, we give the likelihood function
    as \begin{equation}
-      \chi_{\text{S}}^2=A-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
+      \chi_{\text{SNe}}^2=A-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
    \end{equation}
    where $A=\sum_{i=1}^{1701}(\mu_{\text{th}}-\mu_{\text{data}})^2/\sigma_i^2,
    B=\sum_{i=1}^{1701}(\mu_{\text{th}}-\mu_{\text{data}})/\sigma_i^2,C=\sum_i^{1701}1/\sigma_i^2$,
@@ -204,7 +204,7 @@
    However, the Eq.(\ref{eq:9}) just need the $H_0$ to caculate the $M_x$
    and we would still use the simple likelihood function as
    \begin{equation}
-      \chi_{\text{SNe}}^2=A=\sum_{i=1}^{1701}\frac{(\mu_{\text{th}}-\mu_{\text{data}})^2}{\sigma_i^2}.
+      \tilde{\chi}_{\text{SNe}}^2=A=\sum_{i=1}^{1701}\frac{(\mu_{\text{th}}-\mu_{\text{data}})^2}{\sigma_i^2}.
    \end{equation}
    Apparently these two functions give the same constraints in $\Omega_{2,0}$
    and $\kappa C_1$.
@@ -254,12 +254,6 @@
       \end{tabular}
       \label{tab:3}
    \end{table}
-
-
-\subsection{Cosmic Microwave Background}
-
-   We adopt the $\Omega_bh^2$ from BBN,
-   give the constraint to $r_d$
 
 \section{Constraint results}
 
