@@ -18,10 +18,14 @@ log_kC1 = -5.0
 
 # pantheon+
 file_path = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
-pandata = np.loadtxt(file_path, skiprows=1, usecols=(2, 10, 11))
+pandata = np.loadtxt(file_path, skiprows=1, usecols=(2, 10))
 z_hd = pandata[:, 0]
 mu = pandata[:, 1]
-err_mu = pandata[:, 2]
+
+file_path_cov = './SNe/Pantheon+ data/Pantheon+SH0ES_cov.dat'
+cov = np.loadtxt(file_path_cov, skiprows=1)
+cov_matrix = cov.reshape((1701, 1701))
+cov_matrix_inv = np.linalg.inv(cov_matrix)
 
 def chi_square(log_kC1, O20, H0):
     t0 = 1 / H0
@@ -39,7 +43,8 @@ def chi_square(log_kC1, O20, H0):
 
     dl = np.array(dl_values)
     muth = 5 * np.log10(dl) + 25
-    chi2 = np.sum((mu - muth)**2/err_mu**2)
+    delta_mu = muth - mu
+    chi2 = np.dot(delta_mu, np.dot(cov_matrix_inv, delta_mu))
     return chi2
 
 def lnlike(paras):

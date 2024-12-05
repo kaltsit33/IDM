@@ -34,14 +34,14 @@ def function(t, z, kC1, O10, H0):
     return [dz1, dz2]
 
 # Solve the original equation for z(t) and z'(t)
-def solution(log_kC1, O20, H0):
+def solution(log_kC1, O20, H0, n=100000):
     # Unit conversion
     kC1 = 10**log_kC1 * transfer
     O10 = 1 - O20
     t0 = 1 / H0
     # Solution interval
     tspan = (t0, 0)
-    tn = np.linspace(t0, 0, 100000)
+    tn = np.linspace(t0, 0, n)
     # Start from t0
     zt0 = [0, -H0]
 

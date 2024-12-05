@@ -19,66 +19,14 @@ O20 = 0.3
 log_kC1 = -5.0
 
 ### OHD
-file_path_OHD = "./OHD/OHD.csv"
-pandata_OHD = np.loadtxt(file_path_OHD, delimiter=',', skiprows=1, usecols=(0, 1, 2))
-z_hz = pandata_OHD[:, 0]
-H_z = pandata_OHD[:, 1]
-err_H = pandata_OHD[:, 2]
-
-class OHD:
-    def __init__(self, log_kC1, O20, H0):
-        self.log_kC1 = log_kC1
-        self.O20 = O20
-        self.H0 = H0
-        self.Z0 = solution(log_kC1, O20, H0).y[0,:]
-        self.Z1 = solution(log_kC1, O20, H0).y[1,:]
-
-    def H_th(self, z):
-        idx = np.searchsorted(self.Z0, z)
-        if idx >= len(self.Z0):
-            idx = len(self.Z0) - 1
-        z1 = self.Z1[idx]
-        return -1 / (1 + z) * z1
-    
+import OHD.result 
 def chi_square_OHD(log_kC1, O20, H0):
-    theory = OHD(log_kC1, O20, H0)
-    chi2 = 0
-    for i in range(len(z_hz)):
-        z0 = z_hz[i]
-        H_th = theory.H_th(z0)
-        chi2 += (H_z[i] - H_th)**2 / err_H[i]**2
-    return chi2
+    return OHD.result.chi_square(log_kC1, O20, H0)
 
 ### SNe Ia
-file_path_SNe = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
-pandata_SNe = np.loadtxt(file_path_SNe, skiprows=1, usecols=(2, 10, 11))
-z_hd = pandata_SNe[:, 0]
-mu = pandata_SNe[:, 1]
-err_mu = pandata_SNe[:, 2]
-
-class SNe:
-    def __init__(self, log_kC1, O20, H0):
-        self.log_kC1 = log_kC1
-        self.O20 = O20
-        self.H0 = H0
-        self.t0 = 1 / H0
-        self.t_values = solution(log_kC1, O20, H0).t
-        self.z_values = solution(log_kC1, O20, H0).y[0, :]
-
-    def DL(self, z):
-        idx = np.searchsorted(self.z_values, z)
-        if idx >= len(self.z_values):
-            idx = len(self.z_values) - 1
-        int_value = -np.trapz(self.z_values[:idx], self.t_values[:idx])
-        dl_value = const_c * (1 + z) * (self.t0 - self.t_values[idx] + int_value)
-        return dl_value
-    
+import SNe.result2
 def chi_square_SNe(log_kC1, O20, H0):
-    theory = SNe(log_kC1, O20, H0)
-    dl_values = np.array([theory.DL(z) for z in z_hd])
-    muth = 5 * np.log10(dl_values) + 25
-    A = np.sum((mu - muth)**2 / err_mu**2)
-    return A
+    return SNe.result2.chi_square(log_kC1, O20, H0)
 
 ### MCMC
 

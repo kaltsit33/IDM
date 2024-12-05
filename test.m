@@ -18,12 +18,9 @@ function test(log_kC1, O20, H0)
     % Plot the results
     figure;
     plot(t, z(:, 1), 'DisplayName', 'z(t)');
-    hold on;
-    plot(t, z(:, 2), 'DisplayName', 'z''(t)');
     xlabel('Time');
     ylabel('Solution');
     legend;
-    hold off;
 end
 
 function dz = function_(~, z, kC1, O10, H0)
