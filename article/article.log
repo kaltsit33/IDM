@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  2 DEC 2024 14:35
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  8 DEC 2024 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -420,7 +420,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
 LaTeX Info: Redefining \not on input line 1043.
 )
-LaTeX Font Info:    Trying to load font information for T1+txr on input line 5.
+LaTeX Font Info:    Trying to load font information for T1+txr on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/t1txr.fd
 File: t1txr.fd 2000/12/15 v3.1
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
@@ -433,42 +433,42 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 ) (./article.aux)
 \openout1 = `article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 5.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 5.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 6.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 5.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 5.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 5.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    ... okay on input line 6.
 
 *geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
@@ -503,64 +503,64 @@ LaTeX Font Info:    ... okay on input line 5.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for TS1+txr on input line 21.
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 22.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 21.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 21.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 21.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 21.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for T1+txss on input line 21.
+LaTeX Font Info:    Trying to load font information for T1+txss on input line 22.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 21.
+(Font)              scaled to size 16.41594pt on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 21.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 21.
+(Font)              scaled to size 16.41594pt on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 21.
+(Font)              scaled to size 8.54997pt on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 21.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 8.54997pt on input line 21.
+(Font)              scaled to size 8.54997pt on input line 22.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 23.
+(Font)              scaled to size 10.40245pt on input line 24.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 23.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 23.
+(Font)              scaled to size 10.40245pt on input line 24.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 72.
+(Font)              scaled to size 9.49997pt on input line 73.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 72.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 73.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 72.
+(Font)              scaled to size 9.49997pt on input line 73.
  [1
 
 
 ]
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 140.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 141.
  (./article.bbl [2]) [3
 
 ] (./article.aux
@@ -608,10 +608,10 @@ Package natbib Warning: Citation `Zhang_2014' multiply defined.
 
 ) ) 
 Here is how much of TeX's memory you used:
- 6874 strings out of 476683
- 104354 string characters out of 5804047
- 1869018 words of memory out of 5000000
- 27013 multiletter control sequences out of 15000+600000
+ 6875 strings out of 476683
+ 104360 string characters out of 5804047
+ 1871018 words of memory out of 5000000
+ 27014 multiletter control sequences out of 15000+600000
  556014 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  85i,13n,90p,2042b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s

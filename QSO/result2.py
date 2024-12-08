@@ -68,17 +68,17 @@ def lnprob(paras):
 
 def main():
     nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.3, -3, 70, -11, 0.6, 0.2])
+    initial = np.array([0.35, -2, 70, -11, 0.6, 0.2])
     soln = scipy.optimize.minimize(nll, initial)
     pos = soln.x + 1e-4 * np.random.randn(50, 6)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2000, progress=True)
+        sampler.run_mcmc(pos, 2500, progress=True)
 
     labels = [r'$\Omega_{2,0}$',r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$','$H_0$[km/s/Mpc]',r'$\beta$',r'$\gamma$',r'$\delta$']
-    flat_samples = sampler.get_chain(discard=200, flat=True)
+    flat_samples = sampler.get_chain(discard=400, flat=True)
     figure1 = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='g')
     plt.tight_layout()

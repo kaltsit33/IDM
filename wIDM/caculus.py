@@ -53,6 +53,24 @@ def chi_square_SNe(O20, n, H0):
     chi2 = np.dot(delta_mu, np.dot(cov_matrix_inv, delta_mu))
     return chi2
 
+### QSO
+file_path = "./QSO/data/table3.dat"
+data = np.loadtxt(file_path, skiprows=1, usecols=(3,11,12))
+z_qso = data[:,0]
+DM = data[:,1]
+e_DM = data[:,2]
+
+def chi_square_QSO(O20, n, H0):
+    dl = []
+    for z in z_qso:
+        int_value = scipy.integrate.quad(H_ad, 0, z, args=(O20, n, H0))[0]
+        dl.append(const_c*(1 + z)*int_value)
+    dl = np.array(dl)
+    muth = 5 * np.log10(dl) + 25
+    delta_DM = muth - DM
+    chi2 = np.sum(delta_DM**2/e_DM**2)
+    return chi2
+
 ### BAO
 file_path_BAO = "./BAO/BAO.csv"
 pandata_BAO = np.loadtxt(file_path_BAO, delimiter=',', skiprows=1, usecols=(3, 4, 5, 6, 7, 8, 9))

@@ -1,6 +1,7 @@
 \documentclass{aa}
 \usepackage{graphicx}
 \usepackage{txfonts}
+\graphicspath{{./pictures/}}
 
 \begin{document} 
 
@@ -79,7 +80,7 @@
    Using the usual unit-less $\Omega$-like parameterization, we obtain that
    \begin{equation}
       \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}+\frac{\Omega_{1,0}\Omega_{2,0}a^{-3}e^{-2\kappa C_1(t-t_0)}}
-      {\Omega_{1,0}+\kappa C_1\Omega_{2,0}Z(t)},
+      {\Omega_{1,0}+\kappa C_1\Omega_{2,0}Z(t)},\label{eq:8}
    \end{equation}
    where $\Omega_{1,0}=8\pi GC_1/3H_0^2$ and $\Omega_{2,0}=8\pi G/3H_0^2C_2$,
    which related to $\Omega_{\Lambda}$ and $\Omega_m$ in the $\Lambda$CDM model,
@@ -190,7 +191,7 @@
    
    We use the fiducial SN Ia magnitude ($M_b$) determined from SH0ES 2021 Cepheid 
    host distances(\cite{Riess_2022}), which gives the $\mu_\text{data}$ and constrains $H_0$
-   in advance. To eliminate the influence of $M_b$, we give the likelihood function
+   in advance. To eliminate the influence of $M_b$, we give the $\chi^2$
    as \begin{equation}
       \chi_{\text{SNe}}^2=A-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
    \end{equation}
@@ -204,10 +205,16 @@
    However, the Eq.(\ref{eq:9}) just need the $H_0$ to caculate the $M_x$
    and we would still use the simple likelihood function as
    \begin{equation}
-      \tilde{\chi}_{\text{SNe}}^2=A=\sum_{i=1}^{1701}\frac{(\mu_{\text{th}}-\mu_{\text{data}})^2}{\sigma_i^2}.
+      \tilde{\chi}_{\text{SNe}}^2=\Delta^{\text{T}}C^{-1}\Delta,
    \end{equation}
-   Apparently these two functions give the same constraints in $\Omega_{2,0}$
-   and $\kappa C_1$.
+   where $\Delta=(\mu_{\text{th}}-\mu_{\text{data}})$ and $C^{-1}$ is the inverse of the
+   covariance matrix of the SNe Ia data.
+
+   $B=\Delta^{\text{T}}C^{-1}$ and $C=\text{sum}(C^{-1})$.
+
+\subsection{Quasar}
+
+   The quasar gives a higher redshift
 
 \subsection{Baryon acoustic oscillation}
 
@@ -215,6 +222,26 @@
    sensitive to the cosmic expansion history with well-controlled systematics.
    We use two BAO data sets from the SDSS(\cite{PhysRevD.103.083533}) and DESI 2024(\cite{desicollaboration2024desi2024vicosmological}),
    which are given at Table \ref{tab:2} and Table \ref{tab:3}, respectively.
+   The redshift is up to 2.33 both in the SDSS and the DESI 2024 dataset.
+
+   The $\chi^2$ function for the BAO data is defined as
+   \begin{equation}
+      \chi_{\text{BAO}}^2=\sum_i\frac{(D_{\text{th}}/r_{\text{d}}-D_{\text{data}}/r_{\text{d}})^2}{\sigma_i^2},
+   \end{equation}
+   where $D$ refers to $D_{\text{M}}$, $D_{\text{H}}$, or $D_{\text{V}}$, which ara given as
+   \begin{eqnarray}
+      D_{\text{M}}(z)&=&c\int_0^z\frac{\text{d}z'}{H(z')},\\
+      D_{\text{H}}(z)&=&\frac{c}{H(z)},\\
+      D_{\text{V}}(z)&=&\left[zD_{\text{M}}^2(z)D_{\text{H}}(z)\right]^{1/3},\\
+   \end{eqnarray}
+   and $r_{\text{d}}$ is the sound horizon at the drag epoch, which is given as
+   \begin{equation}
+      r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s\text{d}z'}{H(z')}.
+   \end{equation}
+
+   However, the Eq.(\ref{eq:8}) just have a stiff point when $z\to\infty$, so the IDM
+   model can not give a constraint to the $r_{\text{d}}$ and we just try to use the cross
+   parameter $r_{\text{d}}h$ to give the constraints.
 
    \begin{table}[htbp]
       \caption{The BAO-only dataset from SDSS}
