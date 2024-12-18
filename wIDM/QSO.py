@@ -37,10 +37,10 @@ def main():
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2000, progress = True)
+        sampler.run_mcmc(pos, 2500, progress = True)
 
     labels = [r'$\Omega_{2,0}$', '$n$', '$H_0$[km/s/Mpc]']
-    flat_samples = sampler.get_chain(discard=100, flat=True)
+    flat_samples = sampler.get_chain(discard=400, flat=True)
     figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
                             title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='g')
     plt.tight_layout()

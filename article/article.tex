@@ -1,25 +1,22 @@
-\documentclass{aa}
-\usepackage{graphicx}
-\usepackage{txfonts}
+\documentclass[twocolumn]{aastex631}
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
 \graphicspath{{./pictures/}}
 
 \begin{document} 
 
    \title{Self-interacting dark matter model without dark energy in cosmology}
 
-   \author{Yixuan Zhu}
-
-   \institute{Department of Astronomy, Beijing Normal University.
+   \author{Yixuan Zhu}\affiliation{Department of Astronomy, Beijing Normal University.
    Beijing 100875.
    PR China}
-
-   \date{}
  
-   \abstract{}
+   \begin{abstract}
+
+   \end{abstract}
    
    \keywords{}
-
-   \maketitle
 
 \section{Introduction}
 
@@ -70,7 +67,7 @@
    term can be viewed as the energy density of the self-IDM particles that are
    dominated by the annihilation process.
 
-\subsection{Model 1: relation to the $\varLambda$CDM model}
+\subsection{Model 1: relation to the LambdaCDM model}
 
    If $n=0$, the global density evolution can be transformed as
    \begin{equation}
@@ -190,7 +187,7 @@
    SNe Ia samples(\cite{Scolnic_2022}), which covers the redshift range [0, 2.26].
    
    We use the fiducial SN Ia magnitude ($M_b$) determined from SH0ES 2021 Cepheid 
-   host distances(\cite{Riess_2022}), which gives the $\mu_\text{data}$ and constrains $H_0$
+   host distances(\cite{Riess_2022}), which gives the $\mu_{\text{data}}$ and constrains $H_0$
    in advance. To eliminate the influence of $M_b$, we give the $\chi^2$
    as \begin{equation}
       \chi_{\text{SNe}}^2=A-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
@@ -209,12 +206,33 @@
    \end{equation}
    where $\Delta=(\mu_{\text{th}}-\mu_{\text{data}})$ and $C^{-1}$ is the inverse of the
    covariance matrix of the SNe Ia data.
-
    $B=\Delta^{\text{T}}C^{-1}$ and $C=\text{sum}(C^{-1})$.
 
 \subsection{Quasar}
 
-   The quasar gives a higher redshift
+   The quasar gives a higher redshift than SNe Ia.
+   We use the QSO dataset from \cite{Lusso_2020}, which gives
+   2421 samples with the ultraviolet (UV) and X-ray luminosity.
+   The redshift is up to $\simeq7.5$.
+
+   The $L_X-L_{UV}$ relation of quasar is usually written as
+   \begin{equation}
+      L_X=\beta+\gamma\log L_{UV},
+   \end{equation}
+   which gives that
+   \begin{equation}
+      \log_{10}(F_X)=\beta+(\gamma-1)\log_{10}(4\pi)+\gamma\log_{10}(F_{UV})
+                    +2(\gamma-1)\log_{10}(d_L),
+   \end{equation}
+   where $d_L$ is the luminosity distance same as which in the SNe Ia,Eq.15
+   so the $\chi^2$ function for the QSO data can be defined as
+   \begin{equation}
+      \chi_{\text{QSO}}^2=\sum_i^{2421}\frac{(y_{\text{th}}^2-y_{\text{data}}^2)}{s_i^2}
+      -\ln(2\pi s_i^2),
+   \end{equation}
+   where $s_i^2=\mathrm{d}y_i^2+\gamma^2\mathrm{d}x_i^2+\delta^2$ refers to the 
+   uncertainties on the $x_i\ (\log_{10}F_X)$ and $y_i\ (\log_{10}F_{UV})$ and
+   $\delta_i$ reprensent the instrinsic dispersion.
 
 \subsection{Baryon acoustic oscillation}
 
@@ -232,7 +250,7 @@
    \begin{eqnarray}
       D_{\text{M}}(z)&=&c\int_0^z\frac{\text{d}z'}{H(z')},\\
       D_{\text{H}}(z)&=&\frac{c}{H(z)},\\
-      D_{\text{V}}(z)&=&\left[zD_{\text{M}}^2(z)D_{\text{H}}(z)\right]^{1/3},\\
+      D_{\text{V}}(z)&=&\left[zD_{\text{M}}^2(z)D_{\text{H}}(z)\right]^{1/3},
    \end{eqnarray}
    and $r_{\text{d}}$ is the sound horizon at the drag epoch, which is given as
    \begin{equation}
@@ -282,11 +300,30 @@
       \label{tab:3}
    \end{table}
 
+\subsection{Reduced CMB parameters}
+
+   We used the reduced CMB parameters $\{l_A,R,z_{*}\}$ from Planck 2018
+   to constrains the model. The reduced CMB parameters are
+   \begin{equation}
+      l_A=\frac{\pi r(z_{*})}{r_s(z_{*})}
+   \end{equation}
+   which refer to acoustic scale, and the shift parameter is given as
+   \begin{equation}
+      R=H_0\sqrt{\Omega_{m0}}r(z_{*})\sim H_0\sqrt{\Omega_{2,0}}r(z_{*}),
+   \end{equation}
+   where $r(z_{*})$ and $r_s(z_{*})$ are defined as
+   \begin{eqnarray}
+      r(z_{*})=\int_0^{z_{*}}\frac{z'\mathrm{d}z'}{H(z')},\\
+      r_s(z_{*})=\int_{z_{*}}^{\infty}\frac{c_s\mathrm{d}z'}{H(z')}.
+   \end{eqnarray}
+   As the same as what we do in BAO data, we choose the cross parameter
+   $r_s(z_{*})h$ and give the $z_{*}\simeq1090$ to constrain the model.
+
 \section{Constraint results}
 
 \section{Conclusions}
 
-\bibliographystyle{aa}
 \bibliography{reference}
+\bibliographystyle{aasjournal}
 
 \end{document}

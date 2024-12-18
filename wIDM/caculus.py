@@ -54,8 +54,8 @@ def chi_square_SNe(O20, n, H0):
     return chi2
 
 ### QSO
-file_path = "./QSO/data/table3.dat"
-data = np.loadtxt(file_path, skiprows=1, usecols=(3,11,12))
+file_path_QSO = "./QSO/data/table3.dat"
+data = np.loadtxt(file_path_QSO, skiprows=1, usecols=(3,11,12))
 z_qso = data[:,0]
 DM = data[:,1]
 e_DM = data[:,2]

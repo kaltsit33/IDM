@@ -44,7 +44,7 @@ def logFX_z(log_kC1, O20, H0, beta, gamma):
 
 def chi_square(log_kC1, O20, H0, beta, gamma, delta):
     delta_fx = logFX_z(log_kC1, O20, H0, beta, gamma) - logFX
-    sigma_2 = e_logFX**2 + delta**2
+    sigma_2 = e_logFX**2 + gamma**2*e_logFUV**2 + delta**2
     chi2 = np.sum(delta_fx**2/sigma_2)
     extra = np.sum(np.log(2*np.pi*sigma_2))
     return chi2 + extra
@@ -69,8 +69,9 @@ def lnprob(paras):
 def main():
     nll = lambda *args: -lnlike(*args)
     initial = np.array([0.35, -2, 70, -11, 0.6, 0.2])
-    soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 6)
+    # soln = scipy.optimize.minimize(nll, initial)
+    # pos = soln.x + 1e-4 * np.random.randn(50, 6)
+    pos = initial + 1e-4 * np.random.randn(50, 6)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:

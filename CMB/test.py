@@ -6,6 +6,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from solution import solution
 from solution import const_c
+from cross_section import cross_section
 
 file_path_TT = "./CMB/data/COM_PowerSpect_CMB-TT-full_R3.01.txt"
 data_TT = np.loadtxt(file_path_TT, skiprows=1)
@@ -77,33 +78,81 @@ def plot(log_kC1, O20, H0):
     ax[1,1].text(0, 0.5, 'chi2 = ' + str(chi2(log_kC1, O20, H0)), fontsize=15)
     plt.show()
 
+import multiprocessing as mp
+import emcee
+import corner
+import scipy
+
+def r(z, paras):
+    log_kC1, O20, H0, rsh = paras
+    sol = solution(log_kC1, O20, H0)
+    z0 = scipy.interpolate.interp1d(sol.t, sol.y[0,:], kind='cubic', fill_value='extrapolate')
+    t0 = 1/H0
+    t_z = scipy.optimize.root_scalar(lambda t: z0(t) - z, method='newton', x0=0)
+    r_z = scipy.integrate.quad(lambda t: (1+z0(t)), t_z.root, t0)
+    return r_z[0]
+
+def chi_square(paras):
+    # paras = [logkC1,O20,H0,rsh]
+    z_star = 1090
+    r_s_star = paras[3] / paras[2] * 1e2
+    R = r(z_star, paras) * paras[2] * np.sqrt(paras[1])
+    r_star = r(z_star, paras) * const_c
+    l_A = np.pi * r_star / r_s_star
+    R_data = [1.75,0.0089]
+    l_data = [301.66,0.18]
+    chi2_1 = (R - R_data[0])**2/(R_data[1]**2)
+    chi2_2 = (l_A - l_data[0])**2/(l_data[1]**2)
+    return chi2_1+chi2_2
+
+def lnlike(paras):
+    O20, log_kC1, H0, rsh = paras
+    paras_ = [log_kC1, O20, H0, rsh]
+    chi2 = chi_square(paras_)
+    return -0.5 * chi2
+
+def lnprior(paras):
+    O20, log_kC1, H0, rsh = paras
+    if 0 < O20 < 0.5 and -10 < log_kC1 < 0 and 50 < H0 < 80 and 50 < rsh < 150:
+        return 0.0
+    return -np.inf
+
+def lnprob(paras):
+    lp = lnprior(paras)
+    if not np.isfinite(lp):
+        return -np.inf
+    return lp + lnlike(paras)
+
 def main():
-    log_kC1_list = np.linspace(-8, -6, 20)
-    O20_list = np.linspace(0.25, 0.35, 10)
-    H0 = 67.5
-    import concurrent.futures
+    initial = np.array([0.3, -6.5, 67.5, 110]) # expected best values
+    pos = initial + 1e-4 * np.random.randn(50, 4)
+    nwalkers, ndim = pos.shape
 
-    chi2_values = np.zeros((len(log_kC1_list), len(O20_list)))
+    with mp.Pool() as pool:
+        sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
+        sampler.run_mcmc(pos, 3000, progress = True)
 
-    def compute_chi2(params):
-        log_kC1, O20 = params
-        return chi2(log_kC1, O20, H0)
-
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        results = executor.map(compute_chi2, [(log_kC1, O20) for log_kC1 in log_kC1_list for O20 in O20_list])
-
-    for idx, result in enumerate(results):
-        i = idx // len(O20_list)
-        j = idx % len(O20_list)
-        chi2_values[i, j] = result
-
-    log_kC1_grid, O20_grid = np.meshgrid(log_kC1_list, O20_list, indexing='ij')
-    plt.contourf(log_kC1_grid, O20_grid, chi2_values, levels=50, cmap='viridis')
-    plt.colorbar(label='chi2')
-    plt.xlabel('log_kC1')
-    plt.ylabel('O20')
-    plt.title('chi2 Contour Plot')
+    labels = [r'$\Omega_{2,0}$', r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$', '$H_0$[km/s/Mpc]', '$r_{*}h$']
+    flat_samples = sampler.get_chain(discard=500, flat=True)
+    figure1 = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
+    plt.tight_layout()
+    plt.show()
+    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
+    plt.tight_layout()
     plt.show()
 
-if __name__ == "__main__":
-    plot(-7.5, 0.3, 67.5)
+    H0 = np.median(flat_samples[:,2])
+    H0_list = np.array([H0]*len(flat_samples))
+    Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
+    combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
+    labels_ = [r'$\Omega_{2,0}$', r'$\log_{10}(M_x$/GeV)']
+    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
+                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == '__main__':
+    mp.freeze_support()
+    main()
