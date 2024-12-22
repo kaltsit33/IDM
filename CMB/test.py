@@ -80,7 +80,7 @@ def plot(log_kC1, O20, H0):
 
 import multiprocessing as mp
 import emcee
-import corner
+from getdist import plots, MCSamples
 import scipy
 
 def r(z, paras):
@@ -132,26 +132,27 @@ def main():
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 3000, progress = True)
 
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$', '$H_0$[km/s/Mpc]', '$r_{*}h$']
+    labels = [r'\Omega_{2,0}', r'\log_{10}(\kappa C_1/Gyr{}^{-1})', 'H_0[km/s/Mpc]', r'r_{\star}h']
     flat_samples = sampler.get_chain(discard=500, flat=True)
-    figure1 = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
-    plt.tight_layout()
-    plt.show()
-    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
-    plt.tight_layout()
+    samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
+    g = plots.get_subplot_plotter()
+    g.triangle_plot(samples, filled=True, contour_colors=['k'], title_limit=1)
     plt.show()
 
-    H0 = np.median(flat_samples[:,2])
-    H0_list = np.array([H0]*len(flat_samples))
-    Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
-    combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
-    labels_ = [r'$\Omega_{2,0}$', r'$\log_{10}(M_x$/GeV)']
-    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='k')
-    plt.tight_layout()
+    labels_ = [r'$\Omega_{2,0}$', r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$', '$H_0$[km/s/Mpc]', '$r_{*}h$']
+    fig, axes = plt.subplots(4, figsize=(10, 10), sharex=True)
+    samples = sampler.get_chain()
+    for i in range(ndim):
+        ax = axes[i]
+        ax.plot(samples[:, :, i], "k", alpha=0.3)
+        ax.set_xlim(0, len(samples))
+        ax.set_ylabel(labels_[i])
+        ax.yaxis.set_label_coords(-0.1, 0.5)
+
+    axes[-1].set_xlabel("step number")
     plt.show()
+
+
 
 if __name__ == '__main__':
     mp.freeze_support()

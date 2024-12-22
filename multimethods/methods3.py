@@ -1,16 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import emcee
-import corner
+from getdist import plots, MCSamples
 import scipy
 import multiprocessing as mp
 
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from solution import solution
-from solution import const_c
-const_c /= 1000
 from cross_section import cross_section
 
 H0 = 70.0
@@ -63,27 +60,25 @@ def main():
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 2000, progress = True)
 
-    labels = [r'$\Omega_{2,0}$', r'$\log_{10}(\kappa C_1/$Gyr${}^{-1})$', '$H_0$[km/s/Mpc]', '$r_dh$[Mpc]']
+    labels = [r'\Omega_{2,0}', r'\log_{10}(\kappa C_1/Gyr{}^{-1})', 'H_0[km/s/Mpc]', 'r_dh[Mpc]']
     flat_samples = sampler.get_chain(discard=200, flat=True)
-    figure1 = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='m')
-    plt.tight_layout()
+    samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
+    g = plots.get_subplot_plotter()
+    g.triangle_plot(samples, filled=True, contour_colors=['m'], title_limit=1)
     plt.show()
-    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='m')
-    plt.tight_layout()
-    plt.savefig('./article/pictures/ohd_sne_bao_1.eps')
+    samples_2 = MCSamples(samples=flat_samples[:,0:2], names=labels[0:2], labels=labels[0:2])
+    g.triangle_plot(samples_2, filled=True, contour_colors=['m'], title_limit=1)
+    g.export('./article/pictures/ohd_sne_bao_1.pdf')
     plt.show()
 
     H0 = np.median(flat_samples[:,2])
     H0_list = np.array([H0]*len(flat_samples))
     Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
     combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
-    labels_ = [r'$\Omega_{2,0}$', r'$\log_{10}(M_x$/GeV)']
-    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='m')
-    plt.tight_layout()
-    plt.savefig('./article/pictures/ohd_sne_bao_2.eps')
+    labels_ = [r'\Omega_{2,0}', r'\log_{10}(M_x/GeV)']
+    samples_ = MCSamples(samples=combined_samples, names=labels_, labels=labels_)
+    g.triangle_plot(samples_, filled=True, contour_colors=['m'], title_limit=1)
+    g.export('./article/pictures/ohd_sne_bao_2.pdf')
     plt.show()
 
 if __name__ == '__main__':

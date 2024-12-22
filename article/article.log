@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  18 DEC 2024 14:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  20 DEC 2024 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -444,26 +444,31 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1]
-Underfull \hbox (badness 1748) in paragraph at lines 112--118
-\TU/lmr/m/n/10 et al.[][] ([][]2016[][]); [][]Ratsimbazafy et al.[][] ([][]2017[][]);[][]Moresco[][]
+Underfull \hbox (badness 1648) in paragraph at lines 112--120
+\TU/lmr/m/n/10 & Plionis[][] ([][]2009[][])), we use the newly revised ob-
  []
 
 
-Overfull \hbox (45.86118pt too wide) detected at line 226
-[][][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^L \OT1/cmr/m/n/10 + (\OML/cmm/m/it/10 ^^M \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) [][](4\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 ^^M [][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 ) + 2(\OML/cmm/m/it/10 ^^M \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) [][](\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []
+Underfull \hbox (badness 1147) in paragraph at lines 112--120
+\TU/lmr/m/n/10 servational $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )$ \TU/lmr/m/n/10 data (OHD)([][]Simon et al.[][] ([][]2005[][]);
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 112--120
+\TU/lmr/m/n/10 ([][]2014[][]); [][]Moresco et al.[][] ([][]2016[][]);[][]Ratsimbazafy et al.[][]
  []
 
 [2] (./article.bbl [3]) [4] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
-(rerunfilecheck)             Checksum: 1D37E09C5F04CDD179B85F39A51A3264;2010.
+(rerunfilecheck)             Checksum: CA106E8CA7B8DF72D8B9533CE874E8AF;2229.
  ) 
 Here is how much of TeX's memory you used:
- 12129 strings out of 476683
- 183988 string characters out of 5804047
- 1890018 words of memory out of 5000000
- 32208 multiletter control sequences out of 15000+600000
- 520349 words of font info for 81 fonts, out of 8000000 for 9000
+ 12138 strings out of 476683
+ 184118 string characters out of 5804047
+ 1897018 words of memory out of 5000000
+ 32215 multiletter control sequences out of 15000+600000
+ 520357 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,11n,90p,2042b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,90p,2042b,361s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on article.pdf (4 pages).

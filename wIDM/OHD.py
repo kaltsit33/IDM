@@ -3,7 +3,7 @@ import scipy
 import matplotlib.pyplot as plt
 import multiprocessing as mp
 import emcee
-import corner
+from getdist import plots, MCSamples
 
 import sys
 import os
@@ -38,25 +38,23 @@ def main():
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
         sampler.run_mcmc(pos, 5000, progress = True)
 
-    labels = [r'$\Omega_{2,0}$', '$n$', '$H_0$[km/s/Mpc]']
+    labels = [r'\Omega_{2,0}', 'n', 'H_0[km/s/Mpc]']
     flat_samples = sampler.get_chain(discard=200, flat=True)
-    figure = corner.corner(flat_samples, levels=(0.6826,0.9544), labels=labels, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='b')
-    plt.tight_layout()
+    samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
+    g = plots.get_subplot_plotter()
+    g.triangle_plot(samples, filled=True, contour_colors=['b'], title_limit=1)
     plt.show()
-    figure2 = corner.corner(flat_samples[:,0:2], levels=(0.6826,0.9544), labels=labels[0:2], plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='b')
-    plt.tight_layout()
-    plt.savefig('./article/pictures/ohd_widm_1.eps')
+    samples_2 = MCSamples(samples=flat_samples[:,0:2], names=labels[0:2], labels=labels[0:2])
+    g.triangle_plot(samples_2, filled=True, contour_colors=['b'], title_limit=1)
+    g.export('./article/pictures/ohd_widm_1.pdf')
     plt.show()
 
     wIDM = -1 - flat_samples[:,1]/3
     combined_samples = np.vstack((flat_samples[:,0], wIDM)).T
-    labels_ = [r'$\Omega_{2,0}$', '$w_{IDM}$']
-    figure = corner.corner(combined_samples, levels=(0.6826,0.9544), labels=labels_, plot_datapoints=False, plot_density=False, fill_contours=True,
-                            title_fmt='.4f', show_titles=True, title_kwargs={"fontsize": 14}, smooth=1, smooth1d=4, bins=50, hist_bin_factor=4, color='b')
-    plt.tight_layout()
-    plt.savefig('./article/pictures/ohd_widm_2.eps')
+    labels_ = [r'\Omega_{2,0}', 'w_{IDM}']
+    samples_ = MCSamples(samples=combined_samples, names=labels_, labels=labels_)
+    g.triangle_plot(samples_, filled=True, contour_colors=['b'], title_limit=1)
+    g.export('./article/pictures/ohd_widm_2.pdf')
     plt.show()
 
 if __name__ == '__main__':
