@@ -133,8 +133,9 @@ def main():
         sampler.run_mcmc(pos, 3000, progress = True)
 
     labels = [r'\Omega_{2,0}', r'\log_{10}(\kappa C_1/Gyr{}^{-1})', 'H_0[km/s/Mpc]', r'r_{\star}h']
+    names = ['O20', 'log_kC1', 'H0', 'rsh']
     flat_samples = sampler.get_chain(discard=500, flat=True)
-    samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
+    samples = MCSamples(samples=flat_samples, names=names, labels=labels, ranges={'log_kC1':(-10, None)})
     g = plots.get_subplot_plotter()
     g.triangle_plot(samples, filled=True, contour_colors=['k'], title_limit=1)
     plt.show()

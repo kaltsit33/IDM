@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  20 DEC 2024 19:31
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  26 DEC 2024 09:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -387,88 +387,120 @@ Package: ulem 2019/11/18
 \currwidth=\dimen167
 \interactbox=\box87
 \movetableright=\dimen168
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip69
+\subfigcapskip=\skip70
+\subfigcaptopadj=\dimen169
+\subfigbottomskip=\skip71
+\subfigcapmargin=\dimen170
+\subfiglabelskip=\skip72
+\c@subfigure=\count329
+\c@lofdepth=\count330
+\c@subtable=\count331
+\c@lotdepth=\count332
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2023/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip73
+\subfig@bottom=\skip74
 )
-Class revtex4-1 Info: Unrecognized array package. Please update this document class! (Proceeding with fingers crossed.) on input line 7.
-Class revtex4-1 Info: Patching unrecognized longtable package. (Proceeding with fingers crossed) on input line 7.
-Class revtex4-1 Info: cite was not loaded (OK!) on input line 7.
-Class revtex4-1 Info: mcite was not loaded (OK!) on input line 7.
-Class revtex4-1 Info: multicol was not loaded (OK!) on input line 7.
+Class revtex4-1 Info: Unrecognized array package. Please update this document class! (Proceeding with fingers crossed.) on input line 5.
+Class revtex4-1 Info: Patching unrecognized longtable package. (Proceeding with fingers crossed) on input line 5.
+Class revtex4-1 Info: cite was not loaded (OK!) on input line 5.
+Class revtex4-1 Info: mcite was not loaded (OK!) on input line 5.
+Class revtex4-1 Info: multicol was not loaded (OK!) on input line 5.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
-\g__graphics_track_int=\count329
+\g__graphics_track_int=\count333
 \l__pdf_internal_box=\box88
-\g__pdf_backend_object_int=\count330
-\g__pdf_backend_annotation_int=\count331
-\g__pdf_backend_link_int=\count332
+\g__pdf_backend_object_int=\count334
+\g__pdf_backend_annotation_int=\count335
+\g__pdf_backend_link_int=\count336
 ) (./article.aux)
 \openout1 = `article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-Package hyperref Info: Link coloring ON on input line 7.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+Package hyperref Info: Link coloring ON on input line 5.
  (./article.out) (./article.out)
 \@outlinefile=\write4
 \openout4 = `article.out'.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 21.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1]
-Underfull \hbox (badness 1648) in paragraph at lines 112--120
+Underfull \hbox (badness 1648) in paragraph at lines 110--117
 \TU/lmr/m/n/10 & Plionis[][] ([][]2009[][])), we use the newly revised ob-
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 112--120
+Underfull \hbox (badness 1147) in paragraph at lines 110--117
 \TU/lmr/m/n/10 servational $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )$ \TU/lmr/m/n/10 data (OHD)([][]Simon et al.[][] ([][]2005[][]);
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 112--120
+Underfull \hbox (badness 1748) in paragraph at lines 110--117
 \TU/lmr/m/n/10 ([][]2014[][]); [][]Moresco et al.[][] ([][]2016[][]);[][]Ratsimbazafy et al.[][]
  []
 
-[2] (./article.bbl [3]) [4] (./article.aux)
+[2]
+File: ./pictures//ohd_1.pdf Graphic file (type pdf)
+<use ./pictures//ohd_1.pdf>
+File: ./pictures//ohd_2.pdf Graphic file (type pdf)
+<use ./pictures//ohd_2.pdf>
+File: ./pictures//sne_1.pdf Graphic file (type pdf)
+<use ./pictures//sne_1.pdf>
+File: ./pictures//sne_2.pdf Graphic file (type pdf)
+<use ./pictures//sne_2.pdf>
+File: ./pictures//bao_1.pdf Graphic file (type pdf)
+<use ./pictures//bao_1.pdf>
+File: ./pictures//bao_2.pdf Graphic file (type pdf)
+<use ./pictures//bao_2.pdf>
+ (./article.bbl [3] [4]) [5] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
-(rerunfilecheck)             Checksum: CA106E8CA7B8DF72D8B9533CE874E8AF;2229.
+(rerunfilecheck)             Checksum: 20B8942596B34AB5F348E0B0EA8FDD71;2055.
  ) 
 Here is how much of TeX's memory you used:
- 12138 strings out of 476683
- 184118 string characters out of 5804047
- 1897018 words of memory out of 5000000
- 32215 multiletter control sequences out of 15000+600000
+ 12374 strings out of 476683
+ 188341 string characters out of 5804047
+ 1896018 words of memory out of 5000000
+ 32436 multiletter control sequences out of 15000+600000
  520357 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,11n,90p,2042b,361s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,90p,2042b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on article.pdf (4 pages).
+Output written on article.pdf (5 pages).

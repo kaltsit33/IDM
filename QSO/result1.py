@@ -72,10 +72,10 @@ def main():
 
     with mp.Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, pool=pool)
-        sampler.run_mcmc(pos, 2500, progress=True)
+        sampler.run_mcmc(pos, 3000, progress=True)
 
     labels = [r'\Omega_{2,0}', r'\log_{10}(\kappa C_1/Gyr{}^{-1})', 'H_0[km/s/Mpc]']
-    flat_samples = sampler.get_chain(discard=400, flat=True)
+    flat_samples = sampler.get_chain(discard=500, flat=True)
     samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
     g = plots.get_subplot_plotter()
     g.triangle_plot(samples, filled=True, contour_colors=['k'], title_limit=1)

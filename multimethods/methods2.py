@@ -56,15 +56,18 @@ def main():
         sampler.run_mcmc(pos, 2000, progress = True)
 
     labels = [r'\Omega_{2,0}', r'\log_{10}(\kappa C_1/Gyr{}^{-1})', 'H_0[km/s/Mpc]']
+    names = ['O20', 'log_kC1', 'H0']
     flat_samples = sampler.get_chain(discard=200, flat=True)
-    samples = MCSamples(samples=flat_samples, names=labels, labels=labels)
+    samples = MCSamples(samples=flat_samples, names=names, labels=labels, ranges={'log_kC1':(-10, None)})
     g = plots.get_subplot_plotter()
     g.triangle_plot(samples, filled=True, contour_colors=['c'], title_limit=1)
-    plt.show()
-    samples_2 = MCSamples(samples=flat_samples[:,0:2], names=labels[0:2], labels=labels[0:2])
-    g.triangle_plot(samples_2, filled=True, contour_colors=['c'], title_limit=1)
+    g.export('./article/pictures/ohd_sne.pdf')
+    samples_2 = MCSamples(samples=flat_samples[:,0:2], names=names[0:2], labels=labels[0:2], ranges={'log_kC1':(-10, None)})
+    g = plots.get_single_plotter(ratio=1)
+    g.settings.axes_fontsize = 18
+    g.settings.axes_labelsize = 24
+    g.plot_2d(samples_2, 'O20', 'log_kC1', filled=True, colors=['c'])
     g.export('./article/pictures/ohd_sne_1.pdf')
-    plt.show()
 
     H0 = np.median(flat_samples[:,2])
     H0_list = np.array([H0]*len(flat_samples))
@@ -72,10 +75,13 @@ def main():
     Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
     combined_samples = np.vstack((flat_samples[:, 0], Mx)).T
     labels_ = [r'\Omega_{2,0}', r'\log_{10}(M_x/GeV)']
-    samples_ = MCSamples(samples=combined_samples, names=labels_, labels=labels_)
-    g.triangle_plot(samples_, filled=True, contour_colors=['b'], title_limit=1)
+    names_ = ['O20', 'Mx']
+    samples_ = MCSamples(samples=combined_samples, names=names_, labels=labels_, ranges={'Mx':(None, -2)})
+    g = plots.get_single_plotter(ratio=1)    
+    g.settings.axes_fontsize = 18
+    g.settings.axes_labelsize = 24
+    g.plot_2d(samples_, 'O20', 'Mx', filled=True, colors=['c'])
     g.export('./article/pictures/ohd_sne_2.pdf')
-    plt.show()
 
 if __name__ == '__main__':
     mp.freeze_support()
