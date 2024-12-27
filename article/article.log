@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  26 DEC 2024 09:32
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  26 DEC 2024 12:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -482,25 +482,30 @@ File: ./pictures//ohd_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_1.pdf>
 File: ./pictures//ohd_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_2.pdf>
+ [3]
 File: ./pictures//sne_1.pdf Graphic file (type pdf)
 <use ./pictures//sne_1.pdf>
 File: ./pictures//sne_2.pdf Graphic file (type pdf)
 <use ./pictures//sne_2.pdf>
+File: ./pictures//qso_fx_1.pdf Graphic file (type pdf)
+<use ./pictures//qso_fx_1.pdf>
+File: ./pictures//qso_fx_2.pdf Graphic file (type pdf)
+<use ./pictures//qso_fx_2.pdf>
 File: ./pictures//bao_1.pdf Graphic file (type pdf)
 <use ./pictures//bao_1.pdf>
 File: ./pictures//bao_2.pdf Graphic file (type pdf)
 <use ./pictures//bao_2.pdf>
- (./article.bbl [3] [4]) [5] (./article.aux)
+ (./article.bbl [4]) [5] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: 20B8942596B34AB5F348E0B0EA8FDD71;2055.
  ) 
 Here is how much of TeX's memory you used:
- 12374 strings out of 476683
- 188341 string characters out of 5804047
- 1896018 words of memory out of 5000000
- 32436 multiletter control sequences out of 15000+600000
+ 12397 strings out of 476683
+ 188987 string characters out of 5804047
+ 1881018 words of memory out of 5000000
+ 32457 multiletter control sequences out of 15000+600000
  520357 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,11n,90p,2042b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,90p,2042b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on article.pdf (5 pages).

@@ -215,7 +215,7 @@
 
    The $L_X-L_{UV}$ relation of quasar is usually written as
    \begin{equation}
-      L_X=\beta+\gamma\log L_{UV},
+      \log_{10}(L_X)=\beta+\gamma\log_{10}(L_{UV}),
    \end{equation}
    which gives that
    \begin{eqnarray}
@@ -223,10 +223,14 @@
                     \\ &+2(\gamma-1)\log_{10}(d_L),
    \end{eqnarray}
    where $d_L$ is the luminosity distance same as Eq.(\ref{eq:15}).
-   So the $\chi^2$ function for the QSO data can be defined as
+   Here we use the parameters defined in \cite{li2024redshiftevolutionxrayuv}, which
+   gives\begin{equation}
+      \beta=\beta_0+\beta_1(1+z),\gamma=\gamma_0+\gamma_1(1+z),
+   \end{equation}
+   so the $\chi^2$ function for the QSO data can be defined as
    \begin{equation}
-      \chi_{\text{QSO}}^2=\sum_i^{2421}\frac{(y_{\text{th}}^2-y_{\text{data}}^2)}{s_i^2}
-      -\ln(2\pi s_i^2),
+      \chi_{\text{QSO}}^2=\sum_i^{2421}\left[\frac{(y_{\text{th}}^2-y_{\text{data}}^2)}{s_i^2}
+      -\ln(2\pi s_i^2)\right],
    \end{equation}
    where $s_i^2=\mathrm{d}y_i^2+\gamma^2\mathrm{d}x_i^2+\delta^2$ refers to the 
    uncertainties on the $x_i\ (\log_{10}F_X)$ and $y_i\ (\log_{10}F_{UV})$ and
@@ -255,7 +259,7 @@
       r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s\text{d}z'}{H(z')}.
    \end{equation}
 
-   However, the Eq.(\ref{eq:8}) just have a stiff point when $z\to\infty$, so the IDM
+   However, the Eq.(\ref{eq:8}) just have a singularity when $z\to\infty$, so the IDM
    model can not give a constraint to the $r_{\text{d}}$ and we just try to use the cross
    parameter $r_{\text{d}}h$ to give the constraints.
 
@@ -317,15 +321,17 @@
          parameter & initial & prior \\
          \hline
          $\Omega_{2,0}$ & 0.3 & $\mathcal{U}[0.0,1.0]$ \\
-         $n$ & --- & $\mathcal{U}[-10,10]$ \\
+         $n$ & 0 & $\mathcal{U}[-10,10]$ \\
          $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & --- & $\mathcal{U}[-10,0]$ \\
          $H_0$[km/s/Mpc] & 70 & $\mathcal{U}[60,80]$ \\
          \hline
-         $r_{\text{d}}h$[Mpc] & 100 & $\mathcal{U}[50,150]$ \\
-         \hline
-         $\beta$ & $-11$ & $\mathcal{U}[-15,-5]$ \\
-         $\gamma$ & 0.6 & $\mathcal{U}[0.0,1.0]$ \\
+         $\beta_0$ & 6 & $\mathcal{U}[-15,15]$ \\
+         $\beta_1$ & 1 & $\mathcal{U}[-10,10]$ \\
+         $\gamma_0$ & 0.6 & $\mathcal{U}[0.0,1.0]$ \\
+         $\gamma_1$ & 0 & $\mathcal{U}[-1.0,1.0]$ \\         
          $\delta$ & 0.2 & $\mathcal{U}[0.0,1.0]$ \\
+         \hline
+         $r_{\text{d}}h$[Mpc] & 100 & $\mathcal{U}[50,150]$ \\
          \hline
       \end{tabular}
       \label{tab:4}
@@ -360,6 +366,17 @@
       }
       \caption{The constraint result from the supernovae
       Ia data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{qso_fx_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{qso_fx_2.pdf}
+      }
+      \caption{The constraint result from the quasar data}
    \end{figure}
 
    \begin{figure}[htbp]
