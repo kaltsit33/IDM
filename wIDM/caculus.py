@@ -54,22 +54,35 @@ def chi_square_SNe(O20, n, H0):
     return chi2
 
 ### QSO
-file_path_QSO = "./QSO/data/dm.dat"
-data = np.loadtxt(file_path_QSO)
+file_path_QSO = "./QSO/data/table3.dat"
+data = np.loadtxt(file_path_QSO, skiprows=1, usecols=(3,4,5,6,7))
 z_qso = data[:,0]
-DM = data[:,1]
-e_DM = data[:,2]
+logFUV = data[:,1]
+e_logFUV = data[:,2]
+logFX = data[:,3]
+e_logFX = data[:,4]
 
-def chi_square_QSO(O20, n, H0):
+import astropy.units as u
+transform = u.Mpc.to(u.m)
+
+def logFX_z(O20, n, H0, gamma0, gamma1, beta0, beta1):
     dl = []
     for z in z_qso:
         int_value = scipy.integrate.quad(H_ad, 0, z, args=(O20, n, H0))[0]
         dl.append(const_c*(1 + z)*int_value)
-    dl = np.array(dl)
-    muth = 5 * np.log10(dl) + 25
-    delta_DM = muth - DM
-    chi2 = np.sum(delta_DM**2/e_DM**2)
-    return chi2
+    dl = np.array(dl) * transform
+
+    beta = beta0 + beta1 * (1 + z_qso)
+    gamma = gamma0 + gamma1 * (1 + z_qso)
+    return beta+(gamma-1)*np.log10(4*np.pi)+gamma*logFUV+2*(gamma-1)*np.log10(dl)
+
+def chi_square_QSO(O20, n, H0, gamma0, gamma1, beta0, beta1, delta):
+    delta_fx = logFX_z(O20, n, H0, gamma0, gamma1, beta0, beta1) - logFX
+    gamma = gamma0 + gamma1 * (1 + z_qso)
+    sigma_2 = e_logFX**2 + gamma**2*e_logFUV**2 + delta**2
+    chi2 = np.sum(delta_fx**2/sigma_2)
+    extra = np.sum(np.log(2*np.pi*sigma_2))
+    return chi2 + extra
 
 ### BAO
 file_path_BAO = "./BAO/BAO.csv"
