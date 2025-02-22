@@ -47,7 +47,7 @@
    \cite{refId0} identified two functional forms for which
    the previous Boltzmann equation can be solved analytically.
    Refering to Appendix B in \cite{refId0}, only one of these two is of interest
-   because it provides a "$\propto a^{-3}$" dependence of the scale factor,
+   because it provides a ``$\propto a^{-3}$'' dependence of the scale factor,
    which is \begin{equation}
       \Psi(a)=aH(a)R(a)=C_1(n+3)a^nH(a)+\kappa C_1^2a^{2m}.
    \end{equation}
@@ -120,7 +120,7 @@
    It is widely known that the Hubble parameter $H(z)$ depends on
    the differential age as a function of redshift $z$ in the form
    \begin{equation}
-      H(z)=-\frac{1}{1+z}\frac{\mathrm{d}z}{\mathrm{d}t},
+      H(z)=-\frac{1}{1+z}\frac{\mathrm{d}z}{\mathrm{d}t},\label{eq:12}
    \end{equation}
    which provides a direct measurement on $H(z)$ based on
    $\mathrm{d}z/\mathrm{d}t$.
@@ -256,11 +256,16 @@
    \end{eqnarray}
    and $r_{\text{d}}$ is the sound horizon at the drag epoch, which is given as
    \begin{equation}
-      r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s\text{d}z'}{H(z')}.
+      r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s(z')\text{d}z'}{H(z')},
+   \end{equation}
+   where $c_s$ is the sound speed prior to recombination, which is given as
+   \begin{equation}
+      c_s(z)=\frac{c}{\sqrt{3\left(1+\frac{3\rho_{\mathrm{b}}(z)}{4\rho_{\gamma}(z)}\right)}}\simeq
+      \frac{c}{\sqrt{3\left(1+\frac{3\rho_{\mathrm{b}0}}{4\rho_{\gamma0}}\frac{1}{1+z}\right)}}.
    \end{equation}
 
-   However, the Eq.(\ref{eq:8}) just have a singularity when $t\to 0$ as $z\to\infty$,
-   so the IDM model cannot give a constraint to the $r_{\text{d}}$ and we just try to use the cross
+   However, the solution of Eq.(\ref{eq:8}) gives an upper limit of redshift $z_{\max}$
+   (see Appendix), so the IDM model cannot give a constraint to the $r_{\text{d}}$ and we just try to use the cross
    parameter $r_{\text{d}}h$ to give the constraints.
 
    \begin{table}[htbp]
@@ -344,6 +349,9 @@
    could only give the upper limit of what, and give the lower limit
    of $M_x$ according to Eq.(\ref{eq:9}), respectively.
 
+   We use the 99\% and 1\% quantiles to determine the upper and lower
+   limits of the parameters, and the results are shown in Table \ref{tab:5}.
+
    \begin{figure}[htbp]
       \centering
       \subfigure{
@@ -371,6 +379,17 @@
    \begin{figure}[htbp]
       \centering
       \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_qso_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_qso_2.pdf}
+      }
+      \caption{The constraint result from the SNe Ia + QSO data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
          \includegraphics[width=0.22\textwidth]{bao_1.pdf}
       }
       \subfigure{
@@ -379,7 +398,200 @@
       \caption{The constraint result from the BAO data}
    \end{figure}
 
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_2.pdf}
+      }
+      \caption{The constraint result from the OHD + SNe Ia data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_2.pdf}
+      }
+      \caption{The constraint result from the OHD + SNe Ia + BAO data}
+   \end{figure}
+
+   \begin{table*}[htbp]
+      \caption{The constraint results of Model 1}
+      \centering
+      \begin{tabular}{lcccccc}
+         \hline\hline
+         Model 1 & OHD & SNe Ia & SNe Ia + QSO & BAO &
+          OHD + SNe Ia & OHD + SNe Ia + BAO \\
+         \hline
+         $\Omega_{2,0}$ & $0.321_{-0.067}^{+0.055}$ & $0.360_{-0.020}^{+0.020}$
+          & $0.359_{-0.020}^{+0.020}$ & $0.301_{-0.013}^{+0.013}$
+          & $0.330_{-0.016}^{+0.016}$ & $0.3131_{-0.0099}^{+0.0099}$ \\
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & < & < & < & < & < & < \\
+         $\log_{10}(M_x/$GeV) & > & > & > & > & > & > \\
+         \hline
+      \end{tabular}
+      \label{tab:5}
+   \end{table*}
+
+\subsection{Model 2: mimicking the wCDM model}
+
+   The constraint results of Model 2 are shown in Table \ref{tab:6}.
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_widm_2.pdf}
+      }
+      \caption{The constraint result from the observational
+      $H(z)$ data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_widm_2.pdf}
+      }
+      \caption{The constraint result from the supernovae
+      Ia data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_qso_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{sne_qso_widm_2.pdf}
+      }
+      \caption{The constraint result from the SNe Ia + QSO data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{bao_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{bao_widm_2.pdf}
+      }
+      \caption{The constraint result from the BAO data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_widm_2.pdf}
+      }
+      \caption{The constraint result from the OHD + SNe Ia data}
+   \end{figure}
+
+   \begin{figure}[htbp]
+      \centering
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_widm_2.pdf}
+      }
+      \caption{The constraint result from the OHD + SNe Ia + BAO data}
+   \end{figure}
+
+   \begin{table*}[htbp]
+      \caption{The constraint results of Model 2}
+      \centering
+      \begin{tabular}{lcccccc}
+         \hline\hline
+         Model 2 & OHD & SNe Ia & SNe Ia + QSO & BAO &
+          OHD + SNe Ia & OHD + SNe Ia + BAO \\
+         \hline
+         $\Omega_{2,0}$ & $0.295_{-0.077}^{+0.077}$ & $0.216_{-0.078}^{+0.096}$
+          & $0.208_{-0.087}^{+0.12}$ & $0.296_{-0.014}^{+0.014}$
+          & $0.202_{-0.049}^{+0.060}$ & $0.291_{-0.013}^{+0.013}$ \\
+         $n$ & $1.4_{-2.8}^{+1.4}$ & $-0.82_{-0.44}^{+0.29}$
+          & $-0.85_{-0.49}^{+0.42}$ & $-0.40_{-0.29}^{+0.29}$
+          & $-0.83_{-0.27}^{+0.24}$ & $-0.41_{-0.13}^{+0.13}$ \\
+         $w_{\text{IDM}}$ & $-1.5_{-0.9}^{+0.5}$ & $-0.73_{-0.15}^{+0.10}$
+          & $-0.72_{-0.16}^{+0.14}$ & $-0.87_{-0.10}^{+0.10}$
+          & $-0.72_{-0.09}^{+0.09}$ & $-0.86_{-0.04}^{+0.04}$ \\
+         \hline
+      \end{tabular}
+      \label{tab:6}
+   \end{table*}
+
 \section{Conclusions}
+
+\appendix
+
+\section{The theoretical solution of model 1}
+
+   Apply the Eq.(\ref{eq:12}) to Eq.(\ref{eq:8}), we can get a simple nonlinear
+   second-order differential equation for the redshift $z(t)$, which can
+   be written as \begin{equation}
+      2H_0^2\Omega_{1,0}(1+z)^2z'z''+\kappa C_1z'{}^4-5H_0^2\Omega_{1,0}(1+z)z'{}^3
+      +3H_0^4\Omega_{1,0}^2(1+z)^3z'-H_0^4\Omega_{1,0}^2\kappa C_1[(z+1)^4-1]
+      =H_0^4\Omega_{1,0}^2\kappa C_1,
+   \end{equation}
+   where the prime denotes the derivative with respect to $t$.
+   The equation can be simplified as
+   \begin{equation}
+      2H_0^2\Omega_{1,0}y^2y'y''+\kappa C_1y'{}^4-5H_0^2\Omega_{1,0}yy'{}^3
+      +3H_0^4\Omega_{1,0}^2y^3y'-H_0^4\Omega_{1,0}^2\kappa C_1y^4=0,
+   \end{equation}
+   where $y=z+1$, now it is a homogeneous function and we can give the
+   general solution as $y=\exp{f}$ with $f$ a function of $t$, the equation
+   now is \begin{equation}
+      2H_0^2\Omega_{1,0}f'f''+\kappa C_1f'{}^4-3H_0^2\Omega_{1,0}f'{}^3
+      +3H_0^4\Omega_{1,0}^2f'-H_0^4\Omega_{1,0}^2\kappa C_1=0.
+   \end{equation}
+   We use $g=f'$, which also gives $g(t)=y'/y=-H(t)$, then the equation can be written as
+   \begin{equation}
+      2H_0^2\Omega_{1,0}gg'+\kappa C_1g^4-3H_0^2\Omega_{1,0}g^3
+      +3H_0^4\Omega_{1,0}^2g-H_0^4\Omega_{1,0}^2\kappa C_1=0.
+   \end{equation}
+   It can be theoretically solved and the solution is like
+   \begin{equation}
+      g(t)=\mathcal{G}\left(-\frac{t}{2H_0^2\Omega_{1,0}}+\mathrm{Const}\right),
+   \end{equation}
+   where $\mathcal{G}$ is the inverse function of
+   \begin{equation}
+      \mathcal{F}(x)=\frac{3H_0\sqrt{\Omega_{1,0}}\mathrm{arctanh}\frac{x}{H_0\sqrt{\Omega_{1,0}}}
+      -\kappa C_1\log(x^2-H_0^2\Omega_{1,0})+\kappa C_1\ln(\kappa C_1x^2-3H_0^2\Omega_{1,0}x
+      +H_0^2\Omega_{1,0}\kappa C_1)}{9H_0^4\Omega_{1,0}^2-4H_0^2\Omega_{1,0}\kappa C_1^2},
+   \end{equation}
+   in this term, $\mathrm{arctanh}(x)\doteq \frac{1}{2}\log[(x+1)/(x-1)]$ when $x<-1$,
+   and the Const is determined by the initial condition $g(t_0)=-H_0$.
+
+   The function has a limit when $x\to-\infty$,
+   \begin{equation}
+      \lim_{x\to-\infty}\mathcal{F}(x)\equiv \mathcal{F}(-\infty)=
+      \frac{\kappa C_1\ln\kappa C_1}{H_0^2\Omega_{1,0}(-4\kappa C_1^2+9H_0^2\Omega_{1,0})},
+   \end{equation}
+   which means that the IDM model can only give a solution to the lower limit $t_{\min}$,
+   and the redshift $z_{\max}$ can be calculated as
+   \begin{equation}
+      z_{\max}=\exp\left[\int_{-\infty}^{-H_0}\left(\mathcal{F}(-\infty)
+      -\mathcal{F}(x)\right)\mathrm{d}x+\frac{t_0-t_{\min}}{2H_0\Omega_{1,0}}\right]-1,
+   \end{equation}
+   and $z_{\max}$ is also a function of $\Omega_{2,0}, \kappa C_1$ and $H_0$.
+   \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.7\textwidth]{zmax.pdf}
+      \caption{The redshift $z_{\max}$ as $H_0=70$ km/s/Mpc}
+   \end{figure}
 
 \bibliography{reference}
 \bibliographystyle{aasjournal}

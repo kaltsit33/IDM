@@ -41,7 +41,7 @@ def main():
     labels = [r'\Omega_{2,0}', 'n', 'H_0[km/s/Mpc]', 'r_dh[Mpc]']
     names = ['O20', 'n', 'H0', 'rdh']
     flat_samples = sampler.get_chain(discard=200, flat=True)
-    samples = MCSamples(samples=flat_samples, names=names, labels=labels)
+    samples = MCSamples(samples=flat_samples, names=names, labels=labels, ranges={'H0':(60, 80)})
     g = plots.get_subplot_plotter()
     g.triangle_plot(samples, filled=True, contour_colors=['r'], title_limit=1)
     g.export('./article/pictures/bao_widm.pdf')

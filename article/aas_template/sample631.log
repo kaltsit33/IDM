@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  13 DEC 2024 18:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.6.19)  14 FEB 2025 22:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -19,7 +19,7 @@ Class aastex Info:
  
   on input line 106.
 \bibbaselineskip=\skip48
-(/usr/local/texlive/2023/texmf-dist/tex/latex/revtex4-1/revtex4-1.cls
+(d:/texlive/2023/texmf-dist/tex/latex/revtex4-1/revtex4-1.cls
 Document Class: revtex4-1 2020/09/30 4.1s (http://publish.aps.org/revtex4/ for documentation)
  Copyright (c) 2009 The American Physical Society.
  mailto:revtex@aps.org
@@ -72,22 +72,22 @@ Class revtex4-1 Info: Overriding \@vspace, \@vspacer, \@no@pgbk, \@newline, and 
 \widetext@top=\box64
 \widetext@bot=\box65
 Class revtex4-1 Info: Selecting society aps on input line 7616.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/revtex4-1/aps4-1.rtx
+(d:/texlive/2023/texmf-dist/tex/latex/revtex4-1/aps4-1.rtx
 File: aps4-1 2020/09/30 4.1s (http://publish.aps.org/revtex4/ for documentation)
 Class revtex4-1 Info: RevTeX society APS selected on input line 31.
 )
 Class revtex4-1 Info: Selecting journal pra on input line 7618.
 Class revtex4-1 Info: APS journal PRA selected on input line 7619.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/revtex4-1/aps10pt4-1.rtx
+ (d:/texlive/2023/texmf-dist/tex/latex/revtex4-1/aps10pt4-1.rtx
 File: aps10pt4-1 2020/09/30 4.1s (http://publish.aps.org/revtex4/ for documentation)
 Class revtex4-1 Info: RevTeX pointsize 10pt selected on input line 30.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/textcase/textcase.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/textcase/textcase.sty
 Package: textcase 2022/07/10 v1.03 Text only upper/lower case changing (DPC)
 Package textcase Info: Defining Legacy names on input line 20.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/natbib/natbib.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
@@ -95,35 +95,35 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count196
 )
 Class revtex4-1 Info: Repairing natbib's \BibitemShut on input line 7623.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/revtex4-1/revsymb4-1.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/revtex4-1/revsymb4-1.sty
 Package: revsymb4-1 2020/09/30 4.1s (http://publish.aps.org/revtex4/ for documentation)
 LaTeX Info: Redefining \REV@mathfrak on input line 119.
-)) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/latexsym.sty
+)) (d:/texlive/2023/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (d:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def
+ (d:/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen140
 \Gin@req@width=\dimen141
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks19
 \symAMSa=\mathgroup5
@@ -133,7 +133,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 LaTeX Info: Redefining \frak on input line 111.
 LaTeX Info: Redefining \Bbb on input line 113.
-)) (/usr/local/texlive/2023/texmf-dist/tex/generic/epsf/epsf.sty
+)) (d:/texlive/2023/texmf-dist/tex/generic/epsf/epsf.sty
 This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read2
 \epsfframemargin=\dimen142
@@ -172,7 +172,7 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
 \DT@p@ftn=\toks20
 \pt@column=\count274
 \pt@ncol=\count275
- (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip61
 \LTright=\skip62
@@ -190,13 +190,13 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@tables=\count279
 \c@LT@chunks=\count280
 \LT@p@ftn=\toks21
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (d:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 227.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+ (d:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1369.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
@@ -205,39 +205,39 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
- (/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
- (/usr/local/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count281
@@ -245,15 +245,15 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen155
 \Hy@linkcounter=\count282
 \Hy@pagecounter=\count283
- (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+ (d:/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count284
- (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
+ (d:/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `bookmarks' set `true' on input line 4060.
@@ -271,9 +271,9 @@ LaTeX Info: Redefining \href on input line 4674.
 \c@Hy@tempcnt=\count285
 LaTeX Info: Redefining \url on input line 4763.
 \XeTeXLinkMargin=\dimen156
- (/usr/local/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count286
@@ -286,7 +286,7 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring ON on input line 6060.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode OFF on input line 6072.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -295,9 +295,9 @@ package with kernel methods
 \c@Hfootnote=\count289
 )
 Package hyperref Info: Driver (autodetected): hxetex.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hxetex.def
+ (d:/texlive/2023/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2023-02-07 v7.00v Hyperref driver for XeTeX
- (/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \pdfm@box=\box72
@@ -305,18 +305,18 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \HyField@AnnotCount=\count291
 \Fld@listcount=\count292
 \c@bookmark@seq@number=\count293
- (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+) (d:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip65
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
+) (d:/texlive/2023/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen159
 \ar@mcellbox=\box73
@@ -355,7 +355,7 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \editnum=\count311
 \refchangenumber=\count312
 \listchangenum=\count313
- (/usr/local/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
+ (d:/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box81
 \UL@hyphenbox=\box82
 \UL@skip=\skip68
@@ -387,7 +387,7 @@ Package: ulem 2019/11/18
 \currwidth=\dimen167
 \interactbox=\box87
 \movetableright=\dimen168
- (/usr/local/texlive/2023/texmf-dist/tex/latex/lineno/lineno.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2023/01/19 line numbers on paragraphs v5.1
 Invalid UTF-8 byte or sequence at line 290 replaced by U+FFFD.
 \linenopenalty=\count329
@@ -404,7 +404,7 @@ Invalid UTF-8 byte or sequence at line 290 replaced by U+FFFD.
 \bframerule=\dimen172
 \bframesep=\dimen173
 \bframebox=\box88
- (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+ (d:/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count336
 )
@@ -415,15 +415,14 @@ Class revtex4-1 Info: Patching unrecognized longtable package. (Proceeding with 
 Class revtex4-1 Info: cite was not loaded (OK!) on input line 170.
 Class revtex4-1 Info: mcite was not loaded (OK!) on input line 170.
 Class revtex4-1 Info: multicol was not loaded (OK!) on input line 170.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+ (d:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__graphics_track_int=\count337
 \l__pdf_internal_box=\box89
 \g__pdf_backend_object_int=\count338
 \g__pdf_backend_annotation_int=\count339
 \g__pdf_backend_link_int=\count340
-)
-No file sample631.aux.
+) (./sample631.aux)
 \openout1 = `sample631.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
@@ -436,7 +435,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
 LaTeX Font Info:    ... okay on input line 170.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 170.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 170.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+ (d:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 170.
@@ -451,26 +450,23 @@ LaTeX Font Info:    ... okay on input line 170.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 170.
 LaTeX Font Info:    ... okay on input line 170.
 Package hyperref Info: Link coloring ON on input line 170.
+ (./sample631.out) (./sample631.out)
 \@outlinefile=\write4
 \openout4 = `sample631.out'.
-
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 Class revtex4-1 Info: Overriding lineo.sty, restoring output routine, on input line 170.
 Class revtex4-1 Info: Reinvoke \linenumbers on input line 170.
 Class revtex4-1 Info: Overriding \@LN@LLerror on input line 170.
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 277.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
+ (d:/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for U+msa on input line 277.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 277.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Overfull \hbox (17.47581pt too wide) in paragraph at lines 278--278
@@ -499,28 +495,9 @@ Package natbib Warning: Citation `1989BAAS...21..780H' on page 1 undefined on in
 Overfull \vbox (1.30972pt too high) has occurred while \output is active []
 
  [1]
-
-LaTeX Warning: Reference `sec:pubcharge' on page 2 undefined on input line 343.
-
-
 Overfull \hbox (14.58981pt too wide) in paragraph at lines 343--343
 [][]| [] [][][]| 
  []
-
-
-LaTeX Warning: Reference `sec:floats' on page 2 undefined on input line 363.
-
-
-LaTeX Warning: Reference `subsec:tables' on page 2 undefined on input line 364.
-
-
-LaTeX Warning: Reference `subsec:figures' on page 2 undefined on input line 365.
-
-
-LaTeX Warning: Reference `sec:cite' on page 2 undefined on input line 366.
-
-
-LaTeX Warning: Reference `sec:floats' on page 2 undefined on input line 377.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 380--382
@@ -543,15 +520,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 389--392
  []
 
 [2] [3]
-
-LaTeX Warning: Reference `tab:deluxesplit' on page 4 undefined on input line 509.
-
 File: samplefig.png Graphic file (type bmp)
 <samplefig.png>
-
-LaTeX Warning: Reference `fig:general' on page 4 undefined on input line 574.
-
-[4]
+ [4]
 Underfull \hbox (badness 4647) in paragraph at lines 598--603
 []\TU/lmr/m/n/10 The first step to making this happen is to have the data or software in a long term reposi-
  []
@@ -609,25 +580,16 @@ Package natbib Warning: There were undefined citations.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `sample631.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `sample631.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  796805224411A0C37A10E290B5F4BC69;2164.
+Package rerunfilecheck Info: File `sample631.out' has not changed.
+(rerunfilecheck)             Checksum: 796805224411A0C37A10E290B5F4BC69;2164.
  ) 
 Here is how much of TeX's memory you used:
- 12716 strings out of 476683
- 191974 string characters out of 5804047
- 1894018 words of memory out of 5000000
- 32780 multiletter control sequences out of 15000+600000
- 520397 words of font info for 87 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 87i,13n,90p,311b,483s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 12724 strings out of 478630
+ 190819 string characters out of 5847730
+ 1893012 words of memory out of 5000000
+ 32660 multiletter control sequences out of 15000+600000
+ 520389 words of font info for 86 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 87i,13n,90p,395b,483s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on sample631.pdf (7 pages).
