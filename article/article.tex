@@ -264,8 +264,8 @@
       \frac{c}{\sqrt{3\left(1+\frac{3\rho_{\mathrm{b}0}}{4\rho_{\gamma0}}\frac{1}{1+z}\right)}}.
    \end{equation}
 
-   However, the solution of Eq.(\ref{eq:8}) gives an upper limit of redshift $z_{\max}$
-   (see Appendix), so the IDM model cannot give a constraint to the $r_{\text{d}}$ and we just try to use the cross
+   However, the solution of Eq.(\ref{eq:8}) only gives an upper limit of redshift $z_{\max}$
+   (see Appendix), and we just try to use the cross
    parameter $r_{\text{d}}h$ to give the constraints.
 
    \begin{table}[htbp]
@@ -387,6 +387,10 @@
       \caption{The constraint result from the SNe Ia + QSO data}
    \end{figure}
 
+   We would find that the SNe Ia and QSO combined result is most
+   similar to SNe Ia result, what may refer that the QSO cannot
+   give an effective constraint.
+
    \begin{figure}[htbp]
       \centering
       \subfigure{
@@ -430,9 +434,11 @@
          \hline
          $\Omega_{2,0}$ & $0.321_{-0.067}^{+0.055}$ & $0.360_{-0.020}^{+0.020}$
           & $0.359_{-0.020}^{+0.020}$ & $0.301_{-0.013}^{+0.013}$
-          & $0.330_{-0.016}^{+0.016}$ & $0.3131_{-0.0099}^{+0.0099}$ \\
-         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & < & < & < & < & < & < \\
-         $\log_{10}(M_x/$GeV) & > & > & > & > & > & > \\
+          & $0.330_{-0.016}^{+0.016}$ & $0.313_{-0.010}^{+0.010}$ \\
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-1.81$ & $<-2.30$ & $<-2.35$
+          & $<-2.66$ & $<-2.78$ & $<-3.21$ \\
+         $\log_{10}(M_x/$GeV) & $>-10.09$ & $>-9.62$ & $>-9.60$
+          & $>-9.25$ & $>-9.15$ & $>-8.70$ \\
          \hline
       \end{tabular}
       \label{tab:5}
@@ -510,6 +516,8 @@
       \caption{The constraint result from the OHD + SNe Ia + BAO data}
    \end{figure}
 
+   The results from three dataset are different
+
    \begin{table*}[htbp]
       \caption{The constraint results of Model 2}
       \centering
@@ -564,27 +572,29 @@
    \end{equation}
    It can be theoretically solved and the solution is like
    \begin{equation}
-      g(t)=\mathcal{G}\left(-\frac{t}{2H_0^2\Omega_{1,0}}+\mathrm{Const}\right),
+      g(t)=\mathcal{G}\left(-\frac{t}{2H_0^2\Omega_{1,0}}+Const\right),
    \end{equation}
    where $\mathcal{G}$ is the inverse function of
    \begin{equation}
       \mathcal{F}(x)=\frac{3H_0\sqrt{\Omega_{1,0}}\mathrm{arctanh}\frac{x}{H_0\sqrt{\Omega_{1,0}}}
-      -\kappa C_1\log(x^2-H_0^2\Omega_{1,0})+\kappa C_1\ln(\kappa C_1x^2-3H_0^2\Omega_{1,0}x
-      +H_0^2\Omega_{1,0}\kappa C_1)}{9H_0^4\Omega_{1,0}^2-4H_0^2\Omega_{1,0}\kappa C_1^2},
+      -\kappa C_1\log(x^2-H_0^2\Omega_{1,0})+\kappa C_1\log(\kappa C_1x^2-3H_0^2\Omega_{1,0}x
+      +H_0^2\Omega_{1,0}\kappa C_1)}{9H_0^4\Omega_{1,0}^2-4H_0^2\Omega_{1,0}(\kappa C_1)^2}.
    \end{equation}
-   in this term, $\mathrm{arctanh}(x)\doteq \frac{1}{2}\log[(x+1)/(x-1)]$ when $x<-1$,
-   and the Const is determined by the initial condition $g(t_0)=-H_0$.
+   In this term, $\displaystyle\mathrm{arctanh}(x)\doteq \frac{1}{2}\log\left(\frac{x+1}{x-1}\right)$
+   when $x<-1$, and the $Const$ is determined by the boundary condition $g(0)\to -\infty$, which is
 
-   The function has a limit when $x\to-\infty$,
    \begin{equation}
-      \lim_{x\to-\infty}\mathcal{F}(x)\equiv \mathcal{F}(-\infty)=
-      \frac{\kappa C_1\ln\kappa C_1}{H_0^2\Omega_{1,0}(-4\kappa C_1^2+9H_0^2\Omega_{1,0})},
+      Const=\mathcal{F}(-\infty)\equiv\lim_{x\to-\infty}\mathcal{F}(x)=
+      \frac{\kappa C_1\ln\kappa C_1}{H_0^2\Omega_{1,0}[-4(\kappa C_1)^2+9H_0^2\Omega_{1,0}]}.
    \end{equation}
-   which means that the IDM model can only give a solution to the lower limit $t_{\min}$,
+   The initial time of today $t_0$ can be easily given as
+   \begin{equation}
+      t_0=2H_0^2\Omega_{1,0}[\mathcal{F}(-\infty)-\mathcal{F}(-H_0)],
+   \end{equation}
    and the redshift $z_{\max}$ can be calculated as
    \begin{equation}
-      z_{\max}=\exp\left[\int_{-\infty}^{-H_0}\left(\mathcal{F}(-\infty)
-      -\mathcal{F}(x)\right)\mathrm{d}x+\frac{t_0-t_{\min}}{2H_0\Omega_{1,0}}\right]-1,
+      z_{\max}=\exp\left[\int_{-\infty}^{-H_0}[\mathcal{F}(-\infty)
+      -\mathcal{F}(x)]\mathrm{d}x+\frac{t_0}{2H_0\Omega_{1,0}}\right]-1,
    \end{equation}
    and $z_{\max}$ is also a function of $\Omega_{2,0}, \kappa C_1$ and $H_0$.
    \begin{figure}[htbp]
