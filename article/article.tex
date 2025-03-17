@@ -4,7 +4,8 @@
 
 \begin{document} 
 
-   \title{Self-interacting dark matter model without dark energy in cosmology}
+   \title{Constraint result to the self-interacting dark matter model without dark energy
+   in cosmology}
 
    \author{Yixuan Zhu}\affiliation{Department of Astronomy, Beijing Normal University.
    Beijing 100875.
@@ -17,6 +18,29 @@
    \keywords{}
 
 \section{Introduction}
+
+   The standard Λ-Cold Dark Matter (ΛCDM) model has been remarkably 
+   successful in explaining a wide range of cosmological observations, 
+   from the Cosmic Microwave Background (CMB) anisotropies to 
+   large-scale structure formation. However, there are also many 
+   alternative models that have been proposed to explain the
+   accelerated expansion of the Universe, such as the dynamical
+   dark energy models and the modified gravity models.
+
+   It has been shown that dark matter self-interaction could distribute 
+   to the accelerated expansion without dark energy component. According
+   to the Boltzmann formalism, the disequilibrium between dark matter particle
+   creation and annihilation processes would creat an effective source term 
+   making negative pressure just like the dark energy. \cite{refId0}
+   investigated the analytical solutions for the simple interacting dark matter (IDM) 
+   model, and find that the effective annihilation term is much smaller than the
+   results given by the general methods. The gravitational matter creation
+   model is mathematically equivalent to one case of the IDM models.
+
+   In this paper, we use the newly revised data from $H(z)$, supernovae Ia, 
+   quasars and baryon acoustic oscillation by using the Markov chain Monte
+   Carlo (MCMC) method. The result gives that the lower limit of the interacting
+   dark matter particle mass is about 1 eV.
 
 \section{The basic equations in the IDM model}
 
@@ -111,7 +135,7 @@
    observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001};
    \cite{Daniel.Stern_2010};\cite{M.Moresco_2012};\cite{Zhang_2014};
    \cite{Moresco_2016};\cite{10.1093/mnras/stx301};\cite{10.1093/mnrasl/slv037};
-   \cite{Borghi_2022};\cite{Jiao_2023}),the Pantheon+ set of 1701 SNe Ia 
+   \cite{Borghi_2022};\cite{Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
    (\cite{Scolnic_2022}), the QSO data from \cite{Lusso_2020}, 
    the BAO data from SDSS and DESI 2024.
 
@@ -273,7 +297,8 @@
       \centering
       \begin{tabular}{llll}
          \hline\hline
-         $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
+         $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & 
+         $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
          \hline
          0.15 & & & 4.47$\pm$0.17 \\
          0.38 & 10.23$\pm$0.17 & 25$\pm$0.76 & \\
@@ -293,7 +318,8 @@
       \centering
       \begin{tabular}{llll}
          \hline\hline
-         $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
+         $z_{\text{eff}}$ & $D_{\text{M}}/r_{\text{d}}$ & 
+         $D_{\text{H}}/r_{\text{d}}$ & $D_{\text{V}}/r_{\text{d}}$ \\
          \hline
          0.295 & & & 7.93$\pm$0.15 \\
          0.51 & 13.62$\pm$0.25 & 20.98$\pm$0.61 & \\
@@ -593,8 +619,8 @@
    \end{equation}
    and the redshift $z_{\max}$ can be calculated as
    \begin{equation}
-      z_{\max}=\exp\left[\int_{-\infty}^{-H_0}[\mathcal{F}(-\infty)
-      -\mathcal{F}(x)]\mathrm{d}x+\frac{t_0}{2H_0\Omega_{1,0}}\right]-1,
+      z_{\max}=\exp\left[2H_0^2\Omega_{1,0}\int_{-\infty}^{-H_0}[\mathcal{F}(-\infty)
+      -\mathcal{F}(x)]\mathrm{d}x+H_0t_0\right]-1,
    \end{equation}
    and $z_{\max}$ is also a function of $\Omega_{2,0}, \kappa C_1$ and $H_0$.
    \begin{figure}[htbp]
