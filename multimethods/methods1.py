@@ -41,7 +41,6 @@ def main():
     nll = lambda *args: -lnlike(*args)
     initial = np.array([0.3, -5, 70, 0.6, 0, 6, 1, 0.2])
     # soln = scipy.optimize.minimize(nll, initial)
-    # pos = soln.x + 1e-4 * np.random.randn(50, 6)
     pos = initial + 1e-4 * np.random.randn(50, 8)
     nwalkers, ndim = pos.shape
 

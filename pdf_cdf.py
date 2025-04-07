@@ -34,8 +34,8 @@ def main():
     H0_OHD_list = np.array([H0_OHD]*len(flat_samples_OHD))
     Mx_OHD = np.log10(cross_section(flat_samples_OHD[:,0], H0_OHD_list)) - flat_samples_OHD[:,1]
 
-    upper_limit['OHD'] = np.percentile(flat_samples_OHD[:,1], 99)
-    lower_limit['OHD'] = np.percentile(Mx_OHD, 1)
+    upper_limit['OHD'] = np.percentile(flat_samples_OHD[:,1], 97.7)
+    lower_limit['OHD'] = np.percentile(Mx_OHD, 2.3)
 
     ## SNe
     nll = lambda *args: -SNe.result2.lnlike(*args)
@@ -52,8 +52,8 @@ def main():
     H0_SNe_list = np.array([H0_SNe]*len(flat_samples_SNe))
     Mx_SNe = np.log10(cross_section(flat_samples_SNe[:,0], H0_SNe_list)) - flat_samples_SNe[:,1]
 
-    upper_limit['SNe'] = np.percentile(flat_samples_SNe[:,1], 99)
-    lower_limit['SNe'] = np.percentile(Mx_SNe, 1)
+    upper_limit['SNe'] = np.percentile(flat_samples_SNe[:,1], 97.7)
+    lower_limit['SNe'] = np.percentile(Mx_SNe, 2.3)
 
     ## OHD+SNe
     nll = lambda *args: -methods2.lnlike(*args)
@@ -70,8 +70,8 @@ def main():
     H0_m2_list = np.array([H0_m2]*len(flat_samples_m2))
     Mx_m2 = np.log10(cross_section(flat_samples_m2[:,0], H0_m2_list)) - flat_samples_m2[:,1]
 
-    upper_limit['OHD+SNe'] = np.percentile(flat_samples_m2[:,1], 99)
-    lower_limit['OHD+SNe'] = np.percentile(Mx_m2, 1)
+    upper_limit['OHD+SNe'] = np.percentile(flat_samples_m2[:,1], 97.7)
+    lower_limit['OHD+SNe'] = np.percentile(Mx_m2, 2.3)
 
     ## SNe+QSO
     nll = lambda *args: -methods1.lnlike(*args)
@@ -88,8 +88,8 @@ def main():
     H0_m1_list = np.array([H0_m1]*len(flat_samples_m1))
     Mx_m1 = np.log10(cross_section(flat_samples_m1[:,0], H0_m1_list)) - flat_samples_m1[:,1]
 
-    upper_limit['SNe+QSO'] = np.percentile(flat_samples_m1[:,1], 99)
-    lower_limit['SNe+QSO'] = np.percentile(Mx_m1, 1)
+    upper_limit['SNe+QSO'] = np.percentile(flat_samples_m1[:,1], 97.7)
+    lower_limit['SNe+QSO'] = np.percentile(Mx_m1, 2.3)
 
     ## BAO
     nll = lambda *args: -BAO.result.lnlike(*args)
@@ -107,8 +107,8 @@ def main():
     H0_BAO_list = np.array([H0_BAO]*len(flat_samples_BAO))
     Mx_BAO = np.log10(cross_section(flat_samples_BAO[:,0], H0_BAO_list)) - flat_samples_BAO[:,1]
 
-    upper_limit['BAO'] = np.percentile(flat_samples_BAO[:,1], 99)
-    lower_limit['BAO'] = np.percentile(Mx_BAO, 1)
+    upper_limit['BAO'] = np.percentile(flat_samples_BAO[:,1], 97.7)
+    lower_limit['BAO'] = np.percentile(Mx_BAO, 2.3)
 
     ## all combination
     nll = lambda *args: -methods3.lnlike(*args)
@@ -126,8 +126,8 @@ def main():
     H0_list = np.array([H0]*len(flat_samples))
     Mx = np.log10(cross_section(flat_samples[:,0], H0_list)) - flat_samples[:,1]
 
-    upper_limit['OHD+SNe+BAO'] = np.percentile(flat_samples[:,1], 99)
-    lower_limit['OHD+SNe+BAO'] = np.percentile(Mx, 1)
+    upper_limit['OHD+SNe+BAO'] = np.percentile(flat_samples[:,1], 97.7)
+    lower_limit['OHD+SNe+BAO'] = np.percentile(Mx, 2.3)
 
     # plot pdf
     pdf = pd.DataFrame({'OHD': flat_samples_OHD[:, 0], 'SN Ia': flat_samples_SNe[:, 0], 'SN Ia+QSO': flat_samples_m1[:, 0],

@@ -6,53 +6,65 @@
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
 \bibitem[{Alam {et~al.}(2021)Alam, Aubert, Avila, Balland, Bautista, Bershady, Bizyaev, Blanton, Bolton, Bovy, Brinkmann, Brownstein, Burtin, Chabanier, Chapman, Choi, Chuang, Comparat, Cousinou, Cuceu, Dawson, de~la Torre, de~Mattia, Agathe, des Bourboux, Escoffier, Etourneau, Farr, Font-Ribera, Frinchaboy, Fromenteau, Gil-Mar\'{\i}n, Le~Goff, Gonzalez-Morales, Gonzalez-Perez, Grabowski, Guy, Hawken, Hou, Kong, Parker, Klaene, Kneib, Lin, Long, Lyke, de~la Macorra, Martini, Masters, Mohammad, Moon, Mueller, Mu\~noz Guti\'errez, Myers, Nadathur, Neveux, Newman, Noterdaeme, Oravetz, Oravetz, Palanque-Delabrouille, Pan, Paviot, Percival, P\'erez-R\`afols, Petitjean, Pieri, Prakash, Raichoor, Ravoux, Rezaie, Rich, Ross, Rossi, Ruggeri, Ruhlmann-Kleider, S\'anchez, S\'anchez, S\'anchez-Gallego, Sayres, Schneider, Seo, Shafieloo, Slosar, Smith, Stermer, Tamone, Tinker, Tojeiro, Vargas-Maga\~na, Variu, Wang, Weaver, Weijmans, Y\`eche, Zarrouk, Zhao, Zhao, \& Zheng}]{PhysRevD.103.083533}
-Alam, S., Aubert, M., Avila, S., {et~al.} 2021, Phys. Rev. D, 103, 083533
+Alam, S., Aubert, M., Avila, S., {et~al.} 2021, Phys. Rev. D, 103, 083533, \dodoi{10.1103/PhysRevD.103.083533}
 
-\bibitem[{Basilakos \& Plionis(2009)}]{refId0}
-Basilakos, S., \& Plionis, M. 2009, A\&A, 507, 47
+\bibitem[{Basilakos \& Plionis(2009)}]{Basilakos_2009}
+Basilakos, S., \& Plionis, M. 2009, A\&A, 507, 47, \dodoi{10.1051/0004-6361/200912661}
+
+\bibitem[{Bennett {et~al.}(1996)Bennett, Banday, Górski, Hinshaw, Jackson, Keegstra, Kogut, Smoot, Wilkinson, \& Wright}]{Bennett_1996}
+Bennett, C.~L., Banday, A.~J., Górski, K.~M., {et~al.} 1996, The Astrophysical Journal, 464, L1, \dodoi{10.1086/310075}
 
 \bibitem[{Borghi {et~al.}(2022)Borghi, Moresco, \& Cimatti}]{Borghi_2022}
-Borghi, N., Moresco, M., \& Cimatti, A. 2022, The Astrophysical Journal Letters, 928, L4
+Borghi, N., Moresco, M., \& Cimatti, A. 2022, The Astrophysical Journal Letters, 928, L4, \dodoi{10.3847/2041-8213/ac3fb2}
 
 \bibitem[{Collaboration {et~al.}(2024)Collaboration, Adame, Aguilar, Ahlen, Alam, Alexander, Alvarez, Alves, Anand, Andrade, Armengaud, Avila, Aviles, Awan, Bahr-Kalus, Bailey, Baltay, Bault, Behera, BenZvi, Bera, Beutler, Bianchi, Blake, Blum, Brieden, Brodzeller, Brooks, Buckley-Geer, Burtin, Calderon, Canning, Rosell, Cereskaite, Cervantes-Cota, Chabanier, Chaussidon, Chaves-Montero, Chen, Chen, Claybaugh, Cole, Cuceu, Davis, Dawson, de~la Macorra, de~Mattia, Deiosso, Dey, Dey, Ding, Doel, Edelstein, Eftekharzadeh, Eisenstein, Elliott, Fagrelius, Fanning, Ferraro, Ereza, Findlay, Flaugher, Font-Ribera, Forero-Sánchez, Forero-Romero, Frenk, Garcia-Quintero, Gaztañaga, Gil-Marín, Gontcho, Gonzalez-Morales, Gonzalez-Perez, Gordon, Green, Gruen, Gsponer, Gutierrez, Guy, Hadzhiyska, Hahn, Hanif, Herrera-Alcantar, Honscheid, Howlett, Huterer, Iršič, Ishak, Juneau, Karaçaylı, Kehoe, Kent, Kirkby, Kremin, Krolewski, Lai, Lan, Landriau, Lang, Lasker, Goff, Guillou, Leauthaud, Levi, Li, Linder, Lodha, Magneville, Manera, Margala, Martini, Maus, McDonald, Medina-Varela, Meisner, Mena-Fernández, Miquel, Moon, Moore, Moustakas, Mudur, Mueller, Muñoz-Gutiérrez, Myers, Nadathur, Napolitano, Neveux, Newman, Nguyen, Nie, Niz, Noriega, Padmanabhan, Paillas, Palanque-Delabrouille, Pan, Penmetsa, Percival, Pieri, Pinon, Poppett, Porredon, Prada, Pérez-Fernández, Pérez-Ràfols, Rabinowitz, Raichoor, Ramírez-Pérez, Ramirez-Solano, Ravoux, Rashkovetskyi, Rezaie, Rich, Rocher, Rockosi, Roe, Rosado-Marin, Ross, Rossi, Ruggeri, Ruhlmann-Kleider, Samushia, Sanchez, Saulder, Schlafly, Schlegel, Schubnell, Seo, Shafieloo, Sharples, Silber, Slosar, Smith, Sprayberry, Tan, Tarlé, Taylor, Trusov, Ureña-López, Vaisakh, Valcin, Valdes, Vargas-Magaña, Verde, Walther, Wang, Wang, Weaver, Weaverdyck, Wechsler, Weinberg, White, Yu, Yu, Yuan, Yèche, Zaborowski, Zarrouk, Zhang, Zhao, Zhao, Zhou, Zhuang, \& Zou}]{desicollaboration2024desi2024vicosmological}
 Collaboration, D., Adame, A.~G., Aguilar, J., {et~al.} 2024, DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations.
 \newblock \doarXiv{2404.03002}
 
+\bibitem[{Eisenstein {et~al.}(2005)Eisenstein, Zehavi, Hogg, Scoccimarro, Blanton, Nichol, Scranton, Seo, Tegmark, Zheng, Anderson, Annis, Bahcall, Brinkmann, Burles, Castander, Connolly, Csabai, Doi, Fukugita, Frieman, Glazebrook, Gunn, Hendry, Hennessy, Ivezić, Kent, Knapp, Lin, Loh, Lupton, Margon, McKay, Meiksin, Munn, Pope, Richmond, Schlegel, Schneider, Shimasaku, Stoughton, Strauss, SubbaRao, Szalay, Szapudi, Tucker, Yanny, \& York}]{Eisenstein_2005}
+Eisenstein, D.~J., Zehavi, I., Hogg, D.~W., {et~al.} 2005, The Astrophysical Journal, 633, 560, \dodoi{10.1086/466512}
+
 \bibitem[{Jiao {et~al.}(2023)Jiao, Borghi, Moresco, \& Zhang}]{Jiao_2023}
-Jiao, K., Borghi, N., Moresco, M., \& Zhang, T.-J. 2023, The Astrophysical Journal Supplement Series, 265, 48
+Jiao, K., Borghi, N., Moresco, M., \& Zhang, T.-J. 2023, The Astrophysical Journal Supplement Series, 265, 48, \dodoi{10.3847/1538-4365/acbc77}
 
 \bibitem[{Li {et~al.}(2024)Li, Keeley, \& Shafieloo}]{li2024redshiftevolutionxrayuv}
 Li, X., Keeley, R.~E., \& Shafieloo, A. 2024, Redshift evolution of the X-ray and UV luminosity relation of quasars: calibrated results from SNe Ia.
 \newblock \doarXiv{2408.15547}
 
 \bibitem[{{Lusso, E.} {et~al.}(2020){Lusso, E.}, {Risaliti, G.}, {Nardini, E.}, {Bargiacchi, G.}, {Benetti, M.}, {Bisogni, S.}, {Capozziello, S.}, {Civano, F.}, {Eggleston, L.}, {Elvis, M.}, {Fabbiano, G.}, {Gilli, R.}, {Marconi, A.}, {Paolillo, M.}, {Piedipalumbo, E.}, {Salvestrini, F.}, {Signorini, M.}, \& {Vignali, C.}}]{Lusso_2020}
-{Lusso, E.}, {Risaliti, G.}, {Nardini, E.}, {et~al.} 2020, A\&A, 642, A150
+{Lusso, E.}, {Risaliti, G.}, {Nardini, E.}, {et~al.} 2020, A\&A, 642, A150, \dodoi{10.1051/0004-6361/202038899}
 
 \bibitem[{Moresco(2015)}]{10.1093/mnrasl/slv037}
-Moresco, M. 2015, Monthly Notices of the Royal Astronomical Society: Letters, 450, L16
+Moresco, M. 2015, Monthly Notices of the Royal Astronomical Society: Letters, 450, L16, \dodoi{10.1093/mnrasl/slv037}
 
 \bibitem[{Moresco {et~al.}(2012)Moresco, Cimatti, Jimenez, Pozzetti, Zamorani, Bolzonella, Dunlop, Lamareille, Mignoli, Pearce, Rosati, Stern, Verde, Zucca, Carollo, Contini, Kneib, Fèvre, Lilly, Mainieri, Renzini, Scodeggio, Balestra, Gobat, McLure, Bardelli, Bongiorno, Caputi, Cucciati, de~la Torre, de~Ravel, Franzetti, Garilli, Iovino, Kampczyk, Knobel, Kovač, Borgne, Brun, Maier, Pelló, Peng, Perez-Montero, Presotto, Silverman, Tanaka, Tasca, Tresse, Vergani, Almaini, Barnes, Bordoloi, Bradshaw, Cappi, Chuter, Cirasuolo, Coppa, Diener, Foucaud, Hartley, Kamionkowski, Koekemoer, López-Sanjuan, McCracken, Nair, Oesch, Stanford, \& Welikala}]{M.Moresco_2012}
-Moresco, M., Cimatti, A., Jimenez, R., {et~al.} 2012, Journal of Cosmology and Astroparticle Physics, 2012, 006
+Moresco, M., Cimatti, A., Jimenez, R., {et~al.} 2012, Journal of Cosmology and Astroparticle Physics, 2012, 006, \dodoi{10.1088/1475-7516/2012/08/006}
 
 \bibitem[{Moresco {et~al.}(2016)Moresco, Pozzetti, Cimatti, Jimenez, Maraston, Verde, Thomas, Citro, Tojeiro, \& Wilkinson}]{Moresco_2016}
-Moresco, M., Pozzetti, L., Cimatti, A., {et~al.} 2016, Journal of Cosmology and Astroparticle Physics, 2016, 014
+Moresco, M., Pozzetti, L., Cimatti, A., {et~al.} 2016, Journal of Cosmology and Astroparticle Physics, 2016, 014, \dodoi{10.1088/1475-7516/2016/05/014}
 
-\bibitem[{Ratsimbazafy {et~al.}(2017)Ratsimbazafy, Loubser, Crawford, Cress, Bassett, Nichol, \& Väisänen}]{10.1093/mnras/stx301}
-Ratsimbazafy, A.~L., Loubser, S.~I., Crawford, S.~M., {et~al.} 2017, Monthly Notices of the Royal Astronomical Society, 467, 3239
+\bibitem[{Perlmutter {et~al.}(1999)Perlmutter, Aldering, Goldhaber, Knop, Nugent, Castro, Deustua, Fabbro, Goobar, Groom, Hook, Kim, Kim, Lee, Nunes, Pain, Pennypacker, Quimby, Lidman, Ellis, Irwin, McMahon, Ruiz-Lapuente, Walton, Schaefer, Boyle, Filippenko, Matheson, Fruchter, Panagia, Newberg, Couch, \& Project}]{Perlmutter_1999}
+Perlmutter, S., Aldering, G., Goldhaber, G., {et~al.} 1999, The Astrophysical Journal, 517, 565, \dodoi{10.1086/307221}
 
-\bibitem[{Riess {et~al.}(2022)Riess, Yuan, Macri, Scolnic, Brout, Casertano, Jones, Murakami, Anand, Breuval, Brink, Filippenko, Hoffmann, Jha, Kenworthy, Mackenty, Stahl, \& Zheng}]{Riess_2022}
-Riess, A.~G., Yuan, W., Macri, L.~M., {et~al.} 2022, The Astrophysical Journal Letters, 934, L7
+\bibitem[{Ratsimbazafy {et~al.}(2017)Ratsimbazafy, Loubser, Crawford, Cress, Bassett, Nichol, \& VÃ¤isÃ¤nen}]{10.1093/mnras/stx301}
+Ratsimbazafy, A.~L., Loubser, S.~I., Crawford, S.~M., {et~al.} 2017, Monthly Notices of the Royal Astronomical Society, 467, 3239, \dodoi{10.1093/mnras/stx301}
+
+\bibitem[{Riess {et~al.}(1998)Riess, Filippenko, Challis, Clocchiatti, Diercks, Garnavich, Gilliland, Hogan, Jha, Kirshner, Leibundgut, Phillips, Reiss, Schmidt, Schommer, Smith, Spyromilio, Stubbs, Suntzeff, \& Tonry}]{Riess_1998}
+Riess, A.~G., Filippenko, A.~V., Challis, P., {et~al.} 1998, The Astronomical Journal, 116, 1009, \dodoi{10.1086/300499}
+
+\bibitem[{Riess {et~al.}(2022)Riess, Yuan, Macri, Scolnic, Brout, Casertano, Jones, Murakami, Anand, Breuval, Brink, Filippenko, Hoffmann, Jha, D’arcy~Kenworthy, Mackenty, Stahl, \& Zheng}]{Riess_2022}
+Riess, A.~G., Yuan, W., Macri, L.~M., {et~al.} 2022, The Astrophysical Journal Letters, 934, L7, \dodoi{10.3847/2041-8213/ac5c5b}
 
 \bibitem[{Scolnic {et~al.}(2022)Scolnic, Brout, Carr, Riess, Davis, Dwomoh, Jones, Ali, Charvu, Chen, Peterson, Popovic, Rose, Wood, Brown, Chambers, Coulter, Dettman, Dimitriadis, Filippenko, Foley, Jha, Kilpatrick, Kirshner, Pan, Rest, Rojas-Bravo, Siebert, Stahl, \& Zheng}]{Scolnic_2022}
-Scolnic, D., Brout, D., Carr, A., {et~al.} 2022, The Astrophysical Journal, 938, 113
+Scolnic, D., Brout, D., Carr, A., {et~al.} 2022, The Astrophysical Journal, 938, 113, \dodoi{10.3847/1538-4357/ac8b7a}
 
 \bibitem[{Simon {et~al.}(2005)Simon, Verde, \& Jimenez}]{PhysRevD.71.123001}
-Simon, J., Verde, L., \& Jimenez, R. 2005, Phys. Rev. D, 71, 123001
+Simon, J., Verde, L., \& Jimenez, R. 2005, Phys. Rev. D, 71, 123001, \dodoi{10.1103/PhysRevD.71.123001}
 
 \bibitem[{Stern {et~al.}(2010)Stern, Jimenez, Verde, Kamionkowski, \& Stanford}]{Daniel.Stern_2010}
-Stern, D., Jimenez, R., Verde, L., Kamionkowski, M., \& Stanford, S.~A. 2010, Journal of Cosmology and Astroparticle Physics, 2010, 008
+Stern, D., Jimenez, R., Verde, L., Kamionkowski, M., \& Stanford, S.~A. 2010, Journal of Cosmology and Astroparticle Physics, 2010, 008, \dodoi{10.1088/1475-7516/2010/02/008}
 
 \bibitem[{Zhang {et~al.}(2014)Zhang, Zhang, Yuan, Liu, Zhang, \& Sun}]{Zhang_2014}
-Zhang, C., Zhang, H., Yuan, S., {et~al.} 2014, Research in Astronomy and Astrophysics, 14, 1221
+Zhang, C., Zhang, H., Yuan, S., {et~al.} 2014, Research in Astronomy and Astrophysics, 14, 1221, \dodoi{10.1088/1674-4527/14/10/002}
 
 \end{thebibliography}

@@ -76,7 +76,8 @@ def solution(log_kC1, O20, H0, n=100000):
     # Unit conversion
     kC1 = 10**log_kC1 * transfer
     O10 = 1 - O20
-    t0 = t_0(log_kC1, O10, H0)
+    # t0 = t_0(log_kC1, O10, H0)
+    t0 = 1/H0
     # Solution interval
     tspan = (t0, 0)
     tn = np.linspace(t0, 0, n)

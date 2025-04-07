@@ -33,7 +33,7 @@ def DM_z(log_kC1, O20, H0):
         idx = np.searchsorted(z_values, z_value)
         if idx >= len(z_values):  
             idx = len(z_values) - 1
-        int_value = -np.trapz(z_values[:idx], t_values[:idx])
+        int_value = -np.trapezoid(z_values[:idx], t_values[:idx])
         dl_value = const_c * (1 + z_value) * (t0 - t_values[idx] + int_value)
         dl_values.append(dl_value)
 

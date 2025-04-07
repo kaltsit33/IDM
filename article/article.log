@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  17 MAR 2025 14:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  7 APR 2025 09:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,27 +462,12 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1]
-Underfull \hbox (badness 1648) in paragraph at lines 134--141
-\TU/lmr/m/n/10 & Plionis[][] ([][]2009[][])), we use the newly revised ob-
- []
+) [1] [2] [3]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 366.
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 134--141
-\TU/lmr/m/n/10 servational $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )$ \TU/lmr/m/n/10 data (OHD)([][]Simon et al.[][] ([][]2005[][]);
- []
-
-
-Underfull \hbox (badness 1748) in paragraph at lines 134--141
-\TU/lmr/m/n/10 ([][]2014[][]); [][]Moresco et al.[][] ([][]2016[][]);[][]Ratsimbazafy et al.[][]
- []
-
-[2] [3]
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 345.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 345.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 366.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
@@ -511,6 +496,7 @@ File: ./pictures//ohd_sne_bao_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_1.pdf>
 File: ./pictures//ohd_sne_bao_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_2.pdf>
+[4]
 File: ./pictures//ohd_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_widm_1.pdf>
 File: ./pictures//ohd_widm_2.pdf Graphic file (type pdf)
@@ -535,20 +521,20 @@ File: ./pictures//ohd_sne_bao_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_widm_1.pdf>
 File: ./pictures//ohd_sne_bao_widm_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_widm_2.pdf>
-[4] [5] [6] [7]
+ [5] [6]
 File: ./pictures//zmax.pdf Graphic file (type pdf)
 <use ./pictures//zmax.pdf>
- (./article.bbl [8]) [9] (./article.aux)
+ (./article.bbl [7]) [8] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: 7D10CB9425DA04164F91024402FF69F5;2528.
  ) 
 Here is how much of TeX's memory you used:
- 12574 strings out of 476683
- 194265 string characters out of 5804047
- 1886018 words of memory out of 5000000
- 32617 multiletter control sequences out of 15000+600000
+ 12586 strings out of 476683
+ 194541 string characters out of 5804047
+ 1883018 words of memory out of 5000000
+ 32629 multiletter control sequences out of 15000+600000
  520357 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,11n,90p,2042b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on article.pdf (9 pages).
+Output written on article.pdf (8 pages).

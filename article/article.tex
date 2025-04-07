@@ -19,19 +19,18 @@
 
 \section{Introduction}
 
-   The standard Λ-Cold Dark Matter (ΛCDM) model has been remarkably 
-   successful in explaining a wide range of cosmological observations, 
-   from the Cosmic Microwave Background (CMB) anisotropies to 
-   large-scale structure formation. However, there are also many 
-   alternative models that have been proposed to explain the
-   accelerated expansion of the Universe, such as the dynamical
+   The standard Λ-Cold Dark Matter (ΛCDM) model has been successful in 
+   explaining the accelerated expansion of the Universe (\cite{Riess_1998}; \cite{Perlmutter_1999}), 
+   from the cosmic microwave background (CMB) anisotropies (\cite{Bennett_1996}) to 
+   the measurement of baryon acoustic oscillations (BAO; \cite{Eisenstein_2005}). However, there are also many 
+   alternative models that have been proposed to explain, such as the dynamical
    dark energy models and the modified gravity models.
 
    It has been shown that dark matter self-interaction could distribute 
    to the accelerated expansion without dark energy component. According
    to the Boltzmann formalism, the disequilibrium between dark matter particle
    creation and annihilation processes would creat an effective source term 
-   making negative pressure just like the dark energy. \cite{refId0}
+   making negative pressure just like the dark energy. \cite{Basilakos_2009}
    investigated the analytical solutions for the simple interacting dark matter (IDM) 
    model, and find that the effective annihilation term is much smaller than the
    results given by the general methods. The gravitational matter creation
@@ -68,9 +67,9 @@
    as a negative pressure source in the global dynamics of the Universe,
    like the role of Dark Energy in the general cosmological models.
 
-   \cite{refId0} identified two functional forms for which
+   \cite{Basilakos_2009} identified two functional forms for which
    the previous Boltzmann equation can be solved analytically.
-   Refering to Appendix B in \cite{refId0}, only one of these two is of interest
+   Refering to Appendix B in \cite{Basilakos_2009}, only one of these two is of interest
    because it provides a ``$\propto a^{-3}$'' dependence of the scale factor,
    which is \begin{equation}
       \Psi(a)=aH(a)R(a)=C_1(n+3)a^nH(a)+\kappa C_1^2a^{2m}.
@@ -95,7 +94,7 @@
    \begin{equation}
       \rho(a)=C_1+a^{-3}\frac{e^{-2\kappa C_1(t-t_0)}}{C_2-\kappa Z(t)},
    \end{equation}
-   where $Z(t)=\int_{t_0}^ta^{-3}e^{-2\kappa C_1(t'-t_0)}\mathrm{d}t'$(\cite{refId0}).
+   where $Z(t)=\int_{t_0}^ta^{-3}e^{-2\kappa C_1(t'-t_0)}\mathrm{d}t'$ (\cite{Basilakos_2009}).
    Using the usual unit-less $\Omega$-like parameterization, we obtain that
    \begin{equation}
       \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}+\frac{\Omega_{1,0}\Omega_{2,0}a^{-3}e^{-2\kappa C_1(t-t_0)}}
@@ -127,16 +126,16 @@
       \left(\frac{H}{H_0}\right)^2=\Omega_{2,0}a^{-3}+\Omega_{1,0}a^{n},
    \end{equation}
    where $\Omega_{2,0}=8\pi G\mathcal{D}/3H_0^2$ and 
-   $\Omega_{1,0}=8\pi GC_1/3H_0^2$, respectively.(\cite{refId0})
+   $\Omega_{1,0}=8\pi GC_1/3H_0^2$, respectively.(\cite{Basilakos_2009})
    
 \section{Dataset}
 
-   To constrain the relevant IDM models (\cite{refId0}), we use the newly revised
-   observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001};
-   \cite{Daniel.Stern_2010};\cite{M.Moresco_2012};\cite{Zhang_2014};
-   \cite{Moresco_2016};\cite{10.1093/mnras/stx301};\cite{10.1093/mnrasl/slv037};
-   \cite{Borghi_2022};\cite{Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
-   (\cite{Scolnic_2022}), the QSO data from \cite{Lusso_2020}, 
+   To constrain the relevant IDM models (\cite{Basilakos_2009}), we use the newly revised
+   observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001}; 
+   \cite{Daniel.Stern_2010}; \cite{M.Moresco_2012}; \cite{Zhang_2014};
+   \cite{Moresco_2016}; \cite{10.1093/mnras/stx301}; \cite{10.1093/mnrasl/slv037}; 
+   \cite{Borghi_2022}; \cite{Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
+   (\cite{Scolnic_2022}), the quasar data from \cite{Lusso_2020}, 
    the BAO data from SDSS and DESI 2024.
 
 \subsection{The observational H(z) data}
@@ -282,11 +281,7 @@
    \begin{equation}
       r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s(z')\text{d}z'}{H(z')},
    \end{equation}
-   where $c_s$ is the sound speed prior to recombination, which is given as
-   \begin{equation}
-      c_s(z)=\frac{c}{\sqrt{3\left(1+\frac{3\rho_{\mathrm{b}}(z)}{4\rho_{\gamma}(z)}\right)}}\simeq
-      \frac{c}{\sqrt{3\left(1+\frac{3\rho_{\mathrm{b}0}}{4\rho_{\gamma0}}\frac{1}{1+z}\right)}}.
-   \end{equation}
+   where $c_s$ is the sound speed prior to recombination.
 
    However, the solution of Eq.(\ref{eq:8}) only gives an upper limit of redshift $z_{\max}$
    (see Appendix), and we just try to use the cross
@@ -375,7 +370,7 @@
    could only give the upper limit of what, and give the lower limit
    of $M_x$ according to Eq.(\ref{eq:9}), respectively.
 
-   We use the 99\% and 1\% quantiles to determine the upper and lower
+   We use the 97.7\% and 2.3\% quantiles (about $2\sigma$) to determine the upper and lower
    limits of the parameters, and the results are shown in Table \ref{tab:5}.
 
    \begin{figure}[htbp]
@@ -415,7 +410,8 @@
 
    We would find that the SNe Ia and QSO combined result is most
    similar to SNe Ia result, what may refer that the QSO cannot
-   give an effective constraint.
+   give an effective constraint. It may be due to the data quality
+   at the high redshift. 
 
    \begin{figure}[htbp]
       \centering
@@ -461,10 +457,10 @@
          $\Omega_{2,0}$ & $0.321_{-0.067}^{+0.055}$ & $0.360_{-0.020}^{+0.020}$
           & $0.359_{-0.020}^{+0.020}$ & $0.301_{-0.013}^{+0.013}$
           & $0.330_{-0.016}^{+0.016}$ & $0.313_{-0.010}^{+0.010}$ \\
-         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-1.81$ & $<-2.30$ & $<-2.35$
-          & $<-2.66$ & $<-2.78$ & $<-3.21$ \\
-         $\log_{10}(M_x/$GeV) & $>-10.09$ & $>-9.62$ & $>-9.60$
-          & $>-9.25$ & $>-9.15$ & $>-8.70$ \\
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-2.17$ & $<-2.51$ & $<-2.57$
+          & $<-3.10$ & $<-2.88$ & $<-3.39$ \\
+         $\log_{10}(M_x/$GeV) & $>-9.77$ & $>-9.42$ & $>-9.40$
+          & $>-8.84$ & $>-9.03$ & $>-8.52$ \\
          \hline
       \end{tabular}
       \label{tab:5}
@@ -611,7 +607,7 @@
 
    \begin{equation}
       Const=\mathcal{F}(-\infty)\equiv\lim_{x\to-\infty}\mathcal{F}(x)=
-      \frac{\kappa C_1\ln\kappa C_1}{H_0^2\Omega_{1,0}[-4(\kappa C_1)^2+9H_0^2\Omega_{1,0}]}.
+      \frac{\kappa C_1\ln\kappa C_1}{9H_0^4\Omega_{1,0}^2-4H_0^2\Omega_{1,0}(\kappa C_1)^2}.
    \end{equation}
    The initial time of today $t_0$ can be easily given as
    \begin{equation}

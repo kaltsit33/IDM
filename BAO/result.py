@@ -45,7 +45,7 @@ class BAO:
             idx = len(self.z_list) - 1
         intrange = self.z_list[:idx]
         integrand = -(1 + intrange) / self.zprime_list[:idx]
-        intvalue = np.trapz(integrand, intrange)
+        intvalue = np.trapezoid(integrand, intrange)
         return intvalue * const_c
 
     def D_H(self, z):
