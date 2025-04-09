@@ -20,21 +20,24 @@
 \section{Introduction}
 
    The standard Λ-Cold Dark Matter (ΛCDM) model has been successful in 
-   explaining the accelerated expansion of the Universe (\cite{Riess_1998}; \cite{Perlmutter_1999}), 
+   explaining the accelerated expansion of the Universe (\cite{Riess_1998,Perlmutter_1999}), 
    from the cosmic microwave background (CMB) anisotropies (\cite{Bennett_1996}) to 
-   the measurement of baryon acoustic oscillations (BAO; \cite{Eisenstein_2005}). However, there are also many 
-   alternative models that have been proposed to explain, such as the dynamical
-   dark energy models and the modified gravity models.
+   the measurement of baryon acoustic oscillations (BAO; \cite{Eisenstein_2005}). 
+   However, there are also many alternative models that have been proposed to describe 
+   the phenomenon, such as the canonical ``quintessence" scalar field theories 
+   (\cite{PhysRevD.37.3406, WETTERICH1988668,PhysRevLett.80.1582}),
+   non-canonical ``k-essence" theories (\cite{PhysRevLett.85.4438, PhysRevD.63.103510})
+   and the modified gravity models (see, e.g., \cite{CLIFTON20121} for a review).
 
-   It has been shown that dark matter self-interaction could distribute 
-   to the accelerated expansion without dark energy component. According
-   to the Boltzmann formalism, the disequilibrium between dark matter particle
+   It has been shown that dark matter self-interaction could contribute 
+   to the accelerated expansion without dark energy component (\cite{PhysRevD.64.063501, Balakin_2003}). 
+   According to the Boltzmann formalism, the disequilibrium between dark matter particle
    creation and annihilation processes would creat an effective source term 
    making negative pressure just like the dark energy. \cite{Basilakos_2009}
    investigated the analytical solutions for the simple interacting dark matter (IDM) 
    model, and find that the effective annihilation term is much smaller than the
-   results given by the general methods. The gravitational matter creation
-   model is mathematically equivalent to one case of the IDM models.
+   results given by the general methods. The gravitational matter creation model (\cite{Lima_2008})
+   is mathematically equivalent to one case of the IDM models (\cite{Basilakos_2009}).
 
    In this paper, we use the newly revised data from $H(z)$, supernovae Ia, 
    quasars and baryon acoustic oscillation by using the Markov chain Monte
@@ -44,7 +47,7 @@
 \section{The basic equations in the IDM model}
 
    We assume that the total density of the cosmic fluid obeys
-   the collisional Boltzmann equation
+   the collisional Boltzmann equation (\cite{Kolb:1990vq})
    \begin{equation}
       \dot{\rho}+3H\rho+\kappa\rho^2-2\Psi=0,
    \end{equation}
@@ -117,10 +120,10 @@
    \begin{equation}
       \rho(a)=\mathcal{D}a^{-3}+C_1a^{n},
    \end{equation}
-   where $\mathcal{D}=C_2-C-1$. The conditions in which the current 
+   where $\mathcal{D}=C_2-C_1$. The conditions in which the current 
    model acts as a quintessence cosmology are given by $\mathcal{D}>0,
    C_1>0,$ and $w_{\text{IDM}}=-1-n/3$. This solution is mathematically
-   equivalent to that of the gravitational matter creation model of().
+   equivalent to that of the gravitational matter creation model of \cite{Lima_2008}.
    The Hubble flow is now given by
    \begin{equation}
       \left(\frac{H}{H_0}\right)^2=\Omega_{2,0}a^{-3}+\Omega_{1,0}a^{n},
@@ -131,12 +134,12 @@
 \section{Dataset}
 
    To constrain the relevant IDM models (\cite{Basilakos_2009}), we use the newly revised
-   observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001}; 
-   \cite{Daniel.Stern_2010}; \cite{M.Moresco_2012}; \cite{Zhang_2014};
-   \cite{Moresco_2016}; \cite{10.1093/mnras/stx301}; \cite{10.1093/mnrasl/slv037}; 
-   \cite{Borghi_2022}; \cite{Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
+   observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001, Daniel.Stern_2010, 
+   M.Moresco_2012, Zhang_2014, Moresco_2016, 10.1093/mnras/stx301, 10.1093/mnrasl/slv037, 
+   Borghi_2022, Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
    (\cite{Scolnic_2022}), the quasar data from \cite{Lusso_2020}, 
-   the BAO data from SDSS and DESI 2024.
+   the BAO data from SDSS (\cite{PhysRevD.103.083533}) and DESI 2024 
+   (\cite{desicollaboration2024desi2024vicosmological}).
 
 \subsection{The observational H(z) data}
 
@@ -157,7 +160,6 @@
    \end{equation}
 
    \begin{table}[htbp]
-      \caption{The OHD dataset}
       \centering
       \begin{tabular}{llll}
          \hline\hline
@@ -198,18 +200,19 @@
          1.965 & 186.5$\pm$50.4 & \cite{10.1093/mnrasl/slv037} \\
          \hline    
       \end{tabular}
+      \caption{The OHD dataset from different paper.}
       \label{tab:1}
    \end{table}
 
 \subsection{Type Ia supernovae}
 
-   SNe Ia have long been used as "standard candles" to give a direct
+   SNe Ia have long been used as ``standard candles" to give a direct
    measurement of their luminosity distance, and provides strong constraints
    on cosmological parameters. We use the latest Pantheon+ data set of 1701 
-   SNe Ia samples(\cite{Scolnic_2022}), which covers the redshift range [0, 2.26].
+   SNe Ia samples (\cite{Scolnic_2022}), which covers the redshift range [0, 2.26].
    
-   We use the fiducial SN Ia magnitude ($M_b$) determined from SH0ES 2021 Cepheid 
-   host distances(\cite{Riess_2022}), which gives the $\mu_{\text{data}}$ and we 
+   We use the fiducial SNe Ia magnitude ($M_b$) determined from SH0ES 2021 Cepheid 
+   host distances (\cite{Riess_2022}), which gives the $\mu_{\text{data}}$ and we 
    give the $\chi^2$ as 
    \begin{equation}
       \chi_{\text{SNe}}^2=\Delta^{\text{T}}C^{-1}\Delta,
@@ -226,7 +229,7 @@
       \widetilde{\chi}_{\text{SNe}}^2=\chi_{\text{SNe}}^2-\frac{B^2}{C}+\ln\left(\frac{C}{2\pi}\right),
    \end{equation}
    where $B=\Delta^{\text{T}}C^{-1}$ and $C$ is the sum of $C^{-1}$.
-   Apparently these two functions give the same constraints in $\Omega_{2,0}$ and
+   Apparently, these two functions give the same constraints in $\Omega_{2,0}$ and
    $\log_{10}(\kappa C_1)$.
 
 \subsection{Quasar}
@@ -261,9 +264,9 @@
 
 \subsection{Baryon acoustic oscillation}
 
-   The Baryon acoustic oscillation method (BAO) provides a key cosmological probe
+   The Baryon acoustic oscillation (BAO) method provides a key cosmological probe
    sensitive to the cosmic expansion history with well-controlled systematics.
-   We use two BAO data sets from the SDSS(\cite{PhysRevD.103.083533}) and DESI 2024(\cite{desicollaboration2024desi2024vicosmological}),
+   We use two BAO datasets from the SDSS (\cite{PhysRevD.103.083533}) and DESI 2024 (\cite{desicollaboration2024desi2024vicosmological}),
    which are given at Table \ref{tab:2} and Table \ref{tab:3}, respectively.
    The redshift is up to 2.33 both in the SDSS and the DESI 2024 dataset.
 
@@ -288,7 +291,6 @@
    parameter $r_{\text{d}}h$ to give the constraints.
 
    \begin{table}[htbp]
-      \caption{The BAO-only dataset from SDSS}
       \centering
       \begin{tabular}{llll}
          \hline\hline
@@ -305,11 +307,12 @@
          2.33 & 37.3$\pm$1.7 & 9.08$\pm$0.34 & \\
          \hline
       \end{tabular}
+      \caption{The BAO-only dataset from SDSS. The $\sigma$ of asymmetric 
+      uncertainties would be calculated on average.}
       \label{tab:2}
    \end{table}
 
    \begin{table}[htbp]
-      \caption{The BAO dataset from DESI 2024}
       \centering
       \begin{tabular}{llll}
          \hline\hline
@@ -325,6 +328,7 @@
          2.33 & 39.71$\pm$0.94 & 8.52$\pm$0.17 & \\
          \hline
       \end{tabular}
+      \caption{The BAO dataset from DESI 2024.}
       \label{tab:3}
    \end{table}
 
@@ -336,11 +340,9 @@
    Model 1 and $n$ in Model 2.
    Besides, we also add the parameter $H_0$ or $h$ to give the constraints
    to the dark matter particle mass $M_x$.
-
    The prior range set for free parameters are given at Table \ref{tab:4}
 
    \begin{table}[htbp]
-      \caption{Parameters and priors used in analysis}
       \centering
       \begin{tabular}{lll}
          \hline\hline
@@ -360,18 +362,26 @@
          $r_{\text{d}}h$[Mpc] & 100 & $\mathcal{U}[50,150]$ \\
          \hline
       \end{tabular}
+      \caption{Parameters and priors used in analysis. 
+      All of the priors are flat in the ranges given. 
+      The $\log_{10}(\kappa C_1)$ does not have a predicted value, 
+      and the initial value of each chain is selected randomly uniformly
+      within the prior range.}
       \label{tab:4}
    \end{table}
+
+   For the BAO dataset, we use $h \simeq 0.7$ as the default value to give constraints.
 
 \subsection{Model 1: mimicking the ΛCDM model}
 
    The Eq.(\ref{eq:8}) convergant to the flat ΛCDM model as
-   $\log_{10}(\kappa C_1)\to-\infty$, therefore the constraints
+   $\log_{10}(\kappa C_1)\to-\infty$, thus the constraints
    could only give the upper limit of what, and give the lower limit
    of $M_x$ according to Eq.(\ref{eq:9}), respectively.
 
    We use the 97.7\% and 2.3\% quantiles (about $2\sigma$) to determine the upper and lower
-   limits of the parameters, and the results are shown in Table \ref{tab:5}.
+   limits of the parameters. The  constraint results are shown in 
+   Figure \ref{fig:1}-\ref{fig:6} and summarized in Table \ref{tab:5}.
 
    \begin{figure}[htbp]
       \centering
@@ -382,7 +392,8 @@
          \includegraphics[width=0.22\textwidth]{ohd_2.pdf}
       }
       \caption{The constraint result from the observational
-      $H(z)$ data}
+      $H(z)$ data.}
+      \label{fig:1}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -394,7 +405,7 @@
          \includegraphics[width=0.22\textwidth]{sne_2.pdf}
       }
       \caption{The constraint result from the supernovae
-      Ia data}
+      Ia data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -405,13 +416,14 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{sne_qso_2.pdf}
       }
-      \caption{The constraint result from the SNe Ia + QSO data}
+      \caption{The constraint result from the SNe Ia + QSO data.}
    \end{figure}
 
-   We would find that the SNe Ia and QSO combined result is most
+   We could find that the combined result of SNe Ia and QSO is most
    similar to SNe Ia result, what may refer that the QSO cannot
    give an effective constraint. It may be due to the data quality
-   at the high redshift. 
+   at the high redshift, while the effective redshift of QSO as tracers in BAO
+   is about 1.5, within the SNe Ia range.
 
    \begin{figure}[htbp]
       \centering
@@ -421,7 +433,7 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{bao_2.pdf}
       }
-      \caption{The constraint result from the BAO data}
+      \caption{The constraint result from the BAO data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -432,7 +444,7 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{ohd_sne_2.pdf}
       }
-      \caption{The constraint result from the OHD + SNe Ia data}
+      \caption{The constraint result from the OHD + SNe Ia data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -443,11 +455,11 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{ohd_sne_bao_2.pdf}
       }
-      \caption{The constraint result from the OHD + SNe Ia + BAO data}
+      \caption{The constraint result from the OHD + SNe Ia + BAO data.}
+      \label{fig:6}
    \end{figure}
 
    \begin{table*}[htbp]
-      \caption{The constraint results of Model 1}
       \centering
       \begin{tabular}{lcccccc}
          \hline\hline
@@ -463,6 +475,7 @@
           & $>-8.84$ & $>-9.03$ & $>-8.52$ \\
          \hline
       \end{tabular}
+      \caption{The constraint results of Model 1.}
       \label{tab:5}
    \end{table*}
 
@@ -479,7 +492,7 @@
          \includegraphics[width=0.22\textwidth]{ohd_widm_2.pdf}
       }
       \caption{The constraint result from the observational
-      $H(z)$ data}
+      $H(z)$ data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -491,7 +504,7 @@
          \includegraphics[width=0.22\textwidth]{sne_widm_2.pdf}
       }
       \caption{The constraint result from the supernovae
-      Ia data}
+      Ia data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -502,7 +515,7 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{sne_qso_widm_2.pdf}
       }
-      \caption{The constraint result from the SNe Ia + QSO data}
+      \caption{The constraint result from the SNe Ia + QSO data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -513,7 +526,7 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{bao_widm_2.pdf}
       }
-      \caption{The constraint result from the BAO data}
+      \caption{The constraint result from the BAO data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -524,7 +537,7 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{ohd_sne_widm_2.pdf}
       }
-      \caption{The constraint result from the OHD + SNe Ia data}
+      \caption{The constraint result from the OHD + SNe Ia data.}
    \end{figure}
 
    \begin{figure}[htbp]
@@ -535,13 +548,12 @@
       \subfigure{
          \includegraphics[width=0.22\textwidth]{ohd_sne_bao_widm_2.pdf}
       }
-      \caption{The constraint result from the OHD + SNe Ia + BAO data}
+      \caption{The constraint result from the OHD + SNe Ia + BAO data.}
    \end{figure}
 
    The results from three dataset are different
 
    \begin{table*}[htbp]
-      \caption{The constraint results of Model 2}
       \centering
       \begin{tabular}{lcccccc}
          \hline\hline
@@ -559,6 +571,7 @@
           & $-0.72_{-0.09}^{+0.09}$ & $-0.86_{-0.04}^{+0.04}$ \\
          \hline
       \end{tabular}
+      \caption{The constraint results of Model 2.}
       \label{tab:6}
    \end{table*}
 
