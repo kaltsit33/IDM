@@ -15,8 +15,8 @@ O20 = 0.3
 log_kC1 = -5.0
     
 # Read data from csv file
-file_path = "./OHD/OHD.csv"
-pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(0, 1, 2))
+file_path = "./OHD/OHD.dat"
+pandata = np.loadtxt(file_path, skiprows=1)
 z_hz = pandata[:, 0]
 H_z = pandata[:, 1]
 err_H = pandata[:, 2]

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  8 APR 2025 11:19
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  14 APR 2025 09:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -451,33 +451,23 @@ Package hyperref Info: Link coloring ON on input line 5.
 \@outlinefile=\write4
 \openout4 = `article.out'.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 20.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1] [2]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 250.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 247.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 250.
-
-
-Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
-
-[3]
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 385.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 385.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 247.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
@@ -486,26 +476,26 @@ File: ./pictures//ohd_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_1.pdf>
 File: ./pictures//ohd_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_2.pdf>
-File: ./pictures//sne_1.pdf Graphic file (type pdf)
-<use ./pictures//sne_1.pdf>
-File: ./pictures//sne_2.pdf Graphic file (type pdf)
-<use ./pictures//sne_2.pdf>
-File: ./pictures//sne_qso_1.pdf Graphic file (type pdf)
-<use ./pictures//sne_qso_1.pdf>
-File: ./pictures//sne_qso_2.pdf Graphic file (type pdf)
-<use ./pictures//sne_qso_2.pdf>
-File: ./pictures//bao_1.pdf Graphic file (type pdf)
-<use ./pictures//bao_1.pdf>
-File: ./pictures//bao_2.pdf Graphic file (type pdf)
-<use ./pictures//bao_2.pdf>
+[3]
+File: ./pictures//compare_1.pdf Graphic file (type pdf)
+<use ./pictures//compare_1.pdf>
+File: ./pictures//compare_2.pdf Graphic file (type pdf)
+<use ./pictures//compare_2.pdf>
 File: ./pictures//ohd_sne_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_1.pdf>
 File: ./pictures//ohd_sne_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_2.pdf>
+File: ./pictures//bao_1.pdf Graphic file (type pdf)
+<use ./pictures//bao_1.pdf>
+File: ./pictures//bao_2.pdf Graphic file (type pdf)
+<use ./pictures//bao_2.pdf>
 File: ./pictures//ohd_sne_bao_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_1.pdf>
 File: ./pictures//ohd_sne_bao_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_2.pdf>
+File: ./pictures//pdf_1.pdf Graphic file (type pdf)
+<use ./pictures//pdf_1.pdf>
+ [4]
 File: ./pictures//ohd_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_widm_1.pdf>
 File: ./pictures//ohd_widm_2.pdf Graphic file (type pdf)
@@ -518,19 +508,19 @@ File: ./pictures//sne_qso_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//sne_qso_widm_1.pdf>
 File: ./pictures//sne_qso_widm_2.pdf Graphic file (type pdf)
 <use ./pictures//sne_qso_widm_2.pdf>
-File: ./pictures//bao_widm_1.pdf Graphic file (type pdf)
-<use ./pictures//bao_widm_1.pdf>
-File: ./pictures//bao_widm_2.pdf Graphic file (type pdf)
-<use ./pictures//bao_widm_2.pdf>
 File: ./pictures//ohd_sne_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_widm_1.pdf>
 File: ./pictures//ohd_sne_widm_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_widm_2.pdf>
+File: ./pictures//bao_widm_1.pdf Graphic file (type pdf)
+<use ./pictures//bao_widm_1.pdf>
+File: ./pictures//bao_widm_2.pdf Graphic file (type pdf)
+<use ./pictures//bao_widm_2.pdf>
 File: ./pictures//ohd_sne_bao_widm_1.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_widm_1.pdf>
 File: ./pictures//ohd_sne_bao_widm_2.pdf Graphic file (type pdf)
 <use ./pictures//ohd_sne_bao_widm_2.pdf>
-[4] [5] [6] [7]
+ [5] [6] [7]
 File: ./pictures//zmax.pdf Graphic file (type pdf)
 <use ./pictures//zmax.pdf>
  (./article.bbl [8]) [9] (./article.aux)
@@ -538,12 +528,12 @@ Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: 7D10CB9425DA04164F91024402FF69F5;2528.
  ) 
 Here is how much of TeX's memory you used:
- 12618 strings out of 476683
- 195245 string characters out of 5804047
- 1897018 words of memory out of 5000000
- 32661 multiletter control sequences out of 15000+600000
+ 12609 strings out of 476683
+ 194997 string characters out of 5804047
+ 1892018 words of memory out of 5000000
+ 32653 multiletter control sequences out of 15000+600000
  520357 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,11n,90p,2042b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,90p,1904b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on article.pdf (9 pages).

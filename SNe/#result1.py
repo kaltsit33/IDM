@@ -44,10 +44,7 @@ def chi_square(log_kC1, O20, H0):
     dl = np.array(dl_values)
     muth = 5 * np.log10(dl) + 25
     delta_mu = muth - mu
-    A = np.dot(delta_mu, np.dot(cov_matrix_inv, delta_mu))
-    B = np.sum(np.dot(cov_matrix_inv, delta_mu))
-    C = np.sum(cov_matrix_inv)
-    chi2 = A - B**2/C + np.log(C/(2*np.pi))
+    chi2 = delta_mu @ cov_matrix_inv @ delta_mu.T
     return chi2
 
 def lnlike(paras):

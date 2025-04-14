@@ -15,9 +15,10 @@ log_kC1 = -5.0
 
 # pantheon+
 file_path = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
-pandata = np.loadtxt(file_path, skiprows=1, usecols=(2, 10))
-z_hd = pandata[:, 0]
-mu = pandata[:, 1]
+data = np.loadtxt(file_path, skiprows=1, usecols=(4, 6, 10))
+z_cmb = data[:, 0]
+z_hel = data[:, 1]
+mu = data[:, 2]
 
 file_path_cov = './SNe/Pantheon+ data/Pantheon+SH0ES_cov.dat'
 cov = np.loadtxt(file_path_cov, skiprows=1)
@@ -30,18 +31,21 @@ def chi_square(log_kC1, O20, H0):
     z_values = solution(log_kC1, O20, H0).y[0, :]
     dl_values = []
 
-    for z_hz_value in z_hd:
-        idx = np.searchsorted(z_values, z_hz_value)
+    for z_value in z_cmb:
+        idx = np.searchsorted(z_values, z_value)
         if idx >= len(z_values):  
             idx = len(z_values) - 1
         int_value = -np.trapezoid(z_values[:idx], t_values[:idx])
-        dl_value = const_c * (1 + z_hz_value) * (t0 - t_values[idx] + int_value)
+        dl_value = const_c * (t0 - t_values[idx] + int_value)
         dl_values.append(dl_value)
 
-    dl = np.array(dl_values)
+    dl = np.array(dl_values * (1 + z_hel))
     muth = 5 * np.log10(dl) + 25
     delta_mu = muth - mu
-    chi2 = delta_mu @ cov_matrix_inv @ delta_mu.T
+    A = delta_mu @ cov_matrix_inv @ delta_mu.T
+    B = np.sum(delta_mu @ cov_matrix_inv)
+    C = np.sum(cov_matrix_inv)
+    chi2 = A - B**2 / C + np.log(C / (2 * np.pi))
     return chi2
 
 def lnlike(paras):

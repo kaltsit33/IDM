@@ -47,10 +47,8 @@ def lnprob(paras):
     return lp + lnlike(paras)
 
 def main():
-    nll = lambda *args: -lnlike(*args)
     initial = np.array([0.3, -5, 70, 100]) # expected best values
-    soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 4)
+    pos = initial + 1e-4 * np.random.randn(50, 4)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:

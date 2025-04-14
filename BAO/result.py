@@ -16,15 +16,15 @@ log_kC1 = -5.0
 rdh = 100
 
 # Read data from csv file
-file_path = "./BAO/BAO.csv"
-pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(3, 4, 5, 6, 7, 8, 9))
-z_eff = pandata[:, 0]
-D_M_obs = pandata[:, 1]
-D_M_err = pandata[:, 2]
-D_H_obs = pandata[:, 3]
-D_H_err = pandata[:, 4]
-D_V_obs = pandata[:, 5]
-D_V_err = pandata[:, 6]
+data1 = np.loadtxt('./BAO/sdss.dat', skiprows=1)
+data2 = np.loadtxt('./BAO/desi.dat', skiprows=1)
+z_eff = np.concatenate((data1[:, 0], data2[:, 0]))
+D_V_obs = np.concatenate((data1[:, 1], data2[:, 1]))
+D_V_err = np.concatenate((data1[:, 2], data2[:, 2]))
+D_M_obs = np.concatenate((data1[:, 3], data2[:, 3]))
+D_M_err = np.concatenate((data1[:, 4], data2[:, 4]))
+D_H_obs = np.concatenate((data1[:, 5], data2[:, 5]))
+D_H_err = np.concatenate((data1[:, 6], data2[:, 6]))
 
 # Reduce the number of equation solutions
 class BAO:
