@@ -4,8 +4,8 @@
 
 \begin{document} 
 
-   \title{Constraint result to the self-interacting dark matter model without dark energy
-   in cosmology}
+   \title{Constraint result to the self-interacting dark matter particle mass from the
+   observational data}
 
    \author{Yixuan Zhu}\affiliation{Department of Astronomy, Beijing Normal University,
    Beijing 100875, China}
@@ -38,10 +38,10 @@
    results given by the general methods. The gravitational matter creation model (\cite{Lima_2008})
    is mathematically equivalent to one case of the IDM models (\cite{Basilakos_2009}).
 
-   In this paper, we use the newly revised data from $H(z)$, supernovae Ia, 
-   quasars and baryon acoustic oscillation by using the Markov chain Monte
+   In this paper, we use the newly revised data from $H(z)$, supernovae Ia 
+   and baryon acoustic oscillation by using the Markov chain Monte
    Carlo (MCMC) method. The result gives that the lower limit of the interacting
-   dark matter particle mass is about 1 eV.
+   dark matter particle mass is about 10 eV.
 
 \section{The basic equations in the IDM model}
 
@@ -136,8 +136,7 @@
    observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001, Daniel.Stern_2010, 
    M.Moresco_2012, Zhang_2014, Moresco_2016, 10.1093/mnras/stx301, 10.1093/mnrasl/slv037, 
    Borghi_2022, Jiao_2023}), the Pantheon+ set of 1701 SNe Ia 
-   (\cite{Scolnic_2022}), the quasar data from \cite{Lusso_2020}, 
-   the BAO data from SDSS-IV (\cite{PhysRevD.103.083533}) and DESI DR2 
+   (\cite{Scolnic_2022}), the BAO data from SDSS-IV (\cite{PhysRevD.103.083533}) and DESI DR2 
    (\cite{desicollaboration2025desidr2resultsii}).
 
 \subsection{The observational H(z) data}
@@ -158,7 +157,7 @@
       \chi_{\text{OHD}}^2=\sum_i\frac{(H_{\text{th}}-H_{\text{data}})^2}{\sigma_i^2}.
    \end{equation}
 
-   \begin{table}[htbp]
+   \begin{table}
       \centering
       \begin{tabular}{ccl}
          \hline\hline
@@ -229,36 +228,6 @@
    \end{equation}
    where $B$ is the sum of $\Delta C^{-1}$ and $\mathcal{C}$ is the sum of $C^{-1}$.
 
-\subsection{Quasar}
-
-   The quasar gives a higher redshift than SNe Ia.
-   We use the QSO dataset from \cite{Lusso_2020}, which gives
-   2421 samples with the ultraviolet (UV) and X-ray luminosity.
-   The redshift is up to $\simeq7.5$.
-
-   The $L_X-L_{UV}$ relation of quasar is usually written as
-   \begin{equation}
-      \log_{10}(L_X)=\beta+\gamma\log_{10}(L_{UV}),
-   \end{equation}
-   which gives that
-   \begin{eqnarray}
-      \nonumber\log_{10}(F_X)&=\beta+(\gamma-1)\log_{10}(4\pi)+\gamma\log_{10}(F_{UV})
-                    \\ &+2(\gamma-1)\log_{10}(d_L),
-   \end{eqnarray}
-   where $d_L$ is the luminosity distance same as Eq.(\ref{eq:15}).
-   Here we use the parameters defined in \cite{li2024redshiftevolutionxrayuv}, which
-   gives\begin{equation}
-      \beta=\beta_0+\beta_1(1+z),\gamma=\gamma_0+\gamma_1(1+z),
-   \end{equation}
-   so the $\chi^2$ function for the QSO data can be defined as
-   \begin{equation}
-      \chi_{\text{QSO}}^2=\sum_i\left[\frac{(y_{\text{th}}^2-y_{\text{data}}^2)}{s_i^2}
-      -\ln(2\pi s_i^2)\right],
-   \end{equation}
-   where $s_i^2=\mathrm{d}y_i^2+\gamma^2\mathrm{d}x_i^2+\delta^2$ refers to the 
-   uncertainties on the $x_i\ (\log_{10}F_X)$ and $y_i\ (\log_{10}F_{UV})$ and
-   $\delta_i$ reprensent the instrinsic dispersion.
-
 \subsection{Baryon acoustic oscillation}
 
    The Baryon acoustic oscillation (BAO) method provides a key cosmological probe
@@ -288,7 +257,7 @@
    limit of redshift $z_{\max}$ (see Appendix), and the cross 
    parameter $r_{\text{d}}h$ is used to give the constraints.
 
-   \begin{table*}[htbp]
+   \begin{table*}
       \centering
       \begin{tabular}{lcccc}
          \hline\hline
@@ -309,7 +278,7 @@
       \label{tab:2}
    \end{table*}
 
-   \begin{table*}[htbp]
+   \begin{table*}
       \centering
       \begin{tabular}{lcccc}
          \hline\hline
@@ -342,7 +311,7 @@
    to the dark matter particle mass $M_x$.
    The prior range set for free parameters are given at Table \ref{tab:4}
 
-   \begin{table}[htbp]
+   \begin{table}
       \centering
       \begin{tabular}{lll}
          \hline\hline
@@ -352,12 +321,6 @@
          $n$ & 0 & $\mathcal{U}[-10,10]$ \\
          $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & --- & $\mathcal{U}[-10,0]$ \\
          $H_0$[km/s/Mpc] & 70 & $\mathcal{U}[60,80]$ \\
-         \hline
-         $\beta_0$ & 6 & $\mathcal{U}[-15,15]$ \\
-         $\beta_1$ & 1 & $\mathcal{U}[-10,10]$ \\
-         $\gamma_0$ & 0.6 & $\mathcal{U}[0.0,1.0]$ \\
-         $\gamma_1$ & 0 & $\mathcal{U}[-1.0,1.0]$ \\         
-         $\delta$ & 0.2 & $\mathcal{U}[0.0,1.0]$ \\
          \hline
          $r_{\text{d}}h$[Mpc] & 100 & $\mathcal{U}[50,150]$ \\
          \hline
@@ -383,197 +346,99 @@
 
    We use the 97.7\% and 2.3\% quantiles (about $2\sigma$) to determine the upper and lower
    limits of the parameters. The  constraint results are shown in 
-   Figure \ref{fig:1}-\ref{fig:5} and summarized in Table \ref{tab:5}.
+   Figure \ref{fig:1} and summarized in Table \ref{tab:5}.
 
-   \begin{figure}[htbp]
+   \begin{figure*}
       \centering
       \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_1.pdf}
+         \includegraphics[width=0.3\textwidth]{sne_1.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_2.pdf}
-      }
-      \caption{The constraint result from the observational
-      $H(z)$ data.}
-      \label{fig:1}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{compare_1.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_sne_1.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.22\textwidth]{compare_2.pdf}
+         \includegraphics[width=0.3\textwidth]{ohd_sne_bao_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{sne_2.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{bao_sne_2.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{ohd_sne_bao_2.pdf}
       }
       \caption{The constraint result from the supernovae Ia data
-      compared with the SNe Ia+QSO data.}
-   \end{figure}
+      (left), the BAO + SNe Ia data (middle) and the BAO + SNe Ia + OHD data (right).}
+      \label{fig:1}
+   \end{figure*}
 
-   We could find that the combined result of SNe Ia and QSO is quite
-   similar to SNe Ia result, what may refer that the QSO cannot
-   give an effective constraint. It may be due to the data quality
-   at the high redshift, while the effective redshift of QSO as tracers in BAO
-   is about 1.5, respectively, within the SNe Ia range.
-
-   \begin{figure}[htbp]
+   \begin{table*}
       \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_2.pdf}
-      }
-      \caption{The constraint result from the SNe Ia + OHD data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{bao_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{bao_2.pdf}
-      }
-      \caption{The constraint result from the BAO data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_2.pdf}
-      }
-      \caption{The constraint result from the BAO + SNe Ia + OHD data.}
-      \label{fig:5}
-   \end{figure}
-
-   \begin{table*}[htbp]
-      \centering
-      \begin{tabular}{lcccccc}
+      \begin{tabular}{lccc}
          \hline\hline
-         Model 1 & OHD & SNe Ia & SNe Ia + QSO 
-         & SNe Ia + OHD & BAO & BAO + SNe Ia + OHD \\
+         Model 1 & SNe Ia & BAO + SNe Ia & BAO + SNe Ia + OHD \\
          \hline
-         $\Omega_{2,0}$ & $0.324_{-0.066}^{+0.056}$ & $0.380_{-0.020}^{+0.020}$
-          & $0.378_{-0.020}^{+0.020}$ & $0.375_{-0.019}^{+0.019}$
-          & $0.298_{-0.007}^{+0.007}$ & $0.308_{-0.007}^{+0.005}$ \\
-         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-2.08$ & $<-2.73$ & $<-2.75$
-         & $<-2.91$ & $<-3.38$  & $<-3.71$ \\
-         $\log_{10}(M_x/$GeV) & $>-9.85$ & $>-9.26$ & $>-9.23$
-         & $>-9.13$ & $>-8.56$ & $>-8.26$ \\
+         $\Omega_{2,0}$ & $0.380_{-0.020}^{+0.020}$
+          & $0.3078_{-0.0067}^{+0.0053}$ & $0.3079_{-0.0067}^{+0.0051}$ \\
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-2.73$ 
+         & $<-3.70$  & $<-3.71$ \\
+         $\log_{10}(M_x/$GeV) & $>-9.26$
+         & $>-8.24$ & $>-8.26$ \\
          \hline
       \end{tabular}
       \caption{The constraint results of Model 1.}
       \label{tab:5}
    \end{table*}
 
-   \begin{figure}[htbp]
-      \centering
-      \includegraphics[width=0.45\textwidth]{pdf_1.pdf}
-      \caption{The probability density of $\Omega_{2,0}$ from different
-      datasets.}
-      \label{fig:6}
-   \end{figure}
-
-   Fig \ref{fig:6} shows the difference between classical dataset ($H(z)$, SNe Ia)
-   and newly released BAO dataset. The BAO dataset gives a strict constraint to
-   $\Omega_{2,0} \simeq 0.3$, lower than the SNe Ia dataset about $3\sigma$, which
-   gives a higher value $\Omega_{2,0} \simeq 0.4$. The constraint result to Pantheon+
-   SNe Ia dataset in $\Lambda$CDM model is $\Omega_M \simeq 0.33$ (\cite{Borghi_2022}),
+   The SNe Ia dataset gives a value $\Omega_{2,0} \simeq 0.38$. The constraint result to Pantheon+
+   SNe Ia dataset in the flat $\Lambda$CDM model is $\Omega_{m} \simeq 0.33$ (\cite{Borghi_2022}),
+   
+   We use the most combined dataset of OHD + SNe Ia + BAO to give a stringent lower limit
+   of $\log_{10}(M_x/$GeV) $\simeq -8.26$ at $2\sigma$ level, similar to the 
+   sub-MeV mass of the interacting dark matter.
 
 \subsection{Model 2: mimicking the wCDM model}
 
    The constraint results of Model 2 are shown in Table \ref{tab:6}.
 
-   \begin{figure}[htbp]
+   \begin{figure*}
       \centering
       \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_widm_1.pdf}
+         \includegraphics[width=0.3\textwidth]{sne_widm_1.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_widm_2.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_sne_widm_1.pdf}
       }
-      \caption{The constraint result from the observational
-      $H(z)$ data.}
-   \end{figure}
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{ohd_sne_bao_widm_1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{sne_widm_2.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{bao_sne_widm_2.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.3\textwidth]{ohd_sne_bao_widm_2.pdf}
+      }
+      \caption{The constraint result from the supernovae Ia data
+      (left), the BAO + SNe Ia data (middle) and the BAO + SNe Ia + OHD data (right).}
+   \end{figure*}
 
-   \begin{figure}[htbp]
+   \begin{table*}
       \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{sne_widm_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{sne_widm_2.pdf}
-      }
-      \caption{The constraint result from the supernovae
-      Ia data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{sne_qso_widm_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{sne_qso_widm_2.pdf}
-      }
-      \caption{The constraint result from the SNe Ia + QSO data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_widm_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_widm_2.pdf}
-      }
-      \caption{The constraint result from the OHD + SNe Ia data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{bao_widm_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{bao_widm_2.pdf}
-      }
-      \caption{The constraint result from the BAO data.}
-   \end{figure}
-
-   \begin{figure}[htbp]
-      \centering
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_widm_1.pdf}
-      }
-      \subfigure{
-         \includegraphics[width=0.22\textwidth]{ohd_sne_bao_widm_2.pdf}
-      }
-      \caption{The constraint result from the OHD + SNe Ia + BAO data.}
-   \end{figure}
-
-   The results from three dataset are different
-
-   \begin{table*}[htbp]
-      \centering
-      \begin{tabular}{lcccccc}
+      \begin{tabular}{lccc}
          \hline\hline
-         Model 2 & OHD & SNe Ia & SNe Ia + QSO 
-         & OHD + SNe Ia & BAO & OHD + SNe Ia + BAO \\
+         Model 2 & SNe Ia & SNe Ia + BAO
+          & OHD + SNe Ia + BAO \\
          \hline
-         $\Omega_{2,0}$ & $0.299_{-0.074}^{+0.074}$ & $0.216_{-0.078}^{+0.096}$
-          & $0.208_{-0.087}^{+0.12}$ & $0.202_{-0.049}^{+0.060}$ 
-          & $0.296_{-0.014}^{+0.014}$ & $0.291_{-0.013}^{+0.013}$ \\
-         $n$ & $1.5_{-2.9}^{+1.4}$ & $-0.82_{-0.44}^{+0.29}$
-          & $-0.85_{-0.49}^{+0.42}$ & $-0.83_{-0.27}^{+0.24}$
-          & $-0.40_{-0.29}^{+0.29}$ & $-0.41_{-0.13}^{+0.13}$ \\
-         $w_{\text{IDM}}$ & $-1.5_{-0.5}^{+1.0}$ & $-0.73_{-0.10}^{+0.15}$
-          & $-0.72_{-0.14}^{+0.16}$ & $-0.72_{-0.08}^{+0.09}$
-          & $-0.87_{-0.10}^{+0.10}$ & $-0.86_{-0.04}^{+0.04}$ \\
+         $\Omega_{2,0}$ & $0.215_{-0.073}^{+0.10}$
+          & $0.2940_{-0.0076}^{+0.0076}$ & $0.2945_{-0.0075}^{+0.0075}$ \\
+         $n$ & $-0.82_{-0.45}^{+0.29}$
+          & $-0.43_{-0.10}^{+0.10}$ & $-0.42_{-0.11}^{+0.11}$ \\
+         $w_{\text{IDM}}$ & $-0.73_{-0.10}^{+0.15}$
+          & $-0.86_{-0.03}^{+0.03}$ & $-0.86_{-0.04}^{+0.04}$ \\
          \hline
       \end{tabular}
       \caption{The constraint results of Model 2.}
@@ -637,7 +502,7 @@
       -\mathcal{F}(x)]\mathrm{d}x+H_0t_0\right]-1,
    \end{equation}
    and $z_{\max}$ is also a function of $\Omega_{2,0}, \kappa C_1$ and $H_0$.
-   \begin{figure}[htbp]
+   \begin{figure}
       \centering
       \includegraphics[width=0.7\textwidth]{zmax.pdf}
       \caption{The redshift $z_{\max}$ as $H_0=70$ km/s/Mpc}

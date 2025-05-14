@@ -17,8 +17,8 @@ def H_ad(z, O20, n, H0):
     return 1/H(z, O20, n, H0)
 
 ### OHD
-file_path = "./OHD/OHD.csv"
-pandata = np.loadtxt(file_path, delimiter=',', skiprows=1, usecols=(0, 1, 2))
+file_path = "./OHD/OHD.dat"
+pandata = np.loadtxt(file_path, skiprows=1)
 z_hz = pandata[:, 0]
 H_z = pandata[:, 1]
 err_H = pandata[:, 2]
@@ -50,7 +50,10 @@ def chi_square_SNe(O20, n, H0):
     dl = np.array(dl)
     muth = 5 * np.log10(dl) + 25
     delta_mu = muth - mu
-    chi2 = np.dot(delta_mu, np.dot(cov_matrix_inv, delta_mu))
+    A = delta_mu @ cov_matrix_inv @ delta_mu.T
+    B = np.sum(delta_mu @ cov_matrix_inv)
+    C = np.sum(cov_matrix_inv)
+    chi2 = A - B**2 / C + np.log(C / (2 * np.pi))
     return chi2
 
 ### QSO
@@ -85,15 +88,15 @@ def chi_square_QSO(O20, n, H0, gamma0, gamma1, beta0, beta1, delta):
     return chi2 + extra
 
 ### BAO
-file_path_BAO = "./BAO/BAO.csv"
-pandata_BAO = np.loadtxt(file_path_BAO, delimiter=',', skiprows=1, usecols=(3, 4, 5, 6, 7, 8, 9))
-z_eff = pandata_BAO[:, 0]
-D_M_obs = pandata_BAO[:, 1]
-D_M_err = pandata_BAO[:, 2]
-D_H_obs = pandata_BAO[:, 3]
-D_H_err = pandata_BAO[:, 4]
-D_V_obs = pandata_BAO[:, 5]
-D_V_err = pandata_BAO[:, 6]
+data1 = np.loadtxt('./BAO/sdss.dat', skiprows=1)
+data2 = np.loadtxt('./BAO/desi.dat', skiprows=1)
+z_eff = np.concatenate((data1[:, 0], data2[:, 0]))
+D_V_obs = np.concatenate((data1[:, 1], data2[:, 1]))
+D_V_err = np.concatenate((data1[:, 2], data2[:, 2]))
+D_M_obs = np.concatenate((data1[:, 3], data2[:, 3]))
+D_M_err = np.concatenate((data1[:, 4], data2[:, 4]))
+D_H_obs = np.concatenate((data1[:, 5], data2[:, 5]))
+D_H_err = np.concatenate((data1[:, 6], data2[:, 6]))
 
 class BAO:
     def __init__(self, O20, n, H0):

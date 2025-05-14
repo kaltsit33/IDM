@@ -12,10 +12,10 @@ H0 = 70.0
 O20 = 0.3
 log_kC1 = -5.0
 
-### OHD
-import OHD.result 
-def chi_square_OHD(log_kC1, O20, H0):
-    return OHD.result.chi_square(log_kC1, O20, H0)
+### BAO
+import BAO.result
+def chi_square_BAO(log_kC1, O20, H0, rdh):
+    return BAO.result.chi_square(log_kC1, O20, H0, rdh)
 
 ### SNe Ia
 import SNe.result2
@@ -25,13 +25,13 @@ def chi_square_SNe(log_kC1, O20, H0):
 ### MCMC
 
 def lnlike(paras):
-    O20, log_kC1, H0 = paras
-    chi2 = chi_square_OHD(log_kC1, O20, H0) + chi_square_SNe(log_kC1, O20, H0)
+    O20, log_kC1, H0, rdh = paras
+    chi2 = chi_square_BAO(log_kC1, O20, H0, rdh) + chi_square_SNe(log_kC1, O20, H0)
     return -0.5 * chi2
 
 def lnprior(paras):
-    O20, log_kC1, H0 = paras
-    if 0 < O20 < 0.5 and -10 < log_kC1 < 0 and 60 < H0 < 80 :
+    O20, log_kC1, H0, rdh = paras
+    if 0 < O20 < 0.5 and -10 < log_kC1 < 0 and 60 < H0 < 80 and 50 < rdh < 150:
         return 0.0
     return -np.inf
 
@@ -42,10 +42,8 @@ def lnprob(paras):
     return lp + lnlike(paras)
 
 def main():
-    nll = lambda *args: -lnlike(*args)
-    initial = np.array([0.3, -5, 70]) # expected best values
-    soln = scipy.optimize.minimize(nll, initial)
-    pos = soln.x + 1e-4 * np.random.randn(50, 3)
+    initial = np.array([0.3, -5, 70, 100]) # expected best values
+    pos = initial + 1e-4 * np.random.randn(50, 4)
     nwalkers, ndim = pos.shape
 
     with mp.Pool() as pool:
