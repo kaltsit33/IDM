@@ -16,7 +16,7 @@
    
    \keywords{}
 
-\section{Introduction}
+\section{Introduction}\label{sec:1}
 
    The standard Λ-Cold Dark Matter (ΛCDM) model has been successful in 
    explaining the accelerated expansion of the Universe (\cite{Riess_1998,Perlmutter_1999}), 
@@ -40,29 +40,38 @@
 
    In this paper, we use the newly revised data from $H(z)$, supernovae Ia 
    and baryon acoustic oscillation by using the Markov chain Monte
-   Carlo (MCMC) method. The result gives that the lower limit of the interacting
-   dark matter particle mass is about 10 eV.
+   Carlo (MCMC) method. The constraint result gives an upper limit for the 
+   linear ratio between the dark matter annihilation cross section $\langle\sigma v\rangle$
+   and the dark matter particle mass $M_{\chi}$ about $9\times10^{-15} \;\text{cm}^{3}\text{s}^{-1}\text{GeV}^{-1}$. 
 
-\section{The basic equations in the IDM model}
+   The paper is arranged as follows: In Sec.\ref{sec:2}, we review the basic equations in the IDM model,
+   in Sec.\ref{sec:3}, we introduce the observational datasets used in this analysis, in Sec.\ref{sec:4}, 
+   we give the constraint results of the IDM model and compare our results with 
+   other relevant dark matter constraints, and finally we conclude in Sec.\ref{sec:5}.
+
+\section{The basic equations in the IDM model}\label{sec:2}
 
    We assume that the total density of the cosmic fluid obeys
    the collisional Boltzmann equation (\cite{Kolb:1990vq})
    \begin{equation}
       \dot{\rho}+3H\rho+\kappa\rho^2-2\Psi=0,
+      \label{eq:1}
    \end{equation}
    where $\rho$ is the total energy-density of the cosmic fluid,
    containing dark matter, baryons, and any type of exotic energy,
    $\Psi$ is the rate of creation of DM particle pairs, and the
    annihilation parameter $\kappa(\geq0)$ is given by:
    \begin{equation}
-      \kappa=\frac{\langle\sigma u\rangle}{M_x},\label{eq:2}
+      \kappa=\frac{\langle\sigma v\rangle}{M_{\chi}},
+      \label{eq:2}
    \end{equation}
-   where $\sigma$ is the cross-section for annihilation, $u$ is
-   the mean particle velocity, and $M_x$ is the mass of the DM
+   where $\sigma$ is the cross section for annihilation, $v$ is
+   the mean particle velocity, and $M_{\chi}$ is the mass of the DM
    particle.
    Compared to the usual fluid equation, the effective pressure term
    is \begin{equation}
       P=\frac{\kappa\rho^2-\Psi}{3H}.
+      \label{eq:3}
    \end{equation}
    When $\kappa\rho^2-\Psi<0,$ what means that the IDM particle
    creation term is larger than the annihilation item, IDM may serve
@@ -72,17 +81,20 @@
    \cite{Basilakos_2009} identified two functional forms for which
    the previous Boltzmann equation can be solved analytically.
    Refering to Appendix B in \cite{Basilakos_2009}, only one of these two is of interest
-   because it provides a ``$\propto a^{-3}$'' dependence of the scale factor,
+   because it provides a ``$\propto\alpha^{-3}$'' dependence of the scale factor,
    which is \begin{equation}
-      \Psi(a)=aH(a)R(a)=C_1(n+3)a^nH(a)+\kappa C_1^2a^{2m}.
+      \Psi(\alpha)=\alpha H(\alpha)R(\alpha)=C_1(n+3)\alpha^nH(\alpha)+\kappa C_1^2 \alpha^{2m}.
+      \label{eq:4}
    \end{equation}
    And the total energy density is
    \begin{equation}
-      \rho(a)=C_1a^n+\frac{a^{-3}F(a)}{C_2-\int_1^{a}x^{-3}f(x)F(x)\mathrm{d}x},\label{eq:5}
+      \rho(\alpha)=C_1 \alpha^n+\frac{\alpha^{-3}F(\alpha)}{C_2-\int_1^{\alpha}x^{-3}f(x)F(x)\mathrm{d}x},
+      \label{eq:5}
    \end{equation}
-   where $f(a)=-\kappa/[aH(a)],$ and the kernal function $F(a)$ has
+   where $f(\alpha)=-\kappa/[\alpha H(\alpha)],$ and the kernal function $F(\alpha)$ has
    the form \begin{equation}
-      F(a)=\exp\left[-2\kappa C_1\int_1^{a}\frac{x^{n-1}}{H(x)}\mathrm{d}x\right].
+      F(\alpha)=\exp\left[-2\kappa C_1\int_1^{\alpha}\frac{x^{n-1}}{H(x)}\mathrm{d}x\right].
+      \label{eq:6}
    \end{equation}
    The first term of Eq.(\ref{eq:5}) is the density corresponding to the
    residual matter creation that results from a possible disequilibrium
@@ -94,13 +106,15 @@
 
    If $n=0$, the global density evolution can be transformed as
    \begin{equation}
-      \rho(a)=C_1+a^{-3}\frac{e^{-2\kappa C_1(t-t_0)}}{C_2-\kappa Z(t)},
+      \rho(\alpha)=C_1+\alpha^{-3}\frac{e^{-2\kappa C_1(t-t_0)}}{C_2+\kappa Z(t)},
+      \label{eq:7}
    \end{equation}
-   where $Z(t)=\int_{t_0}^ta^{-3}e^{-2\kappa C_1(t'-t_0)}\mathrm{d}t'$ (\cite{Basilakos_2009}).
+   where $Z(t)=\int_{t_0}^t \alpha^{-3}e^{-2\kappa C_1(t'-t_0)}\mathrm{d}t'$ (\cite{Basilakos_2009}).
    Using the usual unit-less $\Omega$-like parameterization, we obtain that
    \begin{equation}
-      \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}+\frac{\Omega_{1,0}\Omega_{2,0}a^{-3}e^{-2\kappa C_1(t-t_0)}}
-      {\Omega_{1,0}+\kappa C_1\Omega_{2,0}Z(t)},\label{eq:8}
+      \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}+\frac{\Omega_{1,0}\Omega_{2,0}\alpha^{-3}e^{-2\kappa C_1(t-t_0)}}
+      {\Omega_{1,0}+\kappa C_1\Omega_{2,0}Z(t)},
+      \label{eq:8}
    \end{equation}
    where $\Omega_{1,0}=8\pi GC_1/3H_0^2$ and $\Omega_{2,0}=8\pi G/3H_0^2C_2$,
    which related to $\Omega_{\Lambda}$ and $\Omega_m$ in the $\Lambda$CDM model,
@@ -108,29 +122,43 @@
    From Eq.({\ref{eq:2}}), we can also give the mass of the DM particle
    related to the range of $\kappa C_1$(in the unit of Gyr${}^{-1}$)
    \begin{equation}
-      M_x=\frac{3.325\times10^{-12}}{\kappa C_1}
-      \frac{\langle\sigma u\rangle}{10^{-23}}h^2(1-\Omega_{2,0})\,\text{GeV},\label{eq:9}
+      M_{\chi}=\frac{3.325\times10^{-12}}{\kappa C_1}
+      \frac{\langle\sigma v\rangle}{10^{-23}}h^2(1-\Omega_{2,0})\,\text{GeV},
+      \label{eq:9}
    \end{equation}
    where $h\equiv H_0/[100\text{km/s/Mpc}]$.
 
 \subsection{Model 2 : relation to the wCDM model}
 
-   If $\kappa=0$, the global density evolution can be written as
+   If $n\neq0$, the global density evolution is Eq.(\ref{eq:5}), and the 
+   usual unit-less $\Omega$-like can be written as
    \begin{equation}
-      \rho(a)=\mathcal{D}a^{-3}+C_1a^{n},
+      \left(\frac{H}{H_0}\right)^2 = \Omega_{1,0} \alpha^n + 
+      \frac{\Omega_{1,0} \Omega_{2,0} \alpha^{-3}F(\alpha)}
+      {\Omega_{1,0} + \kappa C_1 \Omega_{2,0} \int_1^\alpha 
+      \frac{F(x)}{x^4 H(x)} \mathrm{d}x},
+      \label{eq:10}
    \end{equation}
-   where $\mathcal{D}=C_2-C_1$. The conditions in which the current 
-   model acts as a quintessence cosmology are given by $\mathcal{D}>0,
-   C_1>0,$ and $w_{\text{IDM}}=-1-n/3$. This solution is mathematically
-   equivalent to that of the gravitational matter creation model of \cite{Lima_2008}.
-   The Hubble flow is now given by
+   where $\Omega_{1,0}$ and $\Omega_{2,0}$ are the same defined as Eq.(\ref{eq:8}), and 
+   $F(\alpha)$ is given by Eq.(\ref{eq:6}).
+
+   Considering the limit of $\kappa \to0$, the global density evolution can be
+   simplified as
    \begin{equation}
-      \left(\frac{H}{H_0}\right)^2=\Omega_{2,0}a^{-3}+\Omega_{1,0}a^{n},
+      \rho(\alpha)=C_1 a^{n}+\frac{1}{C_2} a^{-3},
+      \label{eq:11}
    \end{equation}
-   where $\Omega_{2,0}=8\pi G\mathcal{D}/3H_0^2$ and 
-   $\Omega_{1,0}=8\pi GC_1/3H_0^2$, respectively.(\cite{Basilakos_2009})
+   and Eq.(\ref{eq:10}) becomes
+   \begin{equation}
+      \left(\frac{H}{H_0}\right)^2=\Omega_{1,0}\alpha^{n}+\Omega_{2,0}\alpha^{-3}.
+      \label{eq:12}
+   \end{equation}
+   The conditions $n>2$ indicates that the IDM model has an inflection point (\cite{Basilakos_2009}),
+   and we define $w_{\text{IDM}}=-1-n/3$ as the equation of state (EoS) of the IDM model.
+   This solution is mathematically equivalent to that of the gravitational matter 
+   creation model of \cite{Lima_2008}.
    
-\section{Dataset}
+\section{Dataset}\label{sec:3}
 
    To constrain the relevant IDM models (\cite{Basilakos_2009}), we use the newly revised
    observational $H(z)$ data (OHD)(\cite{PhysRevD.71.123001, Daniel.Stern_2010, 
@@ -144,7 +172,8 @@
    It is widely known that the Hubble parameter $H(z)$ depends on
    the differential age as a function of redshift $z$ in the form
    \begin{equation}
-      H(z)=-\frac{1}{1+z}\frac{\mathrm{d}z}{\mathrm{d}t},\label{eq:12}
+      H(z)=-\frac{1}{1+z}\frac{\mathrm{d}z}{\mathrm{d}t},
+      \label{eq:13}
    \end{equation}
    which provides a direct measurement on $H(z)$ based on
    $\mathrm{d}z/\mathrm{d}t$.
@@ -155,6 +184,7 @@
    In this case, $\chi^2$ can be defined as
    \begin{equation}
       \chi_{\text{OHD}}^2=\sum_i\frac{(H_{\text{th}}-H_{\text{data}})^2}{\sigma_i^2}.
+      \label{eq:14}
    \end{equation}
 
    \begin{table}
@@ -196,7 +226,7 @@
          1.53 & $140 \pm 14$ & \cite{PhysRevD.71.123001} \\
          1.75 & $202 \pm 40$ & \cite{PhysRevD.71.123001} \\
          1.965 & $186.5 \pm 50.4$ & \cite{10.1093/mnrasl/slv037} \\
-         \hline    
+         \hline\hline    
       \end{tabular}
       \caption{The OHD dataset from different reference.}
       \label{tab:1}
@@ -214,17 +244,20 @@
    give the $\chi^2$ as 
    \begin{equation}
       \chi_{\text{SNe}}^2=\Delta C^{-1} \Delta^{\text{T}},
+      \label{eq:15}
    \end{equation}
    where $\Delta=(\mu_{\text{th}}-\mu_{\text{data}})$ and $C^{-1}$ is the inverse of the
    covariance matrix of the SNe Ia data, the distance modulus is $\mu=5\log_{10}(d_L/\text{Mpc})+25$, and the
    luminosity distance $d_L$ can be given as a function of redshift $z$
    \begin{equation}
-      d_L=(1+z)\int_0^z\frac{c\mathrm{d}z'}{H(z')}.\label{eq:15}
+      d_L=(1+z)\int_0^z\frac{c\mathrm{d}z'}{H(z')}.
+      \label{eq:16}
    \end{equation}
    To eliminate the advanced restriction to $H_0$ from $M_b$, we adopt
    the likelihood function as
    \begin{equation}
       \widetilde{\chi}_{\text{SNe}}^2=\chi_{\text{SNe}}^2-\frac{B^2}{\mathcal{C}}+\ln\left(\frac{\mathcal{C}}{2\pi}\right),
+      \label{eq:17}
    \end{equation}
    where $B$ is the sum of $\Delta C^{-1}$ and $\mathcal{C}$ is the sum of $C^{-1}$.
 
@@ -234,22 +267,25 @@
    sensitive to the cosmic expansion history with well-controlled systematics.
    We use two BAO datasets from the SDSS-IV (\cite{PhysRevD.103.083533}) and 
    DESI DR2 (\cite{desicollaboration2025desidr2resultsii}),
-   which are given at Table \ref{tab:2} and Table \ref{tab:3}, respectively.
+   which are given at Table \ref{tab:2} respectively.
    The redshift is up to 2.33 both in the SDSS and the DESI 2024 dataset.
 
    The $\chi^2$ function for the BAO data is defined as
    \begin{equation}
       \chi_{\text{BAO}}^2=\sum_i\frac{(D_{\text{th}}/r_{\text{d}}-D_{\text{data}}/r_{\text{d}})^2}{\sigma_i^2},
+      \label{eq:18}
    \end{equation}
    where $D$ refers to $D_{\text{M}}$, $D_{\text{H}}$, or $D_{\text{V}}$, which ara given as
    \begin{eqnarray}
       D_{\text{M}}(z)&=&c\int_0^z\frac{\text{d}z'}{H(z')},\\
       D_{\text{H}}(z)&=&\frac{c}{H(z)},\\
       D_{\text{V}}(z)&=&\left[zD_{\text{M}}^2(z)D_{\text{H}}(z)\right]^{1/3},
+      \label{eq:19-21}
    \end{eqnarray}
    and $r_{\text{d}}$ is the sound horizon at the drag epoch, which is given as
    \begin{equation}
       r_{\text{d}}=\int_{z_{\text{drag}}}^{\infty}\frac{c_s(z')\text{d}z'}{H(z')},
+      \label{eq:22}
    \end{equation}
    where $c_s$ is the sound speed prior to recombination.
 
@@ -259,57 +295,45 @@
 
    \begin{table*}
       \centering
-      \begin{tabular}{lcccc}
+      \begin{tabular}{l|l|cccc}
          \hline\hline
-         Tracer & $z_{\text{eff}}$ & $D_{\text{V}}/r_{\text{d}}$ & 
+         Dataset & Tracer & $z_{\text{eff}}$ & $D_{\text{V}}/r_{\text{d}}$ & 
          $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ \\
          \hline
-         MGS & 0.15 & $4.51 \pm 0.14$ & --- & --- \\
-         BOSS galaxy & 0.38 & --- & $10.27 \pm 0.15$ & $24.89 \pm 0.58$ \\
-         BOSS galaxy & 0.51 & --- & $13.38 \pm 0.18$ & $22.43 \pm 0.48$ \\
-         eBOSS LRG & 0.70 & --- & $17.65 \pm 0.30$ & $19.78 \pm 0.46$ \\
-         eBOSS ELG & 0.85 & --- & $19.5 \pm 1.0$ & $19.6 \pm 2.1$ \\
-         eBOSS quasar& 1.48 & --- & $30.21 \pm 0.79$ & $13.23 \pm 0.47$ \\
-         Ly$\alpha$-Ly$\alpha$ & 2.33 & --- & $37.6 \pm 1.9$ & $8.93 \pm 0.28$ \\
-         Ly$\alpha$-quasar & 2.33 & --- & $37.3 \pm 1.7$ & $9.08 \pm 0.34$ \\
+         \textbf{SDSS-IV} & MGS & 0.15 & $4.51 \pm 0.14$ & --- & --- \\
+                      & BOSS galaxy & 0.38 & --- & $10.27 \pm 0.15$ & $24.89 \pm 0.58$ \\
+                      & BOSS galaxy & 0.51 & --- & $13.38 \pm 0.18$ & $22.43 \pm 0.48$ \\
+                      & eBOSS LRG & 0.70 & --- & $17.65 \pm 0.30$ & $19.78 \pm 0.46$ \\
+                      & eBOSS ELG & 0.85 & --- & $19.5 \pm 1.0$ & $19.6 \pm 2.1$ \\
+                      & eBOSS quasar& 1.48 & --- & $30.21 \pm 0.79$ & $13.23 \pm 0.47$ \\
+                      & Ly$\alpha$-Ly$\alpha$ & 2.33 & --- & $37.6 \pm 1.9$ & $8.93 \pm 0.28$ \\
+                      & Ly$\alpha$-quasar & 2.33 & --- & $37.3 \pm 1.7$ & $9.08 \pm 0.34$ \\
+         \hline\hline
+         \textbf{DESI DR2} & BGS & 0.295 & $7.942 \pm 0.075$  & --- & --- \\
+                           & LRG1 & 0.510 & $12.720 \pm 0.099$ & $13.588 \pm 0.167$ & $21.863 \pm 0.425$ \\
+                           & LRG2 & 0.706 & $16.050 \pm 0.110$ & $17.351 \pm 0.177$ & $19.455 \pm 0.330$ \\
+                           & LRG3+ELG1 & 0.934 & $19.721 \pm 0.091$ & $21.576 \pm 0.152$ & $17.641 \pm 0.193$ \\
+                           & ELG2 & 1.321 & $24.252 \pm 0.174$ & $27.601 \pm 0.318$ & $14.176 \pm 0.221$ \\
+                           & QSO & 1.484 & $26.055 \pm 0.398$ & $30.512 \pm 0.760$ & $12.817 \pm 0.516$ \\
+                           & Ly$\alpha$ & 2.330 & $31.267 \pm 0.256$ & $38.988 \pm 0.531$ & $8.632 \pm 0.101$ \\
          \hline
+                           & LRG3 & 0.922 & $19.656 \pm 0.105$ & $21.648 \pm 0.178$ & $17.577 \pm 0.213$ \\
+                           & ELG1 & 0.955 & $20.008 \pm 0.183$ & $21.707 \pm 0.335$ & $17.803 \pm 0.297$ \\    
+         \hline\hline
       \end{tabular}
-      \caption{The BAO+RSD measurements dataset from SDSS-IV.}
+      \caption{The BAO+RSD measurements dataset from SDSS-IV and DESI DR2.}
       \label{tab:2}
    \end{table*}
 
-   \begin{table*}
-      \centering
-      \begin{tabular}{lcccc}
-         \hline\hline
-         Tracer & $z_{\text{eff}}$ & $D_{\text{V}}/r_{\text{d}}$ & 
-         $D_{\text{M}}/r_{\text{d}}$ & $D_{\text{H}}/r_{\text{d}}$ \\
-         \hline
-         BGS & 0.295 & $7.942 \pm 0.075$  & --- & --- \\
-         LRG1 & 0.510 & $12.720 \pm 0.099$ & $13.588 \pm 0.167$ & $21.863 \pm 0.425$ \\
-         LRG2 & 0.706 & $16.050 \pm 0.110$ & $17.351 \pm 0.177$ & $19.455 \pm 0.330$ \\
-         LRG3+ELG1 & 0.934 & $19.721 \pm 0.091$ & $21.576 \pm 0.152$ & $17.641 \pm 0.193$ \\
-         ELG2 & 1.321 & $24.252 \pm 0.174$ & $27.601 \pm 0.318$ & $14.176 \pm 0.221$ \\
-         QSO & 1.484 & $26.055 \pm 0.398$ & $30.512 \pm 0.760$ & $12.817 \pm 0.516$ \\
-         Ly$\alpha$ & 2.330 & $31.267 \pm 0.256$ & $38.988 \pm 0.531$ & $8.632 \pm 0.101$ \\
-         \hline
-         LRG3 & 0.922 & $19.656 \pm 0.105$ & $21.648 \pm 0.178$ & $17.577 \pm 0.213$ \\
-         ELG1 & 0.955 & $20.008 \pm 0.183$ & $21.707 \pm 0.335$ & $17.803 \pm 0.297$ \\    
-         \hline
-      \end{tabular}
-      \caption{The BAO dataset from DESI DR2.}
-      \label{tab:3}
-   \end{table*}
-
-\section{Constraint results}
+\section{Constraint results}\label{sec:4}
 
    We use the Markov chain Monte Carlo (MCMC) method based 
    on the opening package \texttt{emcee} to give a global constraints
    to the free parameters $\Omega_{2,0}$ and $\log_{10}(\kappa C_1)$ in 
    Model 1 and $n$ in Model 2.
    Besides, we also add the parameter $H_0$ or $h$ to give the constraints
-   to the dark matter particle mass $M_x$.
-   The prior range set for free parameters are given at Table \ref{tab:4}
+   to the dark matter particle mass $M_{\chi}$.
+   The prior range set for free parameters are given at Table \ref{tab:3}
 
    \begin{table}
       \centering
@@ -318,7 +342,7 @@
          parameter & initial & prior \\
          \hline
          $\Omega_{2,0}$ & 0.3 & $\mathcal{U}[0.0,1.0]$ \\
-         $n$ & 0 & $\mathcal{U}[-10,10]$ \\
+         $n$ & 0 & $\mathcal{U}[-5,5]$ \\
          $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & --- & $\mathcal{U}[-10,0]$ \\
          $H_0$[km/s/Mpc] & 70 & $\mathcal{U}[60,80]$ \\
          \hline
@@ -330,23 +354,25 @@
       The $\log_{10}(\kappa C_1)$ does not have a predicted value, 
       and the initial value of each chain is selected randomly uniformly
       within the prior range.}
-      \label{tab:4}
+      \label{tab:3}
    \end{table}
 
    For the dataset which cannot give a constraint to $H_0$, 
    we use $h \simeq 0.7$ as the default value to calculate the 
-   dark matter particle mass $M_x$
+   annihilation parameter $\kappa$ and dark matter particle mass $M_{\chi}$.
 
 \subsection{Model 1: mimicking the ΛCDM model}
 
    The Eq.(\ref{eq:8}) convergant to the flat ΛCDM model as
    $\log_{10}(\kappa C_1)\to-\infty$, thus the constraints
    could only give the upper limit of what, and give the lower limit
-   of $M_x$ according to Eq.(\ref{eq:9}), respectively.
+   of $M_{\chi}$ according to Eq.(\ref{eq:9}), respectively. We 
+   assume the dark matter annihilation cross section in IDM model
+   a constant that $\langle\sigma v\rangle \simeq 10^{-23}\text{cm}^{3}\text{s}^{-1}$.
 
-   We use the 97.7\% and 2.3\% quantiles (about $2\sigma$) to determine the upper and lower
-   limits of the parameters. The  constraint results are shown in 
-   Figure \ref{fig:1} and summarized in Table \ref{tab:5}.
+   We use the 95\% and 5\% quantiles to determine the upper and lower
+   bounds of the parameters. The  constraint results are shown in 
+   Figure \ref{fig:1} and summarized in Table \ref{tab:4}.
 
    \begin{figure*}
       \centering
@@ -354,7 +380,7 @@
          \includegraphics[width=0.3\textwidth]{sne_1.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.3\textwidth]{bao_sne_1.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_1.pdf}
       }
       \subfigure{
          \includegraphics[width=0.3\textwidth]{ohd_sne_bao_1.pdf}
@@ -363,13 +389,13 @@
          \includegraphics[width=0.3\textwidth]{sne_2.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.3\textwidth]{bao_sne_2.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_2.pdf}
       }
       \subfigure{
          \includegraphics[width=0.3\textwidth]{ohd_sne_bao_2.pdf}
       }
       \caption{The constraint result from the supernovae Ia data
-      (left), the BAO + SNe Ia data (middle) and the BAO + SNe Ia + OHD data (right).}
+      (left), the BAO data (middle) and the BAO + SNe Ia + OHD data (right).}
       \label{fig:1}
    \end{figure*}
 
@@ -377,30 +403,26 @@
       \centering
       \begin{tabular}{lccc}
          \hline\hline
-         Model 1 & SNe Ia & BAO + SNe Ia & BAO + SNe Ia + OHD \\
+         Model 1 & SNe Ia & BAO & BAO + SNe Ia + OHD \\
          \hline
          $\Omega_{2,0}$ & $0.380_{-0.020}^{+0.020}$
-          & $0.3078_{-0.0067}^{+0.0053}$ & $0.3079_{-0.0067}^{+0.0051}$ \\
-         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-2.73$ 
-         & $<-3.70$  & $<-3.71$ \\
-         $\log_{10}(M_x/$GeV) & $>-9.26$
-         & $>-8.24$ & $>-8.26$ \\
+          & $0.2980_{-0.0070}^{+0.0070}$ & $0.3079_{-0.0067}^{+0.0051}$ \\
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ & $<-3.05$ 
+         & $<-3.66$  & $<-3.99$ \\
+         $\log_{10}(M_{\chi}/$GeV) & $>-8.94$
+         & $>-8.28$ & $>-7.97$ \\
          \hline
       \end{tabular}
       \caption{The constraint results of Model 1.}
-      \label{tab:5}
+      \label{tab:4}
    \end{table*}
 
    The SNe Ia dataset gives a value $\Omega_{2,0} \simeq 0.38$. The constraint result to Pantheon+
    SNe Ia dataset in the flat $\Lambda$CDM model is $\Omega_{m} \simeq 0.33$ (\cite{Borghi_2022}),
    
-   We use the most combined dataset of OHD + SNe Ia + BAO to give a stringent lower limit
-   of $\log_{10}(M_x/$GeV) $\simeq -8.26$ at $2\sigma$ level, similar to the 
-   sub-MeV mass of the interacting dark matter.
-
 \subsection{Model 2: mimicking the wCDM model}
 
-   The constraint results of Model 2 are shown in Table \ref{tab:6}.
+   The constraint results of Model 2 are shown in Table \ref{tab:5}.
 
    \begin{figure*}
       \centering
@@ -408,7 +430,7 @@
          \includegraphics[width=0.3\textwidth]{sne_widm_1.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.3\textwidth]{bao_sne_widm_1.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_widm_1.pdf}
       }
       \subfigure{
          \includegraphics[width=0.3\textwidth]{ohd_sne_bao_widm_1.pdf}
@@ -417,35 +439,34 @@
          \includegraphics[width=0.3\textwidth]{sne_widm_2.pdf}
       }
       \subfigure{
-         \includegraphics[width=0.3\textwidth]{bao_sne_widm_2.pdf}
+         \includegraphics[width=0.3\textwidth]{bao_widm_2.pdf}
       }
       \subfigure{
          \includegraphics[width=0.3\textwidth]{ohd_sne_bao_widm_2.pdf}
       }
       \caption{The constraint result from the supernovae Ia data
-      (left), the BAO + SNe Ia data (middle) and the BAO + SNe Ia + OHD data (right).}
+      (left), the BAO data (middle) and the BAO + SNe Ia + OHD data (right).}
    \end{figure*}
 
    \begin{table*}
       \centering
       \begin{tabular}{lccc}
          \hline\hline
-         Model 2 & SNe Ia & SNe Ia + BAO
-          & OHD + SNe Ia + BAO \\
+         Model 2 & SNe Ia & BAO & BAO + SNe Ia + OHD \\
          \hline
          $\Omega_{2,0}$ & $0.215_{-0.073}^{+0.10}$
-          & $0.2940_{-0.0076}^{+0.0076}$ & $0.2945_{-0.0075}^{+0.0075}$ \\
+          & $0.2952_{-0.0073}^{+0.0073}$ & $0.2945_{-0.0075}^{+0.0075}$ \\
          $n$ & $-0.82_{-0.45}^{+0.29}$
-          & $-0.43_{-0.10}^{+0.10}$ & $-0.42_{-0.11}^{+0.11}$ \\
+          & $-0.29_{-0.18}^{+0.15}$ & $-0.42_{-0.11}^{+0.11}$ \\
          $w_{\text{IDM}}$ & $-0.73_{-0.10}^{+0.15}$
-          & $-0.86_{-0.03}^{+0.03}$ & $-0.86_{-0.04}^{+0.04}$ \\
+          & $-0.90_{-0.05}^{+0.06}$ & $-0.86_{-0.04}^{+0.04}$ \\
          \hline
       \end{tabular}
       \caption{The constraint results of Model 2.}
-      \label{tab:6}
+      \label{tab:5}
    \end{table*}
 
-\section{Conclusions}
+\section{Conclusions}\label{sec:5}
 
 \appendix
 

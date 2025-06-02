@@ -1,9 +1,7 @@
 import numpy as np
 import scipy
-import matplotlib.pyplot as plt
 import multiprocessing as mp
 import emcee
-from getdist import plots, MCSamples
 
 import sys
 import os

@@ -32,10 +32,11 @@ def chi_square_OHD(O20, n, H0):
     return chi2
 
 ### SNe Ia
-file_path_SNe = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
-pandata_SNe = np.loadtxt(file_path_SNe, skiprows=1, usecols=(2, 10))
-z_hd = pandata_SNe[:, 0]
-mu = pandata_SNe[:, 1]
+file_path = "./SNe/Pantheon+ data/Pantheon+SH0ES.dat"
+data = np.loadtxt(file_path, skiprows=1, usecols=(4, 6, 10))
+z_cmb = data[:, 0]
+z_hel = data[:, 1]
+mu = data[:, 2]
 
 file_path_cov = './SNe/Pantheon+ data/Pantheon+SH0ES_cov.dat'
 cov = np.loadtxt(file_path_cov, skiprows=1)
@@ -44,10 +45,10 @@ cov_matrix_inv = np.linalg.inv(cov_matrix)
 
 def chi_square_SNe(O20, n, H0):
     dl = []
-    for z in z_hd:
+    for z in z_cmb:
         int_value = scipy.integrate.quad(H_ad, 0, z, args=(O20, n, H0))[0]
-        dl.append(const_c*(1 + z)*int_value)
-    dl = np.array(dl)
+        dl.append(const_c * int_value)
+    dl = np.array(dl) * (1 + z_hel)
     muth = 5 * np.log10(dl) + 25
     delta_mu = muth - mu
     A = delta_mu @ cov_matrix_inv @ delta_mu.T

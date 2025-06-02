@@ -1,9 +1,7 @@
 import numpy as np
 import scipy
-import matplotlib.pyplot as plt
 import multiprocessing as mp
 import emcee
-from getdist import plots, MCSamples
 
 import sys
 import os
@@ -42,3 +40,7 @@ def main():
 
     flat_samples = sampler.get_chain(discard=500, flat=True)
     np.savetxt('./wIDM/output/m3.dat', flat_samples)
+
+if __name__ == "__main__":
+    mp.freeze_support()
+    main()
