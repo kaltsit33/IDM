@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.16)  2 JUN 2025 21:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.16)  3 JUN 2025 20:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,56 +460,42 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1] [2]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 264.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 266.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 264.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 266.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-File: ./pictures/sne_1.pdf Graphic file (type pdf)
-<use ./pictures/sne_1.pdf>
-File: ./pictures/bao_1.pdf Graphic file (type pdf)
-<use ./pictures/bao_1.pdf>
-File: ./pictures/ohd_sne_bao_1.pdf Graphic file (type pdf)
-<use ./pictures/ohd_sne_bao_1.pdf>
-File: ./pictures/sne_2.pdf Graphic file (type pdf)
-<use ./pictures/sne_2.pdf>
-File: ./pictures/bao_2.pdf Graphic file (type pdf)
-<use ./pictures/bao_2.pdf>
-File: ./pictures/ohd_sne_bao_2.pdf Graphic file (type pdf)
-<use ./pictures/ohd_sne_bao_2.pdf>
-File: ./pictures/sne_widm_1.pdf Graphic file (type pdf)
-<use ./pictures/sne_widm_1.pdf>
-File: ./pictures/bao_widm_1.pdf Graphic file (type pdf)
-<use ./pictures/bao_widm_1.pdf>
-File: ./pictures/ohd_sne_bao_widm_1.pdf Graphic file (type pdf)
-<use ./pictures/ohd_sne_bao_widm_1.pdf>
-File: ./pictures/sne_widm_2.pdf Graphic file (type pdf)
-<use ./pictures/sne_widm_2.pdf>
-File: ./pictures/bao_widm_2.pdf Graphic file (type pdf)
-<use ./pictures/bao_widm_2.pdf>
-File: ./pictures/ohd_sne_bao_widm_2.pdf Graphic file (type pdf)
-<use ./pictures/ohd_sne_bao_widm_2.pdf>
-[3] [4] [5]
+[3] [4]
 File: ./pictures/zmax.pdf Graphic file (type pdf)
 <use ./pictures/zmax.pdf>
- (./article.bbl [6] [7]) [8] (./article.aux)
+ (./article.bbl
+Overfull \vbox (7.49641pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (7.49641pt too high) has occurred while \output is active []
+
+ [5] [6]) [7] (./article.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-29>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `article.out' has not changed.
-(rerunfilecheck)             Checksum: 083703AF1C7D61CB73B0ECBDE2DE35FE;2440.
+(rerunfilecheck)             Checksum: 45C9FBEA18FE94A5EC5FB01B6173FED5;2492.
  ) 
 Here is how much of TeX's memory you used:
- 12681 strings out of 470231
- 190483 string characters out of 5484001
- 689661 words of memory out of 5000000
- 39171 multiletter control sequences out of 15000+600000
+ 12550 strings out of 470231
+ 186655 string characters out of 5484001
+ 686187 words of memory out of 5000000
+ 39052 multiletter control sequences out of 15000+600000
  634895 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,11n,93p,1904b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,93p,1904b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on article.pdf (8 pages).
+Output written on article.pdf (7 pages).
