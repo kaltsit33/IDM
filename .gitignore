@@ -1,3 +1,9 @@
 output*.dat
 */output/
 */*/output/
+*.aux
+*.bbl
+*.log
+*.out
+*.synctex.gz
+/extract/

@@ -228,7 +228,9 @@
          1.965 & $186.5 \pm 50.4$ & \cite{10.1093/mnrasl/slv037} \\
          \hline\hline    
       \end{tabular}
-      \caption{The OHD dataset from different reference.}
+      \caption{
+         The OHD dataset from different reference.
+      }
       \label{tab:1}
    \end{table}
 
@@ -316,7 +318,9 @@
          ELG1 & 0.955 & $20.008 \pm 0.183$ & $21.707 \pm 0.335$ & $17.803 \pm 0.297$ \\    
          \hline\hline
       \end{tabular}
-      \caption{The BAO+RSD measurements dataset from SDSS-IV and DESI DR2.}
+      \caption{
+         The BAO+RSD measurements dataset from SDSS-IV and DESI DR2.
+      }
       \label{tab:2}
    \end{table*}
 
@@ -344,11 +348,13 @@
          $r_{\text{d}}h$[Mpc] & 100 & $\mathcal{U}[50,150]$ \\
          \hline
       \end{tabular}
-      \caption{Parameters and priors used in analysis. 
-      All of the priors are flat in the ranges given. 
-      The $\log_{10}(\kappa C_1)$ does not have a predicted value, 
-      and the initial value of each chain is selected randomly uniformly
-      within the prior range.}
+      \caption{
+         Parameters and priors used in analysis. 
+         All of the priors are flat in the ranges given. 
+         The $\log_{10}(\kappa C_1)$ does not have a predicted value, 
+         and the initial value of each chain is selected randomly uniformly
+         within the prior range.
+      }
       \label{tab:3}
    \end{table}
 
@@ -357,12 +363,50 @@
    could only give the upper limit of what, and we use the
    95\% quantiles to determine the upper bounds of the parameters. 
    The constraint results are shown in 
-   Figure \ref{fig:1}-\ref{fig:3} and summarized in Table \ref{tab:4}.
-
+   Figure \ref{fig:1}-\ref{fig:2} and summarized in Table \ref{tab:4}.
 
    For the dataset which cannot give a constraint to $H_0$, 
    we use $h \simeq 0.7$ as the default value to calculate the 
    annihilation parameter $\kappa$.
+   The constraint result to the upper limit of the annihilation parameter 
+   is given in Table \ref{tab:4}, which reaches a value of $\kappa = 9.07 \times 10^{-16}$ cm${}^3$/(s$\cdot$GeV) in Model 1, 
+   and $1.02 \times 10^{-13}$ cm${}^3$/(s$\cdot$GeV) in Model 2 with $\kappa\neq0$ at 95\% confidence level, respectively.
+
+   \begin{figure*}
+      \centering
+      \subfigure{
+         \includegraphics[width=0.45\textwidth]{model1.pdf}
+      }
+      \subfigure{
+         \includegraphics[width=0.45\textwidth]{model2.pdf}
+      }
+      \caption{
+         68\% and 95\% confidence level contours for parameters in 
+         IDM model. The blue, orange and green contours are the results from
+         the SNe Ia dataset, the BAO dataset and the BAO + SNe Ia + OHD dataset, respectively.
+         \emph{Left panel}: constraint results to $\Omega_{2,0}$ and 
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ in Model 1. 
+         \emph{Right panel}: constraint results to $\Omega_{2,0}$ and $n$ in Model 2. 
+         The dashed line is $n=0$, what implies $w_{\text{IDM}}=-1$.
+      }
+      \label{fig:1}
+   \end{figure*}
+   
+   \begin{figure*}
+      \centering
+      \includegraphics[width=0.9\textwidth]{model2_kneq0.pdf}
+      \caption{
+         Marginalized 68\% and 95\% posterior constraints on $\Omega_{2,0}$, 
+         $\log_{10}(\kappa C_1/$Gyr${}^{-1})$ and $n$ in Model 2 with $\kappa\neq0$,
+         from the SNe Ia dataset (blue), the BAO dataset (orange) and the 
+         combination of BAO + SNe Ia + OHD dataset (green). Noted that
+         the combination of BAO + SNe Ia + OHD dataset gives a two-side constraint
+         to the parameter $\log_{10}(\kappa C_1/$Gyr${}^{-1})$, while we still
+         use the 95\% quantile upper limit to give the constraint.
+         The dashed line is $n=0$, what implies $w_{\text{IDM}}=-1$.
+      }
+      \label{fig:2}
+   \end{figure*}
 
    \begin{table*}
       \centering
@@ -373,40 +417,49 @@
          \textbf{Model 1} \\
          SNe Ia & $0.380 \pm 0.020$ & $<-3.05$ & $<8.82$ & --- & --- \\
          BAO & $0.2980 \pm 0.0070$ & $<-3.66$ & $<1.91$ & --- & --- \\
-         BAO + SNe Ia + OHD & $0.3079_{-0.0067}^{+0.0051}$ & $<-3.99$ & $<0.907$ & --- & --- \\
+         BAO+SNe Ia+OHD & $0.3079_{-0.0067}^{+0.0051}$ & $<-3.99$ & $<0.907$ & --- & --- \\
          \hline
          \textbf{Model 2 ($\kappa=0$)} \\
          SNe Ia & $0.215_{-0.073}^{+0.10}$ & --- & --- & $-0.82_{-0.45}^{+0.29}$ & $-0.73_{-0.10}^{+0.15}$ \\
          BAO & $0.2952 \pm 0.0073$ & --- & --- & $-0.29_{-0.18}^{+0.15}$ & $-0.90_{-0.05}^{+0.06}$ \\
-         BAO + SNe Ia + OHD & $0.2945 \pm 0.0075$ & --- & --- & $-0.42 \pm 0.11$ & $-0.86 \pm 0.04$ \\
+         BAO+SNe Ia+OHD & $0.2945 \pm 0.0075$ & --- & --- & $-0.42 \pm 0.11$ & $-0.86 \pm 0.04$ \\
          \hline
          \textbf{Model 2 ($\kappa\neq0$)} \\
          SNe Ia & $0.143_{-0.11}^{+0.067}$ & $<-2.15$ & $<50.7$ &  $-1.17_{-0.35}^{+0.17}$ & $-0.61_{-0.06}^{+0.12}$ \\
          BAO & $0.287_{-0.0022}^{+0.017}$ & $<-2.44$ & $<31.3$ & $-0.34_{-0.17}^{+0.22}$ & $-0.89_{-0.07}^{+0.06}$ \\
-         BAO + SNe Ia + OHD & $0.241 \pm 0.062$ & $<-1.90$ & $<101.8$ & $-0.73_{-0.24}^{+0.33}$ & $-0.76_{-0.11}^{+0.08}$ \\
+         BAO+SNe Ia+OHD & $0.241 \pm 0.062$ & $<-1.90$ & $<101.8$ & $-0.73_{-0.24}^{+0.33}$ & $-0.76_{-0.11}^{+0.08}$ \\
          \hline\hline
       \end{tabular}
-      \caption{The constraint results of the IDM model.}
+      \caption{
+         Summary table of the parameter constraints from the different datasets in
+         the IDM model. Results for the parameters $\Omega_{2,0}$ and $n$ are the
+         mean values with 68\% confidence level, while the $\log_{10}(\kappa C_1)$
+         is the 95\% quantile upper limit.
+      }
       \label{tab:4}
    \end{table*}
 
-\subsection{Compared with other results}
+\subsection{The dark matter annihilation}
 
-   \begin{figure*}
-      \centering
-      \caption{The constraint result from the supernovae Ia data
-      (left), the BAO data (middle) and the BAO + SNe Ia + OHD data (right).}
-      \label{fig:1}
-   \end{figure*}
-
-   The SNe Ia dataset gives a value $\Omega_{2,0} \simeq 0.38$. The constraint result to Pantheon+
-   SNe Ia dataset in the flat $\Lambda$CDM model is $\Omega_{m} \simeq 0.33$ (\cite{Borghi_2022}),
+   We assume that the dark matter particle $\chi$ consists of Weakly Interacting Massive Particles (WIMPs),
+   which can annihilate into Standard Model (SM) particles with a cross section $\langle\sigma v\rangle$, 
+   and the dark matter particle in the IDM model acts as a self-annihilation process.
    
+   The WIMPs assumption gives that the thermal relic abundance of dark matter requires 
+   an annihilation cross section of $\langle\sigma v \rangle $ about $ 3\times 10^{-26}$ cm${}^3$/s
+   to match the observed cosmological density
+   (\cite{PhysRevLett.39.165,annurev:/content/journals/10.1146/annurev.ns.29.120179.001525, GONDOLO1991145}).
+   Adopting this value in the IDM model, the lower limit of the dark matter particle mass can be given as
+   $M_{\chi} \gtrsim 3 \times 10^{-2}$ eV in Model 1 and 
+   $3 \times 10^{-4}$ eV in Model 2 with $\kappa\neq0$.
+
    \begin{figure*}
       \centering
-      \caption{The constraint result from the supernovae Ia data
-      (left), the BAO data (middle) and the BAO + SNe Ia + OHD data (right).}
-      \label{fig:2}
+      \includegraphics[width=0.9\textwidth]{dm_ann.pdf}
+      \caption{The dark matter annihilation cross section $\langle\sigma v\rangle$ 
+         as a function of the dark matter particle mass $M_{\chi}$ in the IDM model.
+      }
+      \label{fig:3}
    \end{figure*}
 
 \section{Conclusions}\label{sec:5}
@@ -469,7 +522,7 @@
    \begin{figure}
       \centering
       \includegraphics[width=0.7\textwidth]{zmax.pdf}
-      \caption{The redshift $z_{\max}$ as $H_0=70$ km/s/Mpc}
+      \caption{The redshift $z_{\max}$ as $H_0=70$ km/(s$\cdot$Mpc)}
       \label{fig:3}
    \end{figure}
 

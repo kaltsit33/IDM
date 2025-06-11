@@ -5,7 +5,8 @@ import astropy.constants as const
 G = const.G
 c = const.c
 
-section = 1e-23 * u.cm**3 / u.s
+# section = 1e-23 * u.cm**3 / u.s
+section = 3e-26 * u.cm**3 / u.s
 
 def cross_section(O20, H0):
     H0 = H0 * u.km / u.s / u.Mpc

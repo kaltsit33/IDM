@@ -39,11 +39,17 @@ Collaboration, D., Abdul-Karim, M., Aguilar, J., {et~al.} 2025, DESI DR2 Results
 \bibitem[{Eisenstein {et~al.}(2005)Eisenstein, Zehavi, Hogg, Scoccimarro, Blanton, Nichol, Scranton, Seo, Tegmark, Zheng, Anderson, Annis, Bahcall, Brinkmann, Burles, Castander, Connolly, Csabai, Doi, Fukugita, Frieman, Glazebrook, Gunn, Hendry, Hennessy, Ivezić, Kent, Knapp, Lin, Loh, Lupton, Margon, McKay, Meiksin, Munn, Pope, Richmond, Schlegel, Schneider, Shimasaku, Stoughton, Strauss, SubbaRao, Szalay, Szapudi, Tucker, Yanny, \& York}]{Eisenstein_2005}
 Eisenstein, D.~J., Zehavi, I., Hogg, D.~W., {et~al.} 2005, The Astrophysical Journal, 633, 560, \dodoi{10.1086/466512}
 
+\bibitem[{Gondolo \& Gelmini(1991)}]{GONDOLO1991145}
+Gondolo, P., \& Gelmini, G. 1991, Nuclear Physics B, 360, 145, \dodoi{https://doi.org/10.1016/0550-3213(91)90438-4}
+
 \bibitem[{Jiao {et~al.}(2023)Jiao, Borghi, Moresco, \& Zhang}]{Jiao_2023}
 Jiao, K., Borghi, N., Moresco, M., \& Zhang, T.-J. 2023, The Astrophysical Journal Supplement Series, 265, 48, \dodoi{10.3847/1538-4365/acbc77}
 
 \bibitem[{Kolb \& Turner(2019)}]{Kolb:1990vq}
 Kolb, E.~W., \& Turner, M.~S. 2019, {The Early Universe}, Vol.~69 (Taylor and Francis), \dodoi{10.1201/9780429492860}
+
+\bibitem[{Lee \& Weinberg(1977)}]{PhysRevLett.39.165}
+Lee, B.~W., \& Weinberg, S. 1977, Phys. Rev. Lett., 39, 165, \dodoi{10.1103/PhysRevLett.39.165}
 
 \bibitem[{Lima {et~al.}(2008)Lima, Silva, \& Santos}]{Lima_2008}
 Lima, J. A.~S., Silva, F.~E., \& Santos, R.~C. 2008, Classical and Quantum Gravity, 25, 205006, \dodoi{10.1088/0264-9381/25/20/205006}
@@ -69,14 +75,14 @@ Ratsimbazafy, A.~L., Loubser, S.~I., Crawford, S.~M., {et~al.} 2017, Monthly Not
 \bibitem[{Riess {et~al.}(1998)Riess, Filippenko, Challis, Clocchiatti, Diercks, Garnavich, Gilliland, Hogan, Jha, Kirshner, Leibundgut, Phillips, Reiss, Schmidt, Schommer, Smith, Spyromilio, Stubbs, Suntzeff, \& Tonry}]{Riess_1998}
 Riess, A.~G., Filippenko, A.~V., Challis, P., {et~al.} 1998, The Astronomical Journal, 116, 1009, \dodoi{10.1086/300499}
 
-\bibitem[{Riess {et~al.}(2022)Riess, Yuan, Macri, Scolnic, Brout, Casertano, Jones, Murakami, Anand, Breuval, Brink, Filippenko, Hoffmann, Jha, D’arcy~Kenworthy, Mackenty, Stahl, \& Zheng}]{Riess_2022}
-Riess, A.~G., Yuan, W., Macri, L.~M., {et~al.} 2022, The Astrophysical Journal Letters, 934, L7, \dodoi{10.3847/2041-8213/ac5c5b}
-
 \bibitem[{Scolnic {et~al.}(2022)Scolnic, Brout, Carr, Riess, Davis, Dwomoh, Jones, Ali, Charvu, Chen, Peterson, Popovic, Rose, Wood, Brown, Chambers, Coulter, Dettman, Dimitriadis, Filippenko, Foley, Jha, Kilpatrick, Kirshner, Pan, Rest, Rojas-Bravo, Siebert, Stahl, \& Zheng}]{Scolnic_2022}
 Scolnic, D., Brout, D., Carr, A., {et~al.} 2022, The Astrophysical Journal, 938, 113, \dodoi{10.3847/1538-4357/ac8b7a}
 
 \bibitem[{Simon {et~al.}(2005)Simon, Verde, \& Jimenez}]{PhysRevD.71.123001}
 Simon, J., Verde, L., \& Jimenez, R. 2005, Phys. Rev. D, 71, 123001, \dodoi{10.1103/PhysRevD.71.123001}
+
+\bibitem[{Steigman(1979)}]{annurev:/content/journals/10.1146/annurev.ns.29.120179.001525}
+Steigman, G. 1979, Annual Review of Nuclear and Particle Science, 29, 313, \dodoi{https://doi.org/10.1146/annurev.ns.29.120179.001525}
 
 \bibitem[{Stern {et~al.}(2010)Stern, Jimenez, Verde, Kamionkowski, \& Stanford}]{Daniel.Stern_2010}
 Stern, D., Jimenez, R., Verde, L., Kamionkowski, M., \& Stanford, S.~A. 2010, Journal of Cosmology and Astroparticle Physics, 2010, 008, \dodoi{10.1088/1475-7516/2010/02/008}
